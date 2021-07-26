@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4ecea7fc-f66f-44bb-a55e-68191fa3170b" name="Default Changelist" comment="create .gitignore" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="phase1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vlUCsVWRURJ6WEvyHbpv06XlaK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASus\Desktop\Summer1400-FE-Team3\pages" />
+      <recent name="C:\Users\ASus\Desktop\Summer1400-FE-Team3\assets\images" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ecea7fc-f66f-44bb-a55e-68191fa3170b" name="Default Changelist" comment="" />
+      <created>1627136044311</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627136044311</updated>
+      <workItem from="1627136046284" duration="1255000" />
+      <workItem from="1627195775890" duration="12579000" />
+      <workItem from="1627238797381" duration="206000" />
+      <workItem from="1627277352229" duration="6377000" />
+    </task>
+    <task id="LOCAL‎۰۰۰۰۱" summary="create phase 1 branch and commit all files">
+      <created>1627136285726</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۱" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۱" />
+      <updated>1627136285726</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۲" summary="create folders">
+      <created>1627201166126</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۲" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۲" />
+      <updated>1627201166126</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۳" summary="change language">
+      <created>1627211530275</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۳" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۳" />
+      <updated>1627211530275</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۴" summary="fix back to home page button">
+      <created>1627211923000</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۴" />
+      <updated>1627211923000</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۵" summary="add audio to Diamond song">
+      <created>1627213345275</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۵" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۵" />
+      <updated>1627213345275</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۶" summary="fix song details and required inputs and other labels">
+      <created>1627278333012</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۶" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۶" />
+      <updated>1627278333012</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۷" summary="change footer">
+      <created>1627281088016</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۷" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۷" />
+      <updated>1627281088016</updated>
+    </task>
+    <task id="LOCAL‎۰۰۰۰۸" summary="create .gitignore">
+      <created>1627285731477</created>
+      <option name="number" value="LOCAL‎۰۰۰۰۸" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۰۸" />
+      <updated>1627285731477</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create phase 1 branch and commit all files" />
+    <MESSAGE value="create folders" />
+    <MESSAGE value="change language" />
+    <MESSAGE value="fix back to home page button" />
+    <MESSAGE value="add audio to Diamond song" />
+    <MESSAGE value="fix song details and required inputs and other labels" />
+    <MESSAGE value="change footer" />
+    <MESSAGE value="create .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="create .gitignore" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1627223569142">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1627223569142" />
+    <state x="233" y="69" key="Vcs.Push.Dialog.v2" timestamp="1627285745930">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="69" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1627285745930" />
+    <state x="325" y="114" key="git4idea.merge.GitPullDialog" timestamp="1627277374242">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="325" y="114" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1627277374242" />
+    <state x="391" y="236" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1627224063848">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="391" y="236" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1280.680@0.0.1280.680" timestamp="1627224063848" />
+    <state x="427" y="178" key="git4idea.ui.GitTagDialog" timestamp="1627136492993">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="427" y="178" key="git4idea.ui.GitTagDialog/0.0.1280.680@0.0.1280.680" timestamp="1627136492993" />
+  </component>
+</project>
