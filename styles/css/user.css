@@ -1,0 +1,82 @@
+header {
+  background-color: #f3f3f3;
+  width: auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+header img {
+  margin-right: 2rem;
+}
+header li {
+  display: inline;
+  margin: 1em;
+  color: #262a53;
+}
+header li a {
+  color: #262a53;
+  text-decoration: none;
+}
+
+#content {
+  display: block;
+  padding: 1rem;
+}
+
+aside {
+  background-color: #ffa0a0;
+  margin: 1rem;
+  padding: 1rem;
+  height: min-content;
+  border-radius: 2rem;
+  color: #262a53;
+}
+aside a {
+  color: #262a53;
+  text-decoration: none;
+}
+
+#songs, #favorites {
+  background-color: #628395;
+  margin: 1rem;
+  padding: 1rem;
+  height: min-content;
+  border-radius: 2rem;
+  color: #ffe3e3;
+}
+#songs h2, #favorites h2 {
+  color: #262a53;
+}
+#songs a, #favorites a {
+  color: #ffe3e3;
+  text-decoration: none;
+}
+#songs button, #favorites button {
+  margin-right: 2rem;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+#songs button a, #favorites button a {
+  color: #262a53;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #262a53;
+  margin: auto;
+  padding: 1rem;
+  height: min-content;
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  #content {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 1rem;
+  }
+}
+
+/*# sourceMappingURL=user.css.map */
