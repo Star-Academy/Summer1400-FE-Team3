@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Star-Academy/Summer1400-FE-Team3#readme",
   "devDependencies": {
+    "prettier": "^2.3.2",
     "sass": "^1.36.0"
   }
 }
