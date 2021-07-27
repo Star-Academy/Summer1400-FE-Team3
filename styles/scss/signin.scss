@@ -1,7 +1,7 @@
 @use "./formTemplate" as f;
 @import "./colors";
 
-$input-width: 4rem;
+$input-height: 4rem;
 
 header {
   @include f.createNav;
@@ -13,11 +13,10 @@ main {
     @include f.createForm;
     form {
       .inputbox {
-
         input {
           @include f.createInputBoxes;
           min-width: 30rem;
-          height: $input-width;
+          height: $input-height;
 
         }
         label{
@@ -36,7 +35,6 @@ main {
         }
         &:hover {
           color: $dark-blue;
-
         }
       }
 
@@ -51,7 +49,7 @@ main {
       button {
         border: none;
         border-radius: 999rem;
-        height:$input-width;;
+        height: $input-height;;
         min-width: 19rem;
         background-color: $dark-pink;
 
@@ -63,7 +61,6 @@ main {
         &:hover {
           background-color: $light-pink;
           cursor: pointer;
-          box-shadow: 0 0 2px $darker-pink;
 
           a{
             color: $darker-pink;
@@ -78,7 +75,7 @@ main {
     button {
       min-width: 30rem;
       border-radius: 999rem;
-      height: $input-width;;
+      height: $input-height;;
       background: none;
       border: 2px solid $light-blue;
       a {
