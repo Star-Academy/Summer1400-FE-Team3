@@ -37,6 +37,8 @@ header {
         border: none;
         &:hover {
           background-color: $darker-pink;
+          cursor: pointer;
+
           a{
             color: white;
           }
@@ -53,6 +55,7 @@ header {
         border: 0.2rem solid $darker-pink;
         &:hover {
           border-color: $dark-pink;
+          cursor: pointer;
         }
         a {
           color: $darker-pink;
@@ -72,6 +75,7 @@ main {
     width: 100%;
     height: auto;
     margin: 0;
+    display: block;
   }
 }
 
