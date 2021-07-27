@@ -28,18 +28,16 @@ header {
   height: min-content;
   border-radius: 2rem;
   button {
-    margin-right: 2rem;
+    margin-right: 1rem;
     width: 6rem;
     height: 2rem;
     border-radius: 1rem;
-    background-color: $dark-pink;
   }
 }
 
 #songerName,
 #genre {
   display: inline;
-  margin: 1rem;
 }
 
 #list {
@@ -66,7 +64,6 @@ header {
 
 main {
   display: block;
-  grid-template-columns: 2fr 2fr;
   padding: 1rem;
 }
 

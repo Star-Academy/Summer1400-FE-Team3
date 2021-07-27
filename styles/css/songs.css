@@ -28,11 +28,10 @@ header li a {
 }
 #filter button,
 #searchSection button {
-  margin-right: 2rem;
+  margin-right: 1rem;
   width: 6rem;
   height: 2rem;
   border-radius: 1rem;
-  background-color: #ffa0a0;
 }
 #filter button a,
 #searchSection button a {
@@ -43,7 +42,6 @@ header li a {
 #songerName,
 #genre {
   display: inline;
-  margin: 1rem;
 }
 
 #list {
@@ -63,7 +61,6 @@ header li a {
 
 main {
   display: block;
-  grid-template-columns: 2fr 2fr;
   padding: 1rem;
 }
 

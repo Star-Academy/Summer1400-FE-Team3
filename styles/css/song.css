@@ -1,0 +1,76 @@
+header {
+  background-color: #f3f3f3;
+  width: auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+header img {
+  margin-right: 2rem;
+}
+header li {
+  display: inline;
+  margin: 1em;
+  color: #da5656;
+}
+header li a {
+  color: #da5656;
+  text-decoration: none;
+}
+
+main {
+  display: block;
+  padding: 1rem;
+}
+
+#songImage,
+#audio,
+#songInfo,
+#likePic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#songInfo {
+  background-color: #ffa0a0;
+  border-radius: 2rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #262a53;
+  height: 60%;
+}
+
+footer {
+  background-color: #262a53;
+  margin: auto;
+  padding: 1rem;
+  height: min-content;
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+  }
+
+  #songInfo,
+#likePic {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 1rem;
+  }
+}
+
+/*# sourceMappingURL=song.css.map */
