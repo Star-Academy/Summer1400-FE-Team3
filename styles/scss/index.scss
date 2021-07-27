@@ -1,18 +1,10 @@
 @import "colors";
 
-//@mixin centering {
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//}
-
-
 header {
   background-color: $light-gray;
   height: 10rem;
   nav {
-    height: 100%;
-    width: 100%;
+
     img {
       margin-right: 2rem;
       margin-top: 1.7rem;
@@ -81,7 +73,7 @@ main {
 
 footer {
   background-color: $dark-blue;
-  height: 28rem;
+  height: 30rem;
   padding: 4rem;
   * {
     color: $light-pink;
@@ -108,5 +100,46 @@ footer {
     figcaption {
       font-size: 1.5rem;
     }
+  }
+}
+
+@media screen and (max-width: 490px){
+    header  {
+      height: 20rem;
+      nav {
+        div {
+          display: block;
+        }
+        //img  {
+        //  float: right;
+        //
+        //}
+        //span {
+        //  float: none;
+        //}
+        button {
+          clear: right;
+        }
+      }
+    }
+  main {
+    img {
+      height: 40vh;
+    }
+  }
+}
+@media screen and (min-height: 720px ) and (min-width: 490px) {
+  header {
+    height: 20rem;
+    padding: 5rem;
+  }
+  main {
+    img {
+      height: 60vh;
+    }
+  }
+  footer {
+    height: 35rem;
+    padding-top: 7rem;
   }
 }

@@ -90,3 +90,8 @@ main {
 
   }
 }
+@media screen and (max-width: 410px){
+  main .form form .inputbox input {
+    width: 50%;
+  }
+}

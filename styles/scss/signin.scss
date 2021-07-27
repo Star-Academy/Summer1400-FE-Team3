@@ -15,7 +15,7 @@ main {
       .inputbox {
         input {
           @include f.createInputBoxes;
-          min-width: 30rem;
+          width: 100%;
           height: $input-height;
 
         }
@@ -72,8 +72,8 @@ main {
     h4 {
       color: $dark-blue;
     }
-    button {
-      min-width: 30rem;
+    > button {
+      width: 100%;
       border-radius: 999rem;
       height: $input-height;;
       background: none;
