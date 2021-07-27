@@ -10,7 +10,7 @@ header img {
 }
 header li {
   display: inline;
-  margin: 1em;
+  margin: 1rem;
   color: #da5656;
 }
 header li a {
@@ -59,6 +59,13 @@ header li a {
   text-decoration: none;
   color: #ffe3e3;
 }
+#list button {
+  margin: 1rem;
+  width: 3rem;
+  height: 2rem;
+  border-radius: 1rem;
+  float: center;
+}
 
 main {
   display: block;
@@ -83,4 +90,4 @@ footer {
   }
 }
 
-/*# sourceMappingURL=songs.css.map */
+/*# sourceMappingURL=favorite.css.map */

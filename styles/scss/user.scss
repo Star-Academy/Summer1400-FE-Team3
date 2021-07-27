@@ -12,19 +12,13 @@ header {
   li {
     display: inline;
     margin: 1em;
-    color: $dark-blue;
+    color: $darker-pink;
     a {
-      color: $dark-blue;
+      color: $darker-pink;
       text-decoration: none;
     }
   }
 }
-
-// #content {
-//     display: grid;
-//     grid-template-columns: 1fr 4fr;
-//     padding: 1rem;
-// }
 
 #content {
   display: block;

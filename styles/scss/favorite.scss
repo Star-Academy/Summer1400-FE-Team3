@@ -11,7 +11,7 @@ header {
   }
   li {
     display: inline;
-    margin: 1em;
+    margin: 1rem;
     color: $darker-pink;
     a {
       color: $darker-pink;
@@ -52,12 +52,18 @@ header {
   background-color: $light-blue;
   margin: 1rem;
   padding: 1rem;
-
   border-radius: 2rem;
   color: $light-pink;
   a {
     text-decoration: none;
     color: $light-pink;
+  }
+  button {
+    margin: 1rem;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 1rem;
+    float: center;
   }
 }
 

@@ -11,10 +11,10 @@ header img {
 header li {
   display: inline;
   margin: 1em;
-  color: #262a53;
+  color: #da5656;
 }
 header li a {
-  color: #262a53;
+  color: #da5656;
   text-decoration: none;
 }
 
@@ -36,7 +36,8 @@ aside a {
   text-decoration: none;
 }
 
-#songs, #favorites {
+#songs,
+#favorites {
   background-color: #628395;
   margin: 1rem;
   padding: 1rem;
@@ -44,20 +45,24 @@ aside a {
   border-radius: 2rem;
   color: #ffe3e3;
 }
-#songs h2, #favorites h2 {
+#songs h2,
+#favorites h2 {
   color: #262a53;
 }
-#songs a, #favorites a {
+#songs a,
+#favorites a {
   color: #ffe3e3;
   text-decoration: none;
 }
-#songs button, #favorites button {
+#songs button,
+#favorites button {
   margin-right: 2rem;
   width: 6rem;
   height: 2rem;
   border-radius: 1rem;
 }
-#songs button a, #favorites button a {
+#songs button a,
+#favorites button a {
   color: #262a53;
   text-decoration: none;
 }
