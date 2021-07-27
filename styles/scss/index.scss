@@ -77,14 +77,20 @@ main {
 
 footer {
   background-color: $dark-blue;
-  height: 25rem;
+  height: 28rem;
   padding: 4rem;
   * {
     color: $light-pink;
   }
-  h2 , p {
+  h2 {
     text-align: center;
     margin-bottom:2rem;
+    font-size: 2rem;
+  }
+   p {
+    text-align: center;
+    margin-bottom:2rem;
+    font-size: 1.2rem;
   }
   figure {
     display: flex;
@@ -94,6 +100,9 @@ footer {
     margin-top:2rem;
     img {
       margin-left: 1rem;
+    }
+    figcaption {
+      font-size: 1.5rem;
     }
   }
 }
