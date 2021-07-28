@@ -1,6 +1,9 @@
 @use "colors.scss" as *;
 
 header {
+  nav {
+    padding: 1.3rem;
+  }
   font-size: 12px;
   background-color: $light-gray;
   width: auto;
@@ -37,6 +40,10 @@ main {
   text-align: center;
 }
 
+#likePic:hover {
+  cursor: pointer;
+}
+
 #songInfo {
   background-color: $dark-pink;
   border-radius: 2rem;
@@ -45,16 +52,20 @@ main {
   margin-bottom: 2rem;
   color: $dark-blue;
   height: 60%;
+  display: grid;
+  justify-self: center;
 }
 
 footer {
   font-size: 12px;
   background-color: $dark-blue;
-  margin: auto;
   padding: 2rem;
   height: min-content;
   color: white;
   text-align: center;
+  h2, p {
+    margin-bottom: 2rem;
+  }
 }
 
 @media only screen and (min-width: 600px) {

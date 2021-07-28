@@ -6,6 +6,9 @@ header {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
+header nav {
+  padding: 1.3rem;
+}
 header img {
   margin-right: 2rem;
 }
@@ -35,6 +38,10 @@ main {
   text-align: center;
 }
 
+#likePic:hover {
+  cursor: pointer;
+}
+
 #songInfo {
   background-color: #ffa0a0;
   border-radius: 2rem;
@@ -43,16 +50,20 @@ main {
   margin-bottom: 2rem;
   color: #262a53;
   height: 60%;
+  display: grid;
+  justify-self: center;
 }
 
 footer {
   font-size: 12px;
   background-color: #262a53;
-  margin: auto;
   padding: 2rem;
   height: min-content;
   color: white;
   text-align: center;
+}
+footer h2, footer p {
+  margin-bottom: 2rem;
 }
 
 @media only screen and (min-width: 600px) {

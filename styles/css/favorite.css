@@ -6,6 +6,9 @@ header {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
+header nav {
+  padding: 1.3rem;
+}
 header img {
   margin-right: 2rem;
 }
@@ -27,12 +30,20 @@ header li a {
   height: min-content;
   border-radius: 2rem;
 }
+#filter h3,
+#searchSection h3 {
+  margin-bottom: 2rem;
+}
 #filter button,
 #searchSection button {
   margin-right: 2rem;
   width: 8rem;
   height: 3rem;
   border-radius: 1rem;
+}
+#filter button:hover,
+#searchSection button:hover {
+  cursor: pointer;
 }
 #filter button a,
 #searchSection button a {
@@ -64,7 +75,9 @@ header li a {
   width: 5rem;
   height: 2rem;
   border-radius: 1rem;
-  float: center;
+}
+#list button:hover {
+  cursor: pointer;
 }
 
 main {
@@ -76,11 +89,13 @@ main {
 footer {
   font-size: 12px;
   background-color: #262a53;
-  margin: auto;
-  padding: 1rem;
+  padding: 2rem;
   height: min-content;
   color: white;
   text-align: center;
+}
+footer h2, footer p {
+  margin-bottom: 2rem;
 }
 
 @media only screen and (min-width: 768px) {

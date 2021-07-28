@@ -75,6 +75,7 @@ main .form form .inputbox input {
   border-radius: 999rem;
   border: 1px solid #262a53;
   height: 3.5rem;
+  padding: 2rem;
   width: 70%;
   float: left;
 }

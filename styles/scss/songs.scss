@@ -1,6 +1,9 @@
 @use "colors.scss" as *;
 
 header {
+  nav {
+    padding: 1.3rem;
+  }
   font-size: 12px;
   background-color: $light-gray;
   width: auto;
@@ -21,18 +24,23 @@ header {
   }
 }
 
-#filter,
-#searchSection {
+#filter, #searchSection {
   background-color: $light-pink;
   margin: 2rem;
   padding: 2rem;
   height: min-content;
   border-radius: 2rem;
+  h3 {
+    margin-bottom: 2rem;
+  }
   button {
     margin-right: 2rem;
     width: 8rem;
     height: 3rem;
     border-radius: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
 
     a {
       color: $dark-blue;
@@ -49,6 +57,7 @@ header {
 #list {
   h1 {
     color: $dark-blue;
+    margin-bottom: 2rem;
   }
   background-color: $light-blue;
   margin: 2rem;
@@ -71,11 +80,13 @@ main {
 footer {
   font-size: 12px;
   background-color: $dark-blue;
-  margin: auto;
   padding: 2rem;
   height: min-content;
   color: white;
   text-align: center;
+  h2, p {
+    margin-bottom: 2rem;
+  }
 }
 
 @media only screen and (min-width: 600px) {

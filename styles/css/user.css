@@ -6,6 +6,9 @@ header {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
+header nav {
+  padding: 1.3rem;
+}
 header img {
   margin-right: 2rem;
 }
@@ -77,6 +80,9 @@ footer {
   height: min-content;
   color: white;
   text-align: center;
+}
+footer h2, footer p {
+  margin-bottom: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
