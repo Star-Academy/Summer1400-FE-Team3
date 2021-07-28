@@ -8,6 +8,7 @@
     />
     <link rel="stylesheet" href="../styles/css/main.css">
     <link rel="stylesheet" href="../styles/css/songs.css" />
+    <script src="../scripts/songs.js" defer></script>
     <title>Songs</title>
   </head>
   <body>
@@ -38,7 +39,7 @@
           <br /><br />
           <div id="genre">
             <label for="genre">سبک موسیقی:</label><br />
-            <select name="Genre" id="genre">
+            <select name="Genre" id="genreSelect">
               <option value="pop">pop</option>
               <option value="rock">rock</option>
               <option value="jazz">jazz</option>
@@ -47,7 +48,7 @@
           </div>
           <br />
           <br />
-          <button>مشاهده نتایج</button>
+          <button id="filterButton">مشاهده نتایج</button>
           <br />
           <br />
         </section>
@@ -57,19 +58,19 @@
           <input type="search" id="search" />
           <br />
           <br />
-          <button>مشاهده نتایج</button>
+          <button id="searchButton">مشاهده نتایج</button>
         </section>
       </section>
 
       <section id="list">
         <h1>لیست آهنگ ها:</h1>
-        
-          <li><a href="Song.html">Diamonds</a></li>
+        <ul id="songList">
+          <!-- <li><a href="Song.html">Diamonds</a></li>
           <li><a href="">Always</a></li>
           <li><a href="">Blinding Lights</a></li>
           <li><a href="">Yellow</a></li>
-          <li><a href="">Stone by Stone</a></li>
-        
+          <li><a href="">Stone by Stone</a></li> -->
+        </ul>       
       </section>
     </main>
     <footer>
