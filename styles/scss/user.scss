@@ -1,9 +1,10 @@
 @use "colors.scss" as *;
 
 header {
+  font-size: 12px;
   background-color: $light-gray;
   width: auto;
-  padding: 1em;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 4fr 1fr;
   img {
@@ -11,7 +12,7 @@ header {
   }
   li {
     display: inline;
-    margin: 1em;
+    margin: 3rem;
     color: $darker-pink;
     a {
       color: $darker-pink;
@@ -22,13 +23,15 @@ header {
 
 #content {
   display: block;
-  padding: 1rem;
+  padding: 2rem;
+  font-size: 13px;
 }
 
 aside {
+  font-size: 13px;
   background-color: $light-pink;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 2rem;
+  padding: 2rem;
   height: min-content;
   border-radius: 2rem;
   color: $dark-blue;
@@ -44,9 +47,9 @@ aside {
     color: $dark-blue;
   }
   background-color: $light-blue;
-  margin: 1rem;
-  padding: 1rem;
-  height: min-content;
+  margin: 2rem;
+  padding: 2rem;
+  
   border-radius: 2rem;
   color: $light-pink;
   a {
@@ -55,8 +58,8 @@ aside {
   }
   button {
     margin-right: 2rem;
-    width: 6rem;
-    height: 2rem;
+    width: 8rem;
+    height: 3rem;
     border-radius: 1rem;
     a {
       color: $dark-blue;
@@ -66,9 +69,10 @@ aside {
 }
 
 footer {
+  font-size: 12px;
   background-color: $dark-blue;
   margin: auto;
-  padding: 1rem;
+  padding: 2rem;
   height: min-content;
   color: white;
   text-align: center;
@@ -80,6 +84,6 @@ footer {
   #content {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    padding: 1rem;
+    padding: 2rem;
   }
 }

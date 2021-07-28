@@ -1,7 +1,8 @@
 header {
+  font-size: 12px;
   background-color: #f3f3f3;
   width: auto;
-  padding: 1em;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
@@ -10,7 +11,7 @@ header img {
 }
 header li {
   display: inline;
-  margin: 1rem;
+  margin: 3rem;
   color: #da5656;
 }
 header li a {
@@ -21,17 +22,22 @@ header li a {
 #filter,
 #searchSection {
   background-color: #ffe3e3;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 2rem;
+  padding: 2rem;
   height: min-content;
   border-radius: 2rem;
 }
 #filter button,
 #searchSection button {
-  margin-right: 1rem;
-  width: 6rem;
-  height: 2rem;
+  margin-right: 2rem;
+  width: 8rem;
+  height: 3rem;
   border-radius: 1rem;
+}
+#filter button a,
+#searchSection button a {
+  color: #262a53;
+  text-decoration: none;
 }
 
 #songerName,
@@ -41,8 +47,8 @@ header li a {
 
 #list {
   background-color: #628395;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 2rem;
+  padding: 2rem;
   border-radius: 2rem;
   color: #ffe3e3;
 }
@@ -54,8 +60,8 @@ header li a {
   color: #ffe3e3;
 }
 #list button {
-  margin: 1rem;
-  width: 3rem;
+  margin: 2rem;
+  width: 5rem;
   height: 2rem;
   border-radius: 1rem;
   float: center;
@@ -63,10 +69,12 @@ header li a {
 
 main {
   display: block;
-  padding: 1rem;
+  padding: 2rem;
+  font-size: 13px;
 }
 
 footer {
+  font-size: 12px;
   background-color: #262a53;
   margin: auto;
   padding: 1rem;

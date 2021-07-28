@@ -2,18 +2,15 @@ header {
   background-color: #f3f3f3;
   height: 10rem;
 }
-
 header nav {
   height: 100%;
   width: 100%;
 }
-
 header nav img {
   margin-right: 2rem;
   margin-top: 1.7rem;
   float: right;
 }
-
 header nav span {
   margin-top: 3.5rem;
   margin-right: 1rem;
@@ -22,7 +19,6 @@ header nav span {
   font-weight: bold;
   float: right;
 }
-
 header nav #home {
   color: #262a53;
   margin-top: 3.5rem;
@@ -30,11 +26,9 @@ header nav #home {
   float: left;
   font-size: 1.8rem;
 }
-
 header nav #home:link {
   text-decoration: none;
 }
-
 header nav #home:hover {
   color: #628395;
   font-weight: bold;
@@ -44,7 +38,6 @@ main {
   display: flex;
   justify-content: center;
 }
-
 main .form {
   border-radius: 2rem;
   margin: 5rem 0;
@@ -52,18 +45,15 @@ main .form {
   box-shadow: 0 0 2rem #f3f3f3;
   padding: 4rem;
 }
-
 main .form * {
   margin-bottom: 1.5rem;
 }
-
 main .form h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 5rem;
   color: #262a53;
 }
-
 main .form form p {
   display: inline-block;
   font-weight: bold;
@@ -71,11 +61,9 @@ main .form form p {
   margin-left: 2rem;
   color: #262a53;
 }
-
 main .form form .inputbox {
   height: 4.5rem;
 }
-
 main .form form .inputbox label {
   font-weight: bold;
   font-size: 1.3rem;
@@ -83,7 +71,6 @@ main .form form .inputbox label {
   color: #262a53;
   float: right;
 }
-
 main .form form .inputbox input {
   border-radius: 999rem;
   border: 1px solid #262a53;
@@ -91,47 +78,37 @@ main .form form .inputbox input {
   width: 70%;
   float: left;
 }
-
 main .form form .inputbox input:hover {
   border: 0.2rem solid #ffa0a0;
 }
-
 main .form form .inputbox input:focus {
   border: 0.2rem solid #da5656;
   border-radius: 0.5rem;
   outline: none;
 }
-
 main .form form .inputbox input:-moz-placeholder {
   text-align: left;
 }
-
 main .form form .inputbox input:-ms-input-placeholder {
   text-align: left;
 }
-
 main .form form .inputbox input::-webkit-input-placeholder {
   text-align: left;
 }
-
 main .form form .options label {
   margin-left: 2rem;
 }
-
 main .form form .options #marketing + label, main .form form .options input[type=radio] + label {
   font-size: 1.2rem;
 }
-
 main .form form .options #marketing:checked + label, main .form form .options input[type=radio]:checked + label {
   font-weight: bold;
   color: #262a53;
 }
-
 main .form form > div:last-of-type {
   display: flex;
   justify-content: center;
 }
-
 main .form form > div:last-of-type button {
   background-color: #628395;
   color: white;
@@ -143,24 +120,20 @@ main .form form > div:last-of-type button {
   transition-duration: 500ms;
   transition-timing-function: linear;
 }
-
 main .form form > div:last-of-type button:hover {
   background-color: #262a53;
   font-weight: bold;
   width: 25rem;
   cursor: pointer;
 }
-
 main .form div:last-of-type {
   font-size: 1.2rem;
 }
-
 main .form div:last-of-type a {
   color: #262a53;
   margin-right: 1rem;
   font-size: 1.5rem;
 }
-
 main .form div:last-of-type a:hover {
   color: #628395;
 }
@@ -170,6 +143,5 @@ main .form div:last-of-type a:hover {
     width: 50%;
   }
 }
-/*# sourceMappingURL=signup.css.map */
 
 /*# sourceMappingURL=signup.css.map */
