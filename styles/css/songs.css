@@ -34,12 +34,16 @@ header li a {
 }
 #filter button, #searchSection button {
   margin-right: 2rem;
+  border: none;
   width: 8rem;
   height: 3rem;
   border-radius: 1rem;
+  background-color: #628395;
+  color: white;
 }
 #filter button:hover, #searchSection button:hover {
   cursor: pointer;
+  background: #da5656;
 }
 #filter button a, #searchSection button a {
   color: #262a53;

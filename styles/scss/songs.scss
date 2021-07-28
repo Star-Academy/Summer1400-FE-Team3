@@ -35,11 +35,15 @@ header {
   }
   button {
     margin-right: 2rem;
+    border: none;
     width: 8rem;
     height: 3rem;
     border-radius: 1rem;
+    background-color: $light-blue;
+    color: white;
     &:hover {
       cursor: pointer;
+      background: $darker-pink;
     }
 
     a {
