@@ -1,66 +1,95 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" >
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width-device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="stylesheet" href="../styles/css/favorite.css" />
     <title>Favorite Songs</title>
-</head>
-<body>
-<header>
-    <img src="../assets/images/s-icon.png" alt="">
-    <nav>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/images/spotify.png" alt="" />
+      <nav>
         <ul>
-            <li><a href="">دانلود</a></li>
-            <li>ParmidaKimia</li>
-            <li><a href="index.html">خروج</a></li>
+          <li><b>نام کاربری: </b> ParmidaKimia</li>
+          <li>
+            <a href="index.html"> <b>خروج</b></a>
+          </li>
         </ul>
-    </nav>
-</header>
-<main>
-    <section>
-        <h3>فیلتر</h3>
-        <label for="artist">نام خواننده:</label>
-        <select name="artist" id="artist">
-            <option value="adel">adel</option>
-            <option value="samSmith">sam smith</option>
-            <option value="weekend">the weekend</option>
-            <option value="danielson">isak danielson</option>
-        </select> <br><br>
-        <label for="genre">سبک موسیقی:</label>
-        <select name="Genre" id="genre" >
-            <option value="pop">pop</option>
-            <option value="rock">rock</option>
-            <option value="jazz">jazz</option>
-            <option value="country">country</option>
-        </select> <br><br>
-        <button>مشاهده نتایج</button><br><br>
-    </section>
-    <section>
-        <input type="search" id="search">
-        <button>جستجو</button>
-    </section>
-    <section>
-        <h1>آهنگ های مورد علاقه</h1>
-        <ul>
-            <li><a href="Song.html">Diamonds</a>
-            <button>حذف</button></li>
-            <li><a href="">Always</a>
-                <button>حذف</button></li>
-            <li><a href="">Stone by Stone</a>
-                <button>حذف</button></li>
-        </ul>
-    </section>
-</main>
-<footer>
-    <h2>اسپاتیفای</h2>
-    <p>با اسپاتیفای جدیدترین آهنگ ها را پیدا کن و لیست آهنگ های خودتو بساز</p>
-    <p>تلفن پشتیبانی: 02144730000</p>
-    <img src="../assets/images/5296765_camera_instagram_instagram%20logo_icon.png" alt="instagram" width="25" height="25">
-    <span>Spotify</span><br><br>
-    <img src="../assets/images/7089163_gmail_google_icon.png" alt="Gmail" width="25" height="25">
-    <span>Spotify@gmail.com</span>
-</footer>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <section id="filter">
+          <h3>فیلتر</h3>
 
-</body>
+          <div id="songerName">
+            <label for="artist">نام خواننده:</label><br />
+            <select name="artist" id="artist">
+              <option value="adel">adel</option>
+              <option value="samSmith">sam smith</option>
+              <option value="weekend">the weekend</option>
+              <option value="danielson">isak danielson</option>
+            </select>
+          </div>
+          <br /><br />
+          <div id="genre">
+            <label for="genre">سبک موسیقی:</label> <br />
+            <select name="Genre" id="genre">
+              <option value="pop">pop</option>
+              <option value="rock">rock</option>
+              <option value="jazz">jazz</option>
+              <option value="country">country</option>
+            </select>
+          </div>
+          <br />
+          <br />
+          <button>مشاهده نتایج</button><br /><br />
+        </section>
+
+        <section id="searchSection">
+          <h3>جستجو</h3>
+          <input type="search" id="search" />
+          <br />
+          <br />
+          <button>مشاهده نتایج</button>
+        </section>
+      </section>
+
+      <section>
+        <section id="list">
+          <h1>آهنگ های مورد علاقه</h1>
+          <ul>
+            <li><a href="Song.html">Diamonds</a> <button>حذف</button></li>
+            <li><a href="">Always</a> <button>حذف</button></li>
+            <li><a href="">Stone by Stone</a> <button>حذف</button></li>
+          </ul>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <h2>اسپاتیفای</h2>
+      <p>
+        با اسپاتیفای جدیدترین آهنگ ها را پیدا کن و لیست آهنگ های خودتو بساز.
+      </p>
+      <p>تلفن پشتیبانی: 02144730000</p>
+      <img
+        src="../assets/images/5296765_camera_instagram_instagram%20logo_icon.png"
+        alt="instagram"
+        width="25"
+        height="25"
+      />
+      <span>Spotify</span><br /><br />
+      <img
+        src="../assets/images/7089163_gmail_google_icon.png"
+        alt="Gmail"
+        width="25"
+        height="25"
+      />
+      <span>Spotify@gmail.com</span>
+    </footer>
+  </body>
 </html>

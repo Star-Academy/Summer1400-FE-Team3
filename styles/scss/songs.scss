@@ -1,0 +1,86 @@
+@use "colors.scss" as *;
+
+header {
+  background-color: $light-gray;
+  width: auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  img {
+    margin-right: 2rem;
+  }
+  li {
+    display: inline;
+    margin: 1em;
+    color: $darker-pink;
+    a {
+      color: $darker-pink;
+      text-decoration: none;
+    }
+  }
+}
+
+#filter,
+#searchSection {
+  background-color: $light-pink;
+  margin: 1rem;
+  padding: 1rem;
+  height: min-content;
+  border-radius: 2rem;
+  button {
+    margin-right: 1rem;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 1rem;
+
+    a {
+      color: $dark-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+#songerName,
+#genre {
+  display: inline;
+}
+
+#list {
+  h1 {
+    color: $dark-blue;
+  }
+  background-color: $light-blue;
+  margin: 1rem;
+  padding: 1rem;
+
+  border-radius: 2rem;
+  color: $light-pink;
+  a {
+    text-decoration: none;
+    color: $light-pink;
+  }
+}
+
+main {
+  display: block;
+  padding: 1rem;
+}
+
+footer {
+  background-color: $dark-blue;
+  margin: auto;
+  padding: 1rem;
+  height: min-content;
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+}
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 1rem;
+  }
+}

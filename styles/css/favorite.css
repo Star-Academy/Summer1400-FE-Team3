@@ -1,0 +1,86 @@
+header {
+  background-color: #f3f3f3;
+  width: auto;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+header img {
+  margin-right: 2rem;
+}
+header li {
+  display: inline;
+  margin: 1rem;
+  color: #da5656;
+}
+header li a {
+  color: #da5656;
+  text-decoration: none;
+}
+
+#filter,
+#searchSection {
+  background-color: #ffe3e3;
+  margin: 1rem;
+  padding: 1rem;
+  height: min-content;
+  border-radius: 2rem;
+}
+#filter button,
+#searchSection button {
+  margin-right: 1rem;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+#songerName,
+#genre {
+  display: inline;
+}
+
+#list {
+  background-color: #628395;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: #ffe3e3;
+}
+#list h1 {
+  color: #262a53;
+}
+#list a {
+  text-decoration: none;
+  color: #ffe3e3;
+}
+#list button {
+  margin: 1rem;
+  width: 3rem;
+  height: 2rem;
+  border-radius: 1rem;
+  float: center;
+}
+
+main {
+  display: block;
+  padding: 1rem;
+}
+
+footer {
+  background-color: #262a53;
+  margin: auto;
+  padding: 1rem;
+  height: min-content;
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 1rem;
+  }
+}
+
+/*# sourceMappingURL=favorite.css.map */
