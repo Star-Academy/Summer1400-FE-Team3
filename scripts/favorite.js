@@ -48,7 +48,7 @@ function makeList() {
       favList.innerHTML = "";
       let index = -1;
       favArr.forEach((song, songIndex) => {
-        if (song.name.toLowerCase == name.toLowerCase) {
+        if (song.name == name) {
           index = songIndex;
         }
       });
