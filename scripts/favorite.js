@@ -24,6 +24,8 @@ let genreSelect = document.getElementById("genreSelect");
 let filterButton = document.getElementById("filterButton");
 let searchButton = document.getElementById("searchButton");
 let searchInput = document.getElementById("search");
+let removeButtons = document.getElementsByClassName("remove");
+
 
 function makeList() {
   favArr.forEach((x) => {
@@ -41,14 +43,13 @@ function makeList() {
     genreSelect.innerHTML += "<option value=" + x + ">" + x + "</option>";
   });
 
-  let removeButtons = document.getElementsByClassName("remove");
   Array.prototype.forEach.call(removeButtons, (x) => {
     x.addEventListener("click", () => {
       let name = x.getAttribute("name");
       favList.innerHTML = "";
       let index = -1;
       favArr.forEach((song, songIndex) => {
-        if (song.name == name) {
+        if (song.name === name) {
           index = songIndex;
         }
       });
@@ -82,10 +83,10 @@ filterButton.addEventListener("click", () => {
   favList.innerHTML = "";
   favArr.forEach((x) => {
     if (
-      (x.singer.toLowerCase() == artist && x.genre.toLowerCase() == genre) ||
-      (x.singer.toLowerCase() == artist && genre.toLowerCase() == "all") ||
-      (artist.toLowerCase() == "all" && x.genre.toLowerCase() == genre) ||
-      (artist.toLowerCase() == "all" && genre.toLowerCase() == "all")
+      (x.singer.toLowerCase() === artist && x.genre.toLowerCase() === genre) ||
+      (x.singer.toLowerCase() === artist && genre.toLowerCase() === "all") ||
+      (artist.toLowerCase() === "all" && x.genre.toLowerCase() === genre) ||
+      (artist.toLowerCase() === "all" && genre.toLowerCase() === "all")
     ) {
       favList.innerHTML +=
         '<li><a href="Song.html">' +

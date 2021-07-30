@@ -23,7 +23,7 @@ function makeList() {
 makeList();
 
 searchButton.addEventListener("click", () => {
-  var searchValue = searchInput.value.toLowerCase();
+  let searchValue = searchInput.value.toLowerCase();
   songList.innerHTML = "";
   songArr.forEach((x) => {
     if (x.name.toLowerCase().includes(searchValue)) {
@@ -33,12 +33,12 @@ searchButton.addEventListener("click", () => {
 });
 
 filterButton.addEventListener("click", () => {
-  var artist = artistSelect.value.toLowerCase();
-  var genre = genreSelect.value.toLowerCase();
+  let artist = artistSelect.value.toLowerCase();
+  let genre = genreSelect.value.toLowerCase();
 
   songList.innerHTML = "";
   songArr.forEach((x) => {
-    if (x.singer.toLowerCase() == artist && x.genre.toLowerCase() == genre) {
+    if (x.singer.toLowerCase() === artist && x.genre.toLowerCase() === genre) {
       songList.innerHTML += '<li><a href="Song.html">' + x.name + "</a></li>";
     }
   });
