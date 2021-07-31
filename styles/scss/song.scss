@@ -1,12 +1,13 @@
 @use "headerFooter" as hf;
-@use "colors.scss" as *;
+@import "colors";
+$default-rem: 2rem;
 
 header {
  @include hf.createHeader;
 }
 
 main {
-  padding: 2rem;
+  padding: $default-rem;
   font-size: 1.3rem;
 
 }
@@ -27,17 +28,17 @@ main {
 
 #songInfo {
   background-color: $dark-pink;
-  border-radius: 2rem;
-  padding: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  border-radius: $default-rem;
+  padding: $default-rem;
+  margin-top: $default-rem;
+  margin-bottom: $default-rem;
   color: black;
   height: 60%;
   display: grid;
   justify-self: center;
   h1 {
     font-size: 2.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: $default-rem;
   }
   p {
     font-size: 1.5rem;
@@ -54,11 +55,11 @@ footer {
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    grid-gap: $default-rem;
   }
 
   #songInfo #likePic {
-    margin: 2rem auto;
+    margin: $default-rem auto;
     background-color: red;
   }
 }

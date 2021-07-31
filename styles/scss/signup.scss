@@ -1,6 +1,8 @@
 @use "./formTemplate" as f;
 @import "./colors";
 
+$default-rem:2rem;
+
 header {
   @include f.createNav;
 }
@@ -16,7 +18,7 @@ main {
         display: inline-block;
         font-weight: bold;
         font-size: 1.3rem;
-        margin-left: 2rem;
+        margin-left: $default-rem;
         color: $dark-blue;
       }
 
@@ -26,7 +28,7 @@ main {
         label {
           font-weight: bold;
           font-size: 1.3rem;
-          margin-left: 2rem;
+          margin-left: $default-rem;
           color: $dark-blue;
           float: right;
         }
@@ -40,7 +42,7 @@ main {
 
       .options {
         label {
-          margin-left: 2rem;
+          margin-left: $default-rem;
         }
         #marketing + label, input[type="radio"] + label {
           font-size: 1.2rem;

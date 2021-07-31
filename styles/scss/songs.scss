@@ -1,5 +1,7 @@
-@use "colors.scss" as *;
 @use "headerFooter" as hf;
+@import "colors";
+
+$default-rem: 2rem;
 
 @mixin inputs {
   margin-top: 2rem;
@@ -14,16 +16,16 @@ header {
 
 #filter, #searchSection {
   background-color: $light-pink;
-  margin: 2rem;
-  padding: 2rem;
+  margin: $default-rem;
+  padding: $default-rem;
   height: min-content;
-  border-radius: 2rem;
+  border-radius: $default-rem;
   input {
     @include inputs;
     border: 1px solid black;
   }
   button {
-    margin-right: 2rem;
+    margin-right: $default-rem;
     border: none;
     width: 9rem;
     height: 3rem;
@@ -56,15 +58,15 @@ header {
     margin-bottom: 3rem;
   }
   background-color: $light-blue;
-  margin: 2rem;
+  margin: $default-rem;
   padding: 4rem;
-  border-radius: 2rem;
+  border-radius: $default-rem;
   color: $light-pink;
   #songList {
     list-style: none;
     li {
-      margin-bottom: 2rem;
-      margin-right: 2rem;
+      margin-bottom: $default-rem;
+      margin-right: $default-rem;
       a {
         text-decoration: none;
         color: black;
@@ -76,27 +78,22 @@ header {
       }
     }
   }
-
-
 }
 
 main {
   display: block;
-  padding: 2rem;
+  padding: $default-rem;
   font-size: 13px;
 }
 
 footer {
   @include hf.createFooter;
-
 }
 
-@media only screen and (min-width: 600px) {
-}
 @media only screen and (min-width: 768px) {
   main {
     display: grid;
     grid-template-columns: 2fr 2fr;
-    padding: 2rem;
+    padding: $default-rem;
   }
 }

@@ -4,6 +4,8 @@
 }
 @import "./colors";
 
+$default-rem:2rem;
+
 @mixin createNav {
   background-color: $light-gray;
   height: 10rem;
@@ -12,7 +14,7 @@
     width: 100%;
 
     img {
-      margin-right: 2rem;
+      margin-right: $default-rem;
       margin-top: 1.7rem;
       float: right;
     }
@@ -20,7 +22,7 @@
     span {
       margin-top: 3.5rem;
       margin-right: 1rem;
-      font-size: 2rem;
+      font-size: $default-rem;
       color: $darker-pink;
       font-weight: bold;
       float: right;
@@ -29,7 +31,7 @@
     #home {
       color: $dark-blue;
       margin-top: 3.5rem;
-      margin-left: 2rem;
+      margin-left: $default-rem;
       float: left;
       font-size: 1.8rem;
 
@@ -46,10 +48,10 @@
 }
 
 @mixin createForm {
-  border-radius: 2rem;
+  border-radius: $default-rem;
   margin: 5rem 0;
   max-width: 85%;
-  box-shadow: 0 0 2rem $light-gray;
+  box-shadow: 0 0 $default-rem $light-gray;
   padding: 4rem;
   * {
     margin-bottom: 1.5rem;
@@ -66,7 +68,7 @@
   border-radius: 999rem;
   border: 1px solid $dark-blue;
   height: 3.5rem;
-  padding: 2rem;
+  padding: $default-rem;
 
   &:hover {
     border: 0.2rem solid $dark-pink;

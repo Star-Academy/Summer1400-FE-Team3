@@ -2,6 +2,7 @@
 @import "./colors";
 
 $input-height: 4rem;
+$default-rem:2rem;
 
 header {
   @include f.createNav;
@@ -40,7 +41,7 @@ main {
       #remember + label {
         color: $dark-blue;
         font-size: 1.1rem;
-        margin-left: 2rem;
+        margin-left: $default-rem;
       }
       #remember:checked + label {
         font-weight: bold;

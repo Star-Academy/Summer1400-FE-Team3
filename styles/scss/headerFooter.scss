@@ -1,5 +1,7 @@
 @import "colors";
 
+$default-rem:2rem;
+
 @mixin createHeader {
   nav {
     padding: 1.3rem;
@@ -11,7 +13,7 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
   img {
-    margin-right: 2rem;
+    margin-right: $default-rem;
   }
   li {
     display: inline;
@@ -37,6 +39,6 @@
   color: white;
   text-align: center;
   h2, p {
-    margin-bottom: 2rem;
+    margin-bottom: $default-rem;
   }
 }
