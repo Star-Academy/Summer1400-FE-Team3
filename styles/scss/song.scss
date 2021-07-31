@@ -51,21 +51,18 @@ footer {
   @include hf.createFooter;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-height: 820px) {
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: $default-rem;
   }
-
-  #songInfo #likePic {
-    margin: $default-rem auto;
-    background-color: red;
-  }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-height: 820px) {
   main {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-gap: $default-rem;
   }
 }
+
