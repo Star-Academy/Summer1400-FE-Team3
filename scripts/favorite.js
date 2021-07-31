@@ -17,6 +17,9 @@ let artistArr = [
   "james",
 ];
 let genreArr = ["all", "pop", "rock", "metal", "rap", "country"];
+const username = "KimiaParmida";
+let username_html= document.getElementById("username");
+username_html.innerHTML = username;
 
 let favList = document.getElementById("favList");
 let artistSelect = document.getElementById("artist");

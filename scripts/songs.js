@@ -6,6 +6,8 @@ let songArr = [
   { name: "Diamonds", genre: "pop", singer: "sam smith" },
   { name: "bad", genre: "country", singer: "james" },
 ];
+const username = "KimiaParmida";
+
 
 let songList = document.getElementById("songList");
 let artistSelect = document.getElementById("artist");
@@ -13,7 +15,9 @@ let genreSelect = document.getElementById("genreSelect");
 let filterButton = document.getElementById("filterButton");
 let searchButton = document.getElementById("searchButton");
 let searchInput = document.getElementById("search");
+let username_html= document.getElementById("username");
 
+username_html.innerHTML = username;
 function makeList() {
   songArr.forEach((x) => {
     songList.innerHTML += '<li><a href="Song.html">' + x.name + "</a></li>";
