@@ -16,10 +16,12 @@ header li {
   display: inline;
   margin: 3rem;
   color: #da5656;
+  font-size: 1.3rem;
 }
 header li a {
   color: #da5656;
   text-decoration: none;
+  font-size: 1.3rem;
 }
 
 #filter,
@@ -37,13 +39,17 @@ header li a {
 #filter button,
 #searchSection button {
   margin-right: 2rem;
-  width: 8rem;
+  width: 9rem;
   height: 3rem;
-  border-radius: 1rem;
+  border-radius: 4rem;
+  border: none;
+  background-color: #628395;
+  color: white;
 }
 #filter button:hover,
 #searchSection button:hover {
   cursor: pointer;
+  background-color: #262a53;
 }
 #filter button a,
 #searchSection button a {
@@ -59,25 +65,39 @@ header li a {
 #list {
   background-color: #628395;
   margin: 2rem;
-  padding: 2rem;
+  padding: 4rem;
   border-radius: 2rem;
   color: #ffe3e3;
 }
 #list h1 {
-  color: #262a53;
+  color: white;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
-#list a {
+#list #favList {
+  list-style: none;
+}
+#list #favList a {
   text-decoration: none;
-  color: #ffe3e3;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
-#list button {
+#list #favList a:hover {
+  color: white;
+}
+#list #favList button {
   margin: 2rem;
-  width: 5rem;
-  height: 2rem;
-  border-radius: 1rem;
+  width: 6rem;
+  height: 3rem;
+  border-radius: 4rem;
+  background-color: #f3f3f3;
+  border: none;
 }
-#list button:hover {
+#list #favList button:hover {
   cursor: pointer;
+  background-color: #ffe3e3;
+  font-weight: bold;
 }
 
 main {
@@ -89,12 +109,13 @@ main {
 footer {
   font-size: 12px;
   background-color: #262a53;
-  padding: 2rem;
+  padding: 4rem;
   height: min-content;
   color: white;
   text-align: center;
 }
-footer h2, footer p {
+footer h2,
+footer p {
   margin-bottom: 2rem;
 }
 

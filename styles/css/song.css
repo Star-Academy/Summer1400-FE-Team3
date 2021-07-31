@@ -16,10 +16,12 @@ header li {
   display: inline;
   margin: 3rem;
   color: #da5656;
+  font-size: 1.3rem;
 }
 header li a {
   color: #da5656;
   text-decoration: none;
+  font-size: 1.3rem;
 }
 
 main {
@@ -48,16 +50,24 @@ main {
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  color: #262a53;
+  color: black;
   height: 60%;
   display: grid;
   justify-self: center;
+}
+#songInfo h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+#songInfo p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 footer {
   font-size: 12px;
   background-color: #262a53;
-  padding: 2rem;
+  padding: 4rem;
   height: min-content;
   color: white;
   text-align: center;

@@ -16,10 +16,12 @@ header li {
   display: inline;
   margin: 3rem;
   color: #da5656;
+  font-size: 1.3rem;
 }
 header li a {
   color: #da5656;
   text-decoration: none;
+  font-size: 1.3rem;
 }
 
 #filter, #searchSection {
@@ -35,15 +37,15 @@ header li a {
 #filter button, #searchSection button {
   margin-right: 2rem;
   border: none;
-  width: 8rem;
+  width: 9rem;
   height: 3rem;
-  border-radius: 1rem;
+  border-radius: 4rem;
   background-color: #628395;
   color: white;
 }
 #filter button:hover, #searchSection button:hover {
   cursor: pointer;
-  background: #da5656;
+  background: #262a53;
 }
 #filter button a, #searchSection button a {
   color: #262a53;
@@ -58,17 +60,29 @@ header li a {
 #list {
   background-color: #628395;
   margin: 2rem;
-  padding: 2rem;
+  padding: 4rem;
   border-radius: 2rem;
   color: #ffe3e3;
 }
 #list h1 {
-  color: #262a53;
-  margin-bottom: 2rem;
+  color: white;
+  margin-bottom: 3rem;
 }
-#list a {
+#list #songList {
+  list-style: none;
+}
+#list #songList li {
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+}
+#list #songList li a {
   text-decoration: none;
-  color: #ffe3e3;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+#list #songList li a:hover {
+  color: white;
 }
 
 main {
@@ -80,7 +94,7 @@ main {
 footer {
   font-size: 12px;
   background-color: #262a53;
-  padding: 2rem;
+  padding: 4rem;
   height: min-content;
   color: white;
   text-align: center;
