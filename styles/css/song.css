@@ -25,9 +25,8 @@ header li a {
 }
 
 main {
-  display: block;
   padding: 2rem;
-  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 #songImage,
@@ -80,20 +79,18 @@ footer h2, footer p {
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 2rem;
+    grid-gap: 2rem;
   }
 
-  #songInfo,
-#likePic {
-    margin-left: 2rem;
-    margin-right: 2rem;
+  #songInfo #likePic {
+    margin: 2rem auto;
+    background-color: red;
   }
 }
 @media only screen and (min-width: 768px) {
   main {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 2rem;
   }
 }
 

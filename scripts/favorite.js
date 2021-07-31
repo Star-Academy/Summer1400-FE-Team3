@@ -6,9 +6,9 @@ let favArr = [
   { name: "Diamonds", genre: "pop", singer: "sam smith" },
   { name: "bad", genre: "country", singer: "james" },
 ];
-
-let artistArr = [
-  "all",
+const all ="all";
+const artistArr = [
+  all,
   "adel",
   "isak",
   "the weekend",
@@ -16,11 +16,10 @@ let artistArr = [
   "sam smith",
   "james",
 ];
-let genreArr = ["all", "pop", "rock", "metal", "rap", "country"];
+const genreArr = [all, "pop", "rock", "metal", "rap", "country"];
 const username = "KimiaParmida";
-let username_html= document.getElementById("username");
-username_html.innerHTML = username;
 
+let username_html= document.getElementById("username");
 let favList = document.getElementById("favList");
 let artistSelect = document.getElementById("artist");
 let genreSelect = document.getElementById("genreSelect");
@@ -29,74 +28,69 @@ let searchButton = document.getElementById("searchButton");
 let searchInput = document.getElementById("search");
 let removeButtons = document.getElementsByClassName("remove");
 
+username_html.innerHTML = username;
 
 function makeList() {
-  favArr.forEach((x) => {
-    favList.innerHTML +=
-      '<li><a href="Song.html">' +
-      x.name +
-      '</a><button class="remove" name="' +
-      x.name +
-      '">حذف</button></li>';
+  favArr.forEach((favItem) => {
+    favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
+
   });
-  artistArr.forEach((x) => {
-    artistSelect.innerHTML += "<option value=" + x + ">" + x + "</option>";
+  artistArr.forEach((artist) => {
+    artistSelect.innerHTML += `<option value="${artist}">${artist}</option>`;
   });
-  genreArr.forEach((x) => {
-    genreSelect.innerHTML += "<option value=" + x + ">" + x + "</option>";
+  genreArr.forEach((genre) => {
+    genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
   });
 
-  Array.prototype.forEach.call(removeButtons, (x) => {
-    x.addEventListener("click", () => {
-      let name = x.getAttribute("name");
+  for (let button of removeButtons) {
+    button.addEventListener("click", () => {
+      let name = button.getAttribute("name");
       favList.innerHTML = "";
-      let index = -1;
-      favArr.forEach((song, songIndex) => {
-        if (song.name === name) {
-          index = songIndex;
-        }
-      });
+      let index = findIndex(name);
       favArr.splice(index, 1);
       makeList();
     });
-  });
+  }
 }
 
 makeList();
 
+function findIndex(name){
+  let index = -1;
+  favArr.forEach((song, songIndex) => {
+    if (song.name === name) {
+      index = songIndex;
+    }
+  });
+  return index;
+}
+
 searchButton.addEventListener("click", () => {
   let searchValue = searchInput.value.toLowerCase();
   favList.innerHTML = "";
-  favArr.forEach((x) => {
-    if (x.name.toLowerCase().includes(searchValue)) {
-      favList.innerHTML +=
-        '<li><a href="Song.html">' +
-        x.name +
-        '</a><button class="remove" name="' +
-        x.name +
-        '">حذف</button></li>';
+  favArr.forEach((favItem) => {
+    if (favItem.name.toLowerCase().includes(searchValue)) {
+      favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
+
     }
   });
 });
 
 filterButton.addEventListener("click", () => {
-  let artist = artistSelect.value.toLowerCase();
-  let genre = genreSelect.value.toLowerCase();
+  const artist = artistSelect.value.toLowerCase();
+  const genre = genreSelect.value.toLowerCase();
 
   favList.innerHTML = "";
-  favArr.forEach((x) => {
-    if (
-      (x.singer.toLowerCase() === artist && x.genre.toLowerCase() === genre) ||
-      (x.singer.toLowerCase() === artist && genre.toLowerCase() === "all") ||
-      (artist.toLowerCase() === "all" && x.genre.toLowerCase() === genre) ||
-      (artist.toLowerCase() === "all" && genre.toLowerCase() === "all")
-    ) {
-      favList.innerHTML +=
-        '<li><a href="Song.html">' +
-        x.name +
-        '</a><button class="remove" name="' +
-        x.name +
-        '">حذف</button></li>';
+  favArr.forEach((favItem) => {
+    if (matchFilter(genre,artist,favItem)) {
+      favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
     }
   });
 });
+
+function matchFilter(genre,artist,favItem) {
+  return (favItem.singer.toLowerCase() === artist && favItem.genre.toLowerCase() === genre) ||
+  (favItem.singer.toLowerCase() === artist && genre.toLowerCase() === all) ||
+  (artist.toLowerCase() === all && favItem.genre.toLowerCase() === genre) ||
+  (artist.toLowerCase() === all && genre.toLowerCase() === all)
+}
