@@ -17,21 +17,25 @@ let searchInput = document.getElementById("search");
 let username_html= document.getElementById("username");
 
 username_html.innerHTML = username;
+makeList();
+
+
+function setSongs(song) {
+  songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`
+}
 
 function makeList() {
   songArr.forEach((song) => {
-    songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`
+    setSongs(song)
   });
 }
-
-makeList();
 
 searchButton.addEventListener("click", () => {
   const searchValue = searchInput.value.toLowerCase();
   songList.innerHTML = "";
   songArr.forEach((song) => {
     if (song.name.toLowerCase().includes(searchValue)) {
-      songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`;
+      setSongs(song);
     }
   });
 });
@@ -43,7 +47,7 @@ filterButton.addEventListener("click", () => {
   songList.innerHTML = "";
   songArr.forEach((song) => {
     if (song.singer.toLowerCase() === artist && song.genre.toLowerCase() === genre) {
-      songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`;
+      setSongs(song);
     }
   });
 });

@@ -31,8 +31,12 @@ header li a {
   height: min-content;
   border-radius: 2rem;
 }
-#filter h3, #searchSection h3 {
-  margin-bottom: 2rem;
+#filter input, #searchSection input {
+  margin-top: 2rem;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 999rem;
+  border: 1px solid black;
 }
 #filter button, #searchSection button {
   margin-right: 2rem;
@@ -55,6 +59,13 @@ header li a {
 #songerName,
 #genre {
   display: inline;
+}
+#songerName select,
+#genre select {
+  margin-top: 2rem;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 999rem;
 }
 
 #list {
@@ -94,6 +105,7 @@ main {
 footer {
   font-size: 12px;
   background-color: #262a53;
+  margin: auto;
   padding: 4rem;
   height: min-content;
   color: white;

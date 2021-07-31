@@ -29,19 +29,26 @@ let searchInput = document.getElementById("search");
 let removeButtons = document.getElementsByClassName("remove");
 
 username_html.innerHTML = username;
+makeList();
+createSelectBoxes();
 
 function makeList() {
   favArr.forEach((favItem) => {
-    favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
-
+    setSongs(favItem);
   });
+  removeFromList();
+}
+
+function createSelectBoxes() {
   artistArr.forEach((artist) => {
     artistSelect.innerHTML += `<option value="${artist}">${artist}</option>`;
   });
   genreArr.forEach((genre) => {
     genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
   });
+}
 
+function removeFromList() {
   for (let button of removeButtons) {
     button.addEventListener("click", () => {
       let name = button.getAttribute("name");
@@ -52,8 +59,6 @@ function makeList() {
     });
   }
 }
-
-makeList();
 
 function findIndex(name){
   let index = -1;
@@ -66,12 +71,11 @@ function findIndex(name){
 }
 
 searchButton.addEventListener("click", () => {
-  let searchValue = searchInput.value.toLowerCase();
+  const searchValue = searchInput.value.toLowerCase();
   favList.innerHTML = "";
   favArr.forEach((favItem) => {
     if (favItem.name.toLowerCase().includes(searchValue)) {
-      favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
-
+      setSongs(favItem);
     }
   });
 });
@@ -83,7 +87,8 @@ filterButton.addEventListener("click", () => {
   favList.innerHTML = "";
   favArr.forEach((favItem) => {
     if (matchFilter(genre,artist,favItem)) {
-      favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
+
+      setSongs(favItem);
     }
   });
 });
@@ -93,4 +98,8 @@ function matchFilter(genre,artist,favItem) {
   (favItem.singer.toLowerCase() === artist && genre.toLowerCase() === all) ||
   (artist.toLowerCase() === all && favItem.genre.toLowerCase() === genre) ||
   (artist.toLowerCase() === all && genre.toLowerCase() === all)
+}
+
+function setSongs(favItem) {
+  favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
 }

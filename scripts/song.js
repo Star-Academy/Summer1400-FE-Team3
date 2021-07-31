@@ -9,7 +9,6 @@ let currentSong = {
   favorite: true
 
 };
-// let likeUnlike = "like";
 const username = "KimiaParmida";
 let likeIcon = document.getElementById("likePic");
 let songName = document.getElementById("songName");
@@ -21,15 +20,20 @@ let image=document.getElementById("songImage");
 let audio=document.getElementById("audio");
 let username_html= document.getElementById("username");
 
-songName.innerHTML = currentSong.name;
-singerName.innerHTML = currentSong.singer;
-album.innerHTML = currentSong.album;
-year.innerHTML = currentSong.year;
-genre.innerHTML = currentSong.genre;
-username_html.innerHTML = username;
-image.setAttribute("src",currentSong.image_source);
-audio.setAttribute("src",currentSong.audio_source);
+createSongInfo();
 createIcon();
+
+function createSongInfo() {
+  songName.innerHTML = currentSong.name;
+  singerName.innerHTML = currentSong.singer;
+  album.innerHTML = currentSong.album;
+  year.innerHTML = currentSong.year;
+  genre.innerHTML = currentSong.genre;
+  username_html.innerHTML = username;
+  image.setAttribute("src",currentSong.image_source);
+  audio.setAttribute("src",currentSong.audio_source);
+}
+
 
 likeIcon.addEventListener("click", changeIcon);
 

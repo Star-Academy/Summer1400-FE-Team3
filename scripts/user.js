@@ -7,6 +7,7 @@ let favArr = ["Always", "Yellow"];
 let username_html= document.getElementById("username");
 
 username_html.innerHTML = username;
+makeList();
 
 function makeList() {
   songArr.forEach((item) => {
@@ -18,4 +19,4 @@ function makeList() {
   });
 }
 
-makeList();
+
