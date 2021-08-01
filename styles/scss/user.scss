@@ -31,6 +31,9 @@ aside {
   a {
     color: $dark-blue;
     text-decoration: none;
+    &:hover {
+      font-weight: bold;
+    }
   }
 }
 

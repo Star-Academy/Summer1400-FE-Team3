@@ -10,6 +10,13 @@ $default-rem:2rem;
   height: 3rem;
   border-radius: 999rem;
   border: 1px solid $light-blue;
+  &:hover {
+    border: 2px solid $light-blue;
+  }
+  &:focus {
+    border: 2px solid $light-blue;
+    border-radius: 1rem;
+  }
 }
 header {
   @include hf.createHeader;
@@ -78,3 +85,5 @@ footer {
 }
 
 @include list.listQuery;
+
+@include hf.responsiveHeader;
