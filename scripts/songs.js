@@ -52,11 +52,11 @@ makeList();
 function setSongs(song) {
   songList.innerHTML += `<div class="card">
                               <a href="Song.html">
-                                <img src=${song.src} alt="Avatar" style="max-width= 10%"/>
+                                <img src=${song.src} alt="Avatar" style="width:100%"/>
                               </a>
                             <div class="container">
                               <h4>
-                                <a href="Song.html"><b>${song.singer}</b></a>
+                                <a href="Song.html"><b>${song.name}</b></a>
                               </h4>
                               <img
                                 src="../assets/images/heart.png"
@@ -65,7 +65,7 @@ function setSongs(song) {
                                 height="27"
                                 alt="Add to favorite"
                               />
-                              <p>${song.name}</p>
+                              <p>${song.singer}</p>
                             </div>
                           </div>`;
 }

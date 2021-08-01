@@ -115,5 +115,14 @@ footer h2, footer p {
     width: 30rem;
   }
 }
+@media screen and (max-width: 450px) {
+  header nav {
+    padding-top: 1.3rem;
+  }
+  header nav li {
+    display: block;
+    margin: 0 0 0 2rem;
+  }
+}
 
 /*# sourceMappingURL=song.css.map */

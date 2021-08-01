@@ -86,12 +86,12 @@ aside a:hover {
 #favorites .card:hover {
   box-shadow: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.2);
 }
-#songs .card img,
-#favorites .card img {
+#songs .card a img,
+#favorites .card a img {
   border-radius: 0.5rem 0.5rem 0 0;
 }
-#songs .card img:hover,
-#favorites .card img:hover {
+#songs .card a img:hover,
+#favorites .card a img:hover {
   cursor: pointer;
 }
 #songs .card .container,
@@ -175,6 +175,19 @@ footer h2, footer p {
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 380px) {
+  #favorites .cards {
+    margin-top: 7rem;
+  }
+
+  #favorites button {
+    float: right;
+  }
+
+  #favorites h2 {
+    display: block;
+  }
+}
 @media screen and (min-width: 600px) {
   #songs .cards, #favorites .cards {
     grid-template-columns: 1fr 1fr 1fr;
@@ -192,6 +205,15 @@ footer h2, footer p {
 @media screen and (min-width: 1000px) {
   #songs .cards, #favorites .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 450px) {
+  header nav {
+    padding-top: 1.3rem;
+  }
+  header nav li {
+    display: block;
+    margin: 0 0 0 2rem;
   }
 }
 

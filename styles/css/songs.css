@@ -123,10 +123,10 @@ main {
 #list .card:hover {
   box-shadow: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.2);
 }
-#list .card img {
+#list .card a img {
   border-radius: 0.5rem 0.5rem 0 0;
 }
-#list .card img:hover {
+#list .card a img:hover {
   cursor: pointer;
 }
 #list .card .container {
@@ -206,6 +206,15 @@ main #searchSection select {
   main #list .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-right: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  header nav {
+    padding-top: 1.3rem;
+  }
+  header nav li {
+    display: block;
+    margin: 0 0 0 2rem;
   }
 }
 
