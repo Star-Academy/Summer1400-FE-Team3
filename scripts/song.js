@@ -44,7 +44,7 @@ function changeIcon() {
   }
   else
   {
-    likeIcon.setAttribute("src", "../assets/images/1200px-Heart_corazón.svg.webp");
+    likeIcon.setAttribute("src", "../assets/images/filled-heart.png");
     currentSong.favorite=true;
   }
 }
@@ -55,6 +55,6 @@ function createIcon() {
   }
   else
   {
-    likeIcon.setAttribute("src", "../assets/images/1200px-Heart_corazón.svg.webp");
+    likeIcon.setAttribute("src", "../assets/images/filled-heart.png");
   }
 }
