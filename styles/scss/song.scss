@@ -25,15 +25,26 @@ main {
 #likePic:hover {
   cursor: pointer;
 }
+#songImage {
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
+  margin-top: 3rem;
+  height: 30rem;
+
+}
+#audio {
+  margin-bottom: 3rem;
+}
 
 #songInfo {
+  height: 30rem;
+  max-width: 30rem;
   background-color: $dark-pink;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
   border-radius: $default-rem;
   padding: $default-rem;
-  margin-top: $default-rem;
-  margin-bottom: $default-rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   color: black;
-  height: 60%;
   display: grid;
   justify-self: center;
   h1 {
@@ -46,6 +57,10 @@ main {
   }
 
 }
+#likePic {
+  margin-bottom: $default-rem;
+
+}
 
 footer {
   @include hf.createFooter;
@@ -56,13 +71,18 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: $default-rem;
+    #likePic {
+      margin-top: 5.3rem;
+    }
   }
 }
 @media only screen and (min-width: 768px) and (max-height: 820px) {
   main {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: $default-rem;
+    display: flex;
+    justify-content: center;
+    #songInfo {
+      width: 30rem;
+    }
   }
 }
 

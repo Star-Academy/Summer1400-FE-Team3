@@ -47,14 +47,26 @@ main {
   cursor: pointer;
 }
 
+#songImage {
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  margin-top: 3rem;
+  height: 30rem;
+}
+
+#audio {
+  margin-bottom: 3rem;
+}
+
 #songInfo {
+  height: 30rem;
+  max-width: 30rem;
   background-color: #ffa0a0;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 2rem;
   padding: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   color: black;
-  height: 60%;
   display: grid;
   justify-self: center;
 }
@@ -65,6 +77,10 @@ main {
 #songInfo p {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+#likePic {
+  margin-bottom: 2rem;
 }
 
 footer {
@@ -86,12 +102,17 @@ footer h2, footer p {
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
   }
+  main #likePic {
+    margin-top: 5.3rem;
+  }
 }
 @media only screen and (min-width: 768px) and (max-height: 820px) {
   main {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  main #songInfo {
+    width: 30rem;
   }
 }
 
