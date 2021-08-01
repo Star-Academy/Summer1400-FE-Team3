@@ -64,17 +64,15 @@ aside {
   }
   button {
     float: left;
-    //margin-right: $default-rem;
-    //margin-top: $default-rem;
     width: 8rem;
     height: 3rem;
     border: none;
     background-color: $dark-blue;
     border-radius: 999rem;
      &:hover {
-       background-color: $darker-pink;
+       background-color: $light-gray;
        a{
-         //color: $dark-blue;
+         color: $dark-blue;
        }
      }
     a {
