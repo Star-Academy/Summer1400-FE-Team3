@@ -1,17 +1,24 @@
 @use "headerFooter" as hf;
+@use "songList" as list;
 @import "colors";
 
 $default-rem: 2rem;
 
 @mixin inputs {
   margin-top: 2rem;
-  width: 15rem;
+  width: 60%;
   height: 3rem;
   border-radius: 999rem;
+  border: 1px solid $light-blue;
 }
 
 header {
   @include hf.createHeader;
+}
+
+main {
+  font-size: 1.3rem;
+
 }
 
 #filter, #searchSection {
@@ -22,10 +29,9 @@ header {
   border-radius: $default-rem;
   input {
     @include inputs;
-    border: 1px solid black;
   }
   button {
-    margin-right: $default-rem;
+    margin-top: 1rem;
     border: none;
     width: 9rem;
     height: 3rem;
@@ -44,6 +50,10 @@ header {
   }
 }
 
+#filter h3 {
+  margin-bottom: $default-rem;
+}
+
 #songerName,
 #genre {
   display: inline;
@@ -52,48 +62,23 @@ header {
   }
 }
 
+
 #list {
+  @include list.createList;
   h1 {
-    color: white;
-    margin-bottom: 3rem;
+    color: black;
+    margin-bottom: $default-rem;
   }
-  background-color: $light-blue;
+  background-color: $lighter-blue;
   margin: $default-rem;
   padding: 4rem;
   border-radius: $default-rem;
-  color: $light-pink;
-  #songList {
-    list-style: none;
-    li {
-      margin-bottom: $default-rem;
-      margin-right: $default-rem;
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 1.5rem;
-        font-weight: bold;
-        &:hover {
-          color: white;
-        }
-      }
-    }
-  }
-}
+  color: black;
 
-main {
-  display: block;
-  padding: $default-rem;
-  font-size: 13px;
 }
 
 footer {
   @include hf.createFooter;
 }
 
-@media only screen and (min-width: 768px) {
-  main {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    padding: $default-rem;
-  }
-}
+@include list.listQuery;

@@ -24,6 +24,10 @@ header li a {
   font-size: 1.3rem;
 }
 
+main {
+  font-size: 1.3rem;
+}
+
 #filter, #searchSection {
   background-color: #ffe3e3;
   margin: 2rem;
@@ -33,13 +37,13 @@ header li a {
 }
 #filter input, #searchSection input {
   margin-top: 2rem;
-  width: 15rem;
+  width: 60%;
   height: 3rem;
   border-radius: 999rem;
-  border: 1px solid black;
+  border: 1px solid #628395;
 }
 #filter button, #searchSection button {
-  margin-right: 2rem;
+  margin-top: 1rem;
   border: none;
   width: 9rem;
   height: 3rem;
@@ -56,6 +60,10 @@ header li a {
   text-decoration: none;
 }
 
+#filter h3 {
+  margin-bottom: 2rem;
+}
+
 #songerName,
 #genre {
   display: inline;
@@ -63,43 +71,66 @@ header li a {
 #songerName select,
 #genre select {
   margin-top: 2rem;
-  width: 15rem;
+  width: 60%;
   height: 3rem;
   border-radius: 999rem;
+  border: 1px solid #628395;
 }
 
 #list {
-  background-color: #628395;
+  background-color: #a7becb;
   margin: 2rem;
   padding: 4rem;
   border-radius: 2rem;
-  color: #ffe3e3;
+  color: black;
+}
+#list .cards {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  padding-top: 4rem;
+  border-top: 1px solid black;
+}
+#list .card {
+  background-color: white;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 0.5rem;
+}
+#list .card:hover {
+  box-shadow: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.2);
+}
+#list .card img {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+#list .card img:hover {
+  cursor: pointer;
+}
+#list .card .container {
+  padding: 0.7rem 1.6rem;
+}
+#list .card .container h4 {
+  display: inline-block;
+}
+#list .card .container h4 a {
+  color: black;
+}
+#list .card .container h4 a:link {
+  text-decoration: none;
+}
+#list .card .container h4 a:hover {
+  cursor: pointer;
+}
+#list .card .container .favorite {
+  float: left;
+}
+#list .card .container .favorite:hover {
+  cursor: pointer;
 }
 #list h1 {
-  color: white;
-  margin-bottom: 3rem;
-}
-#list #songList {
-  list-style: none;
-}
-#list #songList li {
-  margin-bottom: 2rem;
-  margin-right: 2rem;
-}
-#list #songList li a {
-  text-decoration: none;
   color: black;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-#list #songList li a:hover {
-  color: white;
-}
-
-main {
-  display: block;
-  padding: 2rem;
-  font-size: 13px;
+  margin-bottom: 2rem;
 }
 
 footer {
@@ -115,11 +146,44 @@ footer h2, footer p {
   margin-bottom: 2rem;
 }
 
+@media only screen and (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  main #list {
+    margin-right: 0;
+  }
+  main #filter input, main #filter select,
+main #searchSection input,
+main #searchSection select {
+    width: 90%;
+  }
+}
 @media only screen and (min-width: 768px) {
   main {
     display: grid;
-    grid-template-columns: 2fr 2fr;
-    padding: 2rem;
+    grid-template-columns: 1fr 2fr;
+  }
+  main #list {
+    margin-right: 0;
+  }
+  main #list .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-right: 0;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+  main #list {
+    margin-right: 0;
+  }
+  main #list .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-right: 0;
   }
 }
 

@@ -1,13 +1,15 @@
 @use "headerFooter" as hf;
+@use "songList" as list;
 @import "colors";
 
 $default-rem:2rem;
 
 @mixin inputs {
   margin-top: $default-rem;
-  width: 15rem;
+  width: 60%;
   height: 3rem;
   border-radius: 999rem;
+  border: 1px solid $light-blue;
 }
 header {
   @include hf.createHeader;
@@ -21,7 +23,6 @@ header {
   border-radius: $default-rem;
   input {
     @include inputs;
-    border: 1px solid black;
   }
   button {
     margin-right: $default-rem;
@@ -56,49 +57,19 @@ header {
 
 #list {
   h1 {
-    color: white;
-    margin-bottom: 5rem;
+    color: black;
+    margin-bottom: $default-rem;
     font-size: $default-rem;
   }
-  #favList {
-    list-style: none;
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      font-size: 1.5rem;
-      &:hover  {
-        color: white;
-      }
-    }
-    li {
-      height: 7rem;
-    }
-    button {
-      float: left;
-      width: 6rem;
-      height: 3rem;
-      border-radius: 4rem;
-      background-color: $light-gray;
-      border: none;
-      &:hover {
-        cursor: pointer;
-        background-color: $light-pink;
-        font-weight: bold;
-      }
-    }
-
-  }
-  background-color: $light-blue;
+  @include list.createList;
+  background-color: $lighter-blue;
   margin: $default-rem;
   padding: 4rem;
   border-radius: $default-rem;
-  color: $light-pink;
+  color: black;
 }
 
 main {
-  display: block;
-  padding: $default-rem;
   font-size: 13px;
 }
 
@@ -106,10 +77,4 @@ footer {
   @include hf.createFooter;
 }
 
-@media only screen and (min-width: 768px) {
-  main {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    padding: 1rem;
-  }
-}
+@include list.listQuery;

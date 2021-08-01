@@ -1,0 +1,105 @@
+@import "colors";
+$default-rem:2rem;
+
+@mixin createList {
+  .cards {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: $default-rem;
+    padding-top: 4rem;
+    border-top: 1px solid black;
+  }
+  .card {
+    background-color: white;
+    box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 0.5rem;
+
+    &:hover {
+      box-shadow: 0 1.2rem 2.4rem 0 rgba(0,0,0,0.2);
+    }
+    img {
+      border-radius: 0.5rem 0.5rem 0 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .container {
+      padding: 0.7rem 1.6rem;
+      h4 {
+        display: inline-block;
+        a {
+          &:link {
+            text-decoration: none;
+
+          }
+          color: black;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+      }
+      .favorite {
+        float: left;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@mixin listQuery {
+  @media only screen and (min-width: 600px) {
+    main {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      #list {
+        margin-right: 0;
+      }
+      #filter,
+      #searchSection {
+        input, select {
+          width: 90%;
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    main {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      #list {
+        margin-right: 0;
+        .cards {
+          grid-template-columns: 1fr 1fr 1fr;
+          margin-right: 0;
+
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    main {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      #list {
+        margin-right: 0;
+        .cards {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          margin-right: 0;
+
+        }
+      }
+      //#filter,
+      //#searchSection {
+      //  input, select {
+      //    width: 70%;
+      //  }
+      //}
+    }
+  }
+
+}
