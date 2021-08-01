@@ -23,6 +23,8 @@ header {
 }
 #filter,
 #searchSection {
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
+
   background-color: $light-pink;
   margin: $default-rem;
   padding: $default-rem;
@@ -70,6 +72,7 @@ header {
   }
   @include list.createList;
   background-color: $lighter-blue;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
   margin: $default-rem;
   padding: 4rem;
   border-radius: $default-rem;

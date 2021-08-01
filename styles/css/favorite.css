@@ -30,6 +30,7 @@ header li a:hover {
 
 #filter,
 #searchSection {
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   background-color: #ffe3e3;
   margin: 2rem;
   padding: 2rem;
@@ -102,6 +103,7 @@ header li a:hover {
 
 #list {
   background-color: #a7becb;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   margin: 2rem;
   padding: 4rem;
   border-radius: 2rem;
