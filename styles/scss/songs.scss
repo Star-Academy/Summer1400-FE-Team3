@@ -17,9 +17,13 @@ header {
     display: inline;
     margin: 3rem;
     color: $darker-pink;
+    font-size: 1.3rem;
+
     a {
       color: $darker-pink;
       text-decoration: none;
+      font-size: 1.3rem;
+
     }
   }
 }
@@ -36,14 +40,14 @@ header {
   button {
     margin-right: 2rem;
     border: none;
-    width: 8rem;
+    width: 9rem;
     height: 3rem;
-    border-radius: 1rem;
+    border-radius: 4rem;
     background-color: $light-blue;
     color: white;
     &:hover {
       cursor: pointer;
-      background: $darker-pink;
+      background: $dark-blue;
     }
 
     a {
@@ -60,19 +64,32 @@ header {
 
 #list {
   h1 {
-    color: $dark-blue;
-    margin-bottom: 2rem;
+    color: white;
+    margin-bottom: 3rem;
   }
   background-color: $light-blue;
   margin: 2rem;
-  padding: 2rem;
-
+  padding: 4rem;
   border-radius: 2rem;
   color: $light-pink;
-  a {
-    text-decoration: none;
-    color: $light-pink;
+  #songList {
+    list-style: none;
+    li {
+      margin-bottom: 2rem;
+      margin-right: 2rem;
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+        font-weight: bold;
+        &:hover {
+          color: white;
+        }
+      }
+    }
   }
+
+
 }
 
 main {
@@ -84,7 +101,7 @@ main {
 footer {
   font-size: 12px;
   background-color: $dark-blue;
-  padding: 2rem;
+  padding: 4rem;
   height: min-content;
   color: white;
   text-align: center;

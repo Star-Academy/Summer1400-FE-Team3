@@ -6,9 +6,9 @@
       name="viewport"
       content="width-device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <link rel="stylesheet" href="../styles/css/main.css">
+    <link rel="stylesheet" href="../styles/css/main.css" />
     <link rel="stylesheet" href="../styles/css/favorite.css" />
-
+    <script src="../scripts/favorite.js" defer></script>
     <title>Favorite Songs</title>
   </head>
   <body>
@@ -16,7 +16,7 @@
       <img src="../assets/images/spotify.png" alt="" />
       <nav>
         <ul>
-          <li><b>نام کاربری: </b> ParmidaKimia</li>
+          <li><b>نام کاربری:  <span id="username"></span> </b></li>
           <li>
             <a href="index.html"> <b>خروج</b></a>
           </li>
@@ -31,25 +31,25 @@
           <div id="songerName">
             <label for="artist">نام خواننده:</label><br />
             <select name="artist" id="artist">
-              <option value="adel">adel</option>
+              <!-- <option value="adel">adel</option>
               <option value="samSmith">sam smith</option>
               <option value="weekend">the weekend</option>
-              <option value="danielson">isak danielson</option>
+              <option value="danielson">isak danielson</option> -->
             </select>
           </div>
           <br /><br />
           <div id="genre">
             <label for="genre">سبک موسیقی:</label> <br />
-            <select name="Genre" id="genre">
-              <option value="pop">pop</option>
+            <select name="Genre" id="genreSelect">
+              <!-- <option value="pop">pop</option>
               <option value="rock">rock</option>
               <option value="jazz">jazz</option>
-              <option value="country">country</option>
+              <option value="country">country</option> -->
             </select>
           </div>
           <br />
           <br />
-          <button>مشاهده نتایج</button><br /><br />
+          <button id="filterButton">مشاهده نتایج</button><br /><br />
         </section>
 
         <section id="searchSection">
@@ -57,18 +57,18 @@
           <input type="search" id="search" />
           <br />
           <br />
-          <button>مشاهده نتایج</button>
+          <button id="searchButton">مشاهده نتایج</button>
         </section>
       </section>
 
       <section>
         <section id="list">
           <h1>آهنگ های مورد علاقه</h1>
-          
-            <li><a href="Song.html">Diamonds</a> <button>حذف</button></li>
+          <ul id="favList">
+            <!-- <li><a href="Song.html">Diamonds</a> <button>حذف</button></li>
             <li><a href="">Always</a> <button>حذف</button></li>
-            <li><a href="">Stone by Stone</a> <button>حذف</button></li>
-          
+            <li><a href="">Stone by Stone</a> <button>حذف</button></li> -->
+          </ul>
         </section>
       </section>
     </main>

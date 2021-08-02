@@ -17,9 +17,13 @@ header {
     display: inline;
     margin: 3rem;
     color: $darker-pink;
+    font-size: 1.3rem;
+
     a {
       color: $darker-pink;
       text-decoration: none;
+      font-size: 1.3rem;
+
     }
   }
 }
@@ -54,18 +58,19 @@ aside {
 #songs,
 #favorites {
   h2 {
-    color: $dark-blue;
+    color: white;
     margin-bottom: 2rem;
   }
   background-color: $light-blue;
   margin: 2rem;
-  padding: 2rem;
+  padding: 4rem;
   
   border-radius: 2rem;
-  color: $light-pink;
   a {
-    color: $light-pink;
+    color: black;
+    font-weight: bold;
     text-decoration: none;
+    font-size: 1.4rem;
     &:hover {
       color: white;
     }
@@ -94,7 +99,7 @@ footer {
   font-size: 12px;
   background-color: $dark-blue;
   margin: auto;
-  padding: 2rem;
+  padding: 4rem;
   height: min-content;
   color: white;
   text-align: center;

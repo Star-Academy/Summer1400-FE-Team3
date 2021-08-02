@@ -16,10 +16,12 @@ header li {
   display: inline;
   margin: 3rem;
   color: #da5656;
+  font-size: 1.3rem;
 }
 header li a {
   color: #da5656;
   text-decoration: none;
+  font-size: 1.3rem;
 }
 
 #content {
@@ -53,19 +55,20 @@ aside a {
 #favorites {
   background-color: #628395;
   margin: 2rem;
-  padding: 2rem;
+  padding: 4rem;
   border-radius: 2rem;
-  color: #ffe3e3;
 }
 #songs h2,
 #favorites h2 {
-  color: #262a53;
+  color: white;
   margin-bottom: 2rem;
 }
 #songs a,
 #favorites a {
-  color: #ffe3e3;
+  color: black;
+  font-weight: bold;
   text-decoration: none;
+  font-size: 1.4rem;
 }
 #songs a:hover,
 #favorites a:hover {
@@ -97,7 +100,7 @@ footer {
   font-size: 12px;
   background-color: #262a53;
   margin: auto;
-  padding: 2rem;
+  padding: 4rem;
   height: min-content;
   color: white;
   text-align: center;
