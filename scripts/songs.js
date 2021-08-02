@@ -1,3 +1,4 @@
+import {addCard,findIndex} from './methods.js';
 const songArr = [
   {
     name: "Always",
@@ -73,22 +74,12 @@ function likeUnlike() {
   for (const like of likeIcons) {
     like.addEventListener("click", () => {
       const id = like.getAttribute("id");
-      const index = findIndex(parseInt(id));
+      const index = findIndex(parseInt(id),songArr);
       songArr[index].favorite = !songArr[index].favorite;
       like.setAttribute("src",heartIconSrc(songArr[index]));
 
     });
   }
-}
-
-function findIndex(id) {
-  let index=-1;
-  songArr.forEach((song, songIndex) => {
-    if (song.id === id) {
-      index= songIndex;
-    }
-  });
-  return index;
 }
 
 function setSongs(song) {
@@ -101,28 +92,6 @@ function heartIconSrc(song) {
     return  "../assets/images/heart.png";
 
   return  "../assets/images/filled-heart.png";
-}
-
-function addCard(likeIconSrc,song) {
-  return `<div class="card">
-                              <a href="Song.html">
-                                  <img src=${song.src} alt="Avatar" style="width:100%"/>
-                              </a>
-                              <div class="container">
-                                <h4>
-                                 <a href="Song.html"><b>${song.name}</b></a>
-                                </h4>
-                              <img
-                                src=${likeIconSrc}
-                                id="${song.id}"
-                                class="favorite"
-                                width="30"
-                                height="27"
-                                alt="Add to favorite"
-                                />
-                              <p>${song.singer}</p>
-                            </div>
-                          </div>`;
 }
 
 searchButton.addEventListener("click", () => {

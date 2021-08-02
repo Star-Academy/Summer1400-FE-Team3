@@ -1,3 +1,4 @@
+import {addCard,findIndex} from './methods.js';
 const favArr = [
   {
     name: "Always",
@@ -76,29 +77,7 @@ function makeList() {
 }
 
 function setSongs(favItem) {
-  favList.innerHTML += addCard(favItem);
-}
-
-function addCard(favItem) {
-  return `<div class="card">
-                              <a href="Song.html">
-                                <img src=${favItem.src} alt="Avatar" style="width:100%"/>
-                              </a>
-                            <div class="container">
-                              <h4>
-                                <a href="Song.html"><b>${favItem.name}</b></a>
-                              </h4>
-                              <img
-                                src="../assets/images/filled-heart.png"
-                                id="${favItem.id}"
-                                class="favorite"
-                                width="30"
-                                height="27"
-                                alt="Add to favorite"
-                              />
-                              <p>${favItem.singer}</p>
-                            </div>
-                          </div>`;
+  favList.innerHTML += addCard("../assets/images/filled-heart.png",favItem);
 }
 
 function removeFromList() {
@@ -106,7 +85,7 @@ function removeFromList() {
     like.addEventListener("click", () => {
       const id = like.getAttribute("id");
       favList.innerHTML = "";
-      const index = findIndex(parseInt(id));
+      const index = findIndex(parseInt(id),favArr);
       favArr.splice(index, 1);
       makeList();
     });
@@ -119,14 +98,6 @@ function createSelectBoxes() {
   });
   genreArr.forEach((genre) => {
     genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
-  });
-}
-
-function findIndex(id) {
-  favArr.forEach((song, songIndex) => {
-    if (song.id === id) {
-      return songIndex;
-    }
   });
 }
 
@@ -143,7 +114,6 @@ searchButton.addEventListener("click", () => {
 filterButton.addEventListener("click", () => {
   const artist = artistSelect.value.toLowerCase();
   const genre = genreSelect.value.toLowerCase();
-
   favList.innerHTML = "";
   favArr.forEach((favItem) => {
     if (matchFilter(genre, artist, favItem)) {
