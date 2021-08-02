@@ -5,6 +5,7 @@ const songArr = [
     singer: "isak",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: false,
+    id: 1
   },
   {
     name: "Hello",
@@ -12,6 +13,7 @@ const songArr = [
     singer: "adel",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
+    id: 2
   },
   {
     name: "blinding lights",
@@ -19,6 +21,7 @@ const songArr = [
     singer: "the weekend",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
+    id: 3
   },
   {
     name: "ocean eyes",
@@ -26,6 +29,7 @@ const songArr = [
     singer: "billie",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: false,
+    id: 4
   },
   {
     name: "Diamonds",
@@ -33,6 +37,7 @@ const songArr = [
     singer: "sam smith",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
+    id: 5
   },
   {
     name: "bad",
@@ -40,6 +45,7 @@ const songArr = [
     singer: "james",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
+    id: 6
   },
 ];
 const username = "KimiaParmida";
@@ -51,6 +57,7 @@ const genreSelect = document.getElementById("genreSelect");
 const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
+const likeIcons = document.getElementsByClassName("favorite");
 
 username_html.innerHTML = username;
 makeList();
@@ -59,6 +66,29 @@ function makeList() {
   songArr.forEach((song) => {
     setSongs(song);
   });
+  likeUnlike();
+}
+
+function likeUnlike() {
+  for (const like of likeIcons) {
+    like.addEventListener("click", () => {
+      const id = like.getAttribute("id");
+      const index = findIndex(parseInt(id));
+      songArr[index].favorite = !songArr[index].favorite;
+      like.setAttribute("src",heartIconSrc(songArr[index]));
+
+    });
+  }
+}
+
+function findIndex(id) {
+  let index=-1;
+  songArr.forEach((song, songIndex) => {
+    if (song.id === id) {
+      index= songIndex;
+    }
+  });
+  return index;
 }
 
 function setSongs(song) {
@@ -84,6 +114,7 @@ function addCard(likeIconSrc,song) {
                                 </h4>
                               <img
                                 src=${likeIconSrc}
+                                id="${song.id}"
                                 class="favorite"
                                 width="30"
                                 height="27"

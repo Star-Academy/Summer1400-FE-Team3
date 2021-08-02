@@ -1,39 +1,46 @@
-let favArr = [
+const favArr = [
   {
     name: "Always",
     genre: "metal",
     singer: "isak",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    id:1
   },
   {
     name: "Hello",
     genre: "pop",
     singer: "adel",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    id:2
   },
   {
     name: "blinding lights",
     genre: "rock",
     singer: "the weekend",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    id:3
+
   },
   {
     name: "ocean eyes",
     genre: "rap",
     singer: "billie",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    id:4
   },
   {
     name: "Diamonds",
     genre: "pop",
     singer: "sam smith",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    id:5
   },
   {
     name: "bad",
     genre: "country",
     singer: "james",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    id:6
   },
 ];
 const all = "all";
@@ -48,7 +55,6 @@ const artistArr = [
 ];
 const genreArr = [all, "pop", "rock", "metal", "rap", "country"];
 const username = "KimiaParmida";
-
 const username_html = document.getElementById("username");
 const favList = document.getElementById("favCards");
 const artistSelect = document.getElementById("artist");
@@ -56,7 +62,7 @@ const genreSelect = document.getElementById("genreSelect");
 const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
-const removeButtons = document.getElementsByClassName("remove");
+const likeIcons = document.getElementsByClassName("favorite");
 
 username_html.innerHTML = username;
 makeList();
@@ -84,6 +90,7 @@ function addCard(favItem) {
                               </h4>
                               <img
                                 src="../assets/images/filled-heart.png"
+                                id="${favItem.id}"
                                 class="favorite"
                                 width="30"
                                 height="27"
@@ -95,11 +102,11 @@ function addCard(favItem) {
 }
 
 function removeFromList() {
-  for (let button of removeButtons) {
-    button.addEventListener("click", () => {
-      let name = button.getAttribute("name");
+  for (const like of likeIcons) {
+    like.addEventListener("click", () => {
+      const id = like.getAttribute("id");
       favList.innerHTML = "";
-      let index = findIndex(name);
+      const index = findIndex(parseInt(id));
       favArr.splice(index, 1);
       makeList();
     });
@@ -115,14 +122,12 @@ function createSelectBoxes() {
   });
 }
 
-function findIndex(name) {
-  let index = -1;
+function findIndex(id) {
   favArr.forEach((song, songIndex) => {
-    if (song.name === name) {
-      index = songIndex;
+    if (song.id === id) {
+      return songIndex;
     }
   });
-  return index;
 }
 
 searchButton.addEventListener("click", () => {

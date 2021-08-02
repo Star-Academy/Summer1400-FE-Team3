@@ -31,7 +31,7 @@ const songArr = [
   },
 ];
 
-let favArr = [
+const favArr = [
   {
     name: "Always",
     genre: "metal",
@@ -54,10 +54,10 @@ let favArr = [
     favorite: true,
   },
 ];
-
 const username_html = document.getElementById("username");
 const songList = document.getElementById("songCards");
 const favList = document.getElementById("favCards");
+const likeIcons = document.getElementsByClassName("favorite");
 
 username_html.innerHTML = username;
 makeList();
@@ -65,7 +65,19 @@ makeList();
 function makeList() {
   songArr.forEach((song) => createSongList(song));
   favArr.forEach((favItem) => createFavList(favItem));
+  // likeUnlike();
 }
+// function likeUnlike() {
+//   for (const like of likeIcons) {
+//     like.addEventListener("click", () => {
+//       const id = like.getAttribute("id");
+//       const index = findIndex(parseInt(id));
+//       songArr[index].favorite = !songArr[index].favorite;
+//       like.setAttribute("src",heartIconSrc(songArr[index]));
+//     });
+//   }
+// }
+
 
 function createSongList(song) {
   const likeIconSrc=heartIconSrc(song);
@@ -83,6 +95,7 @@ function addCard(likeIconSrc,song) {
                                 </h4>
                               <img
                                 src=${likeIconSrc}
+                                id="${song.id}"  
                                 class="favorite"
                                 width="30"
                                 height="27"
