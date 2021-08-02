@@ -1,0 +1,90 @@
+header {
+  font-size: 12px;
+  background-color: #f3f3f3;
+  width: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+header nav {
+  padding: 1.3rem;
+}
+header img {
+  margin-right: 2rem;
+}
+header li {
+  display: inline;
+  margin: 3rem;
+  color: #da5656;
+}
+header li a {
+  color: #da5656;
+  text-decoration: none;
+}
+
+main {
+  display: block;
+  padding: 2rem;
+  font-size: 13px;
+}
+
+#songImage,
+#audio,
+#songInfo,
+#likePic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#likePic:hover {
+  cursor: pointer;
+}
+
+#songInfo {
+  background-color: #ffa0a0;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #262a53;
+  height: 60%;
+  display: grid;
+  justify-self: center;
+}
+
+footer {
+  font-size: 12px;
+  background-color: #262a53;
+  padding: 2rem;
+  height: min-content;
+  color: white;
+  text-align: center;
+}
+footer h2, footer p {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+  }
+
+  #songInfo,
+#likePic {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 2rem;
+  }
+}
+
+/*# sourceMappingURL=song.css.map */

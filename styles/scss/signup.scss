@@ -1,0 +1,97 @@
+@use "./formTemplate" as f;
+@import "./colors";
+
+header {
+  @include f.createNav;
+}
+
+main {
+  @include f.centering;
+
+  .form {
+    @include f.createForm;
+
+    form {
+      p {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-left: 2rem;
+        color: $dark-blue;
+      }
+
+      .inputbox {
+        height: 4.5rem;
+
+        label {
+          font-weight: bold;
+          font-size: 1.3rem;
+          margin-left: 2rem;
+          color: $dark-blue;
+          float: right;
+        }
+
+        input {
+          @include f.createInputBoxes;
+          width: 70%;
+          float: left;
+        }
+      }
+
+      .options {
+        label {
+          margin-left: 2rem;
+        }
+        #marketing + label, input[type="radio"] + label {
+          font-size: 1.2rem;
+        }
+        #marketing:checked + label, input[type="radio"]:checked + label {
+          font-weight: bold;
+          color: $dark-blue;
+        }
+      }
+
+      > div:last-of-type {
+        @include f.centering;
+        button {
+          background-color: $light-blue;
+          color: white;
+          width: 15rem;
+          height: 4rem;
+          border-radius: 999rem;
+          border: none;
+          transition-property: width;
+          transition-duration: 500ms;
+          transition-timing-function: linear;
+
+          &:hover {
+            background-color: $dark-blue;
+            font-weight: bold;
+            width: 25rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    div:last-of-type {
+      font-size: 1.2rem;
+      a {
+        color: $dark-blue;
+        margin-right: 1rem;
+        font-size: 1.5rem;
+
+        &:hover {
+          color: $light-blue;
+        }
+      }
+    }
+
+
+  }
+}
+@media screen and (max-width: 410px){
+  main .form form .inputbox input {
+    width: 50%;
+  }
+}

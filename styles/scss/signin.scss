@@ -1,0 +1,97 @@
+@use "./formTemplate" as f;
+@import "./colors";
+
+$input-height: 4rem;
+
+header {
+  @include f.createNav;
+}
+
+main {
+  @include f.centering;
+  .form {
+    @include f.createForm;
+    form {
+      .inputbox {
+        input {
+          @include f.createInputBoxes;
+          width: 100%;
+          height: $input-height;
+
+        }
+        label{
+          display: block;
+          font-size: 1.2rem;
+          color: $dark-blue;
+        }
+      }
+
+      #forget {
+        display: block;
+        font-size: 1.1rem;
+        color: $light-blue;
+        &:link {
+          text-decoration: none;
+        }
+        &:hover {
+          color: $dark-blue;
+        }
+      }
+
+      #remember + label {
+        color: $dark-blue;
+        font-size: 1.1rem;
+        margin-left: 2rem;
+      }
+      #remember:checked + label {
+        font-weight: bold;
+      }
+      button {
+        border: none;
+        border-radius: 999rem;
+        height: $input-height;;
+        min-width: 19rem;
+        background-color: $dark-pink;
+
+        a {
+          color: $dark-blue;
+          text-decoration: none;
+          font-size: 1.5rem;
+        }
+        &:hover {
+          background-color: $light-pink;
+          cursor: pointer;
+
+          a{
+            color: $darker-pink;
+          }
+        }
+      }
+
+    }
+    h4 {
+      color: $dark-blue;
+    }
+    > button {
+      width: 100%;
+      border-radius: 999rem;
+      height: $input-height;;
+      background: none;
+      border: 2px solid $light-blue;
+      a {
+        text-decoration: none;
+        color: $light-blue;
+        font-weight: bold;
+        font-size: 1.3rem;
+
+      }
+      &:hover {
+        background-color: $light-blue;
+        cursor: pointer;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}

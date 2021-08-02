@@ -1,0 +1,139 @@
+@import "colors";
+
+header {
+  background-color: $light-gray;
+  height: 10rem;
+  nav {
+
+    img {  
+      margin-right: 2rem;
+      margin-top: 1.7rem;
+      float: right;
+    }
+    span {
+      margin-top: 3.5rem;
+      margin-right: 1rem;
+      font-size: 2rem;
+      color: $darker-pink;
+      font-weight: bold;
+      float: right;
+    }
+    button {
+      float: left;
+      margin: 2.5rem 0 0 2rem;
+      height: 5rem;
+      width: 10rem;
+      border-radius: 999rem;
+      &:first-of-type {
+        background-color: $dark-pink;
+        border: none;
+        &:hover {
+          background-color: $darker-pink;
+          cursor: pointer;
+
+          a{
+            color: white;
+          }
+        }
+        a {
+          color: $dark-blue;
+          font-size: 1.7rem;
+          &:link {
+            text-decoration: none;
+          }
+        }
+      }
+      &:last-of-type {
+        border: 0.2rem solid $darker-pink;
+        &:hover {
+          border-color: $dark-pink;
+          cursor: pointer;
+        }
+        a {
+          color: $darker-pink;
+          font-size: 1.7rem;
+          &:link {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+main {
+  img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: block;
+  }
+}
+
+footer {
+  background-color: $dark-blue;
+  height: 30rem;
+  padding: 4rem;
+  * {
+    color: $light-pink;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom:2rem;
+    font-size: 2rem;
+  }
+   p {
+    text-align: center;
+    margin-bottom:2rem;
+    font-size: 1.2rem;
+  }
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top:2rem;
+    img {
+      margin-left: 1rem;
+    }
+    figcaption {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 490px){
+    header  {
+      height: 20rem;
+      nav {
+        div {
+          display: block;
+        }
+
+        button {
+          clear: right;
+        }
+      }
+    }
+  main {
+    img {
+      height: 40vh;
+    }
+  }
+}
+@media screen and (min-height: 720px ) and (min-width: 490px) {
+  header {
+    height: 20rem;
+    padding: 5rem;
+  }
+  main {
+    img {
+      height: 60vh;
+    }
+  }
+  footer {
+    height: 35rem;
+    padding-top: 7rem;
+  }
+}

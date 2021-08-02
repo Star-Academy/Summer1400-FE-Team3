@@ -1,0 +1,90 @@
+@use "colors.scss" as *;
+
+header {
+  nav {
+    padding: 1.3rem;
+  }
+  font-size: 12px;
+  background-color: $light-gray;
+  width: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  img {
+    margin-right: 2rem;
+  }
+  li {
+    display: inline;
+    margin: 3rem;
+    color: $darker-pink;
+    a {
+      color: $darker-pink;
+      text-decoration: none;
+    }
+  }
+}
+
+main {
+  display: block;
+  padding: 2rem;
+  font-size: 13px;
+}
+
+#songImage,
+#audio,
+#songInfo,
+#likePic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#likePic:hover {
+  cursor: pointer;
+}
+
+#songInfo {
+  background-color: $dark-pink;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: $dark-blue;
+  height: 60%;
+  display: grid;
+  justify-self: center;
+}
+
+footer {
+  font-size: 12px;
+  background-color: $dark-blue;
+  padding: 2rem;
+  height: min-content;
+  color: white;
+  text-align: center;
+  h2, p {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+  }
+
+  #songInfo,
+  #likePic {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 2rem;
+  }
+}
