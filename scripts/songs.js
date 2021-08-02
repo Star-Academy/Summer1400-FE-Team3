@@ -44,13 +44,13 @@ const songArr = [
 ];
 const username = "KimiaParmida";
 
-let songList = document.getElementById("songCards");
-let username_html = document.getElementById("username");
-let artistSelect = document.getElementById("artist");
-let genreSelect = document.getElementById("genreSelect");
-let filterButton = document.getElementById("filterButton");
-let searchButton = document.getElementById("searchButton");
-let searchInput = document.getElementById("search");
+const songList = document.getElementById("songCards");
+const username_html = document.getElementById("username");
+const artistSelect = document.getElementById("artist");
+const genreSelect = document.getElementById("genreSelect");
+const filterButton = document.getElementById("filterButton");
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("search");
 
 username_html.innerHTML = username;
 makeList();
@@ -62,28 +62,33 @@ function makeList() {
 }
 
 function setSongs(song) {
-  let likeIconSrc;
-  if (!song.favorite) {
-    likeIconSrc = "../assets/images/heart.png";
-  } else {
-    likeIconSrc = "../assets/images/filled-heart.png";
-  }
+  const likeIconSrc= heartIconSrc(song);
+  songList.innerHTML += addCard(likeIconSrc,song);
+}
 
-  songList.innerHTML += `<div class="card">
+function heartIconSrc(song) {
+  if (!song.favorite)
+    return  "../assets/images/heart.png";
+
+  return  "../assets/images/filled-heart.png";
+}
+
+function addCard(likeIconSrc,song) {
+  return `<div class="card">
                               <a href="Song.html">
-                                <img src=${song.src} alt="Avatar" style="width:100%"/>
+                                  <img src=${song.src} alt="Avatar" style="width:100%"/>
                               </a>
-                            <div class="container">
-                              <h4>
-                                <a href="Song.html"><b>${song.name}</b></a>
-                              </h4>
+                              <div class="container">
+                                <h4>
+                                 <a href="Song.html"><b>${song.name}</b></a>
+                                </h4>
                               <img
                                 src=${likeIconSrc}
                                 class="favorite"
                                 width="30"
                                 height="27"
                                 alt="Add to favorite"
-                              />
+                                />
                               <p>${song.singer}</p>
                             </div>
                           </div>`;
@@ -102,7 +107,6 @@ searchButton.addEventListener("click", () => {
 filterButton.addEventListener("click", () => {
   const artist = artistSelect.value.toLowerCase();
   const genre = genreSelect.value.toLowerCase();
-
   songList.innerHTML = "";
   songArr.forEach((song) => {
     if (

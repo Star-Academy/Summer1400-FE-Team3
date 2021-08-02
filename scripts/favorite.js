@@ -49,14 +49,14 @@ const artistArr = [
 const genreArr = [all, "pop", "rock", "metal", "rap", "country"];
 const username = "KimiaParmida";
 
-let username_html = document.getElementById("username");
-let favList = document.getElementById("favCards");
-let artistSelect = document.getElementById("artist");
-let genreSelect = document.getElementById("genreSelect");
-let filterButton = document.getElementById("filterButton");
-let searchButton = document.getElementById("searchButton");
-let searchInput = document.getElementById("search");
-let removeButtons = document.getElementsByClassName("remove");
+const username_html = document.getElementById("username");
+const favList = document.getElementById("favCards");
+const artistSelect = document.getElementById("artist");
+const genreSelect = document.getElementById("genreSelect");
+const filterButton = document.getElementById("filterButton");
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("search");
+const removeButtons = document.getElementsByClassName("remove");
 
 username_html.innerHTML = username;
 makeList();
@@ -70,7 +70,11 @@ function makeList() {
 }
 
 function setSongs(favItem) {
-  favList.innerHTML += `<div class="card">
+  favList.innerHTML += addCard(favItem);
+}
+
+function addCard(favItem) {
+  return `<div class="card">
                               <a href="Song.html">
                                 <img src=${favItem.src} alt="Avatar" style="width:100%"/>
                               </a>
