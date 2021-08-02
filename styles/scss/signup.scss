@@ -1,5 +1,5 @@
 @use "./formTemplate" as f;
-@import "./colors";
+@use "./colors";
 
 $default-rem:2rem;
 
@@ -19,7 +19,7 @@ main {
         font-weight: bold;
         font-size: 1.3rem;
         margin-left: $default-rem;
-        color: $dark-blue;
+        color: colors.$dark-blue;
       }
 
       .inputbox {
@@ -29,7 +29,7 @@ main {
           font-weight: bold;
           font-size: 1.3rem;
           margin-left: $default-rem;
-          color: $dark-blue;
+          color: colors.$dark-blue;
           float: right;
         }
 
@@ -49,14 +49,14 @@ main {
         }
         #marketing:checked + label, input[type="radio"]:checked + label {
           font-weight: bold;
-          color: $dark-blue;
+          color: colors.$dark-blue;
         }
       }
 
       > div:last-of-type {
         @include f.centering;
         button {
-          background-color: $light-blue;
+          background-color: colors.$light-blue;
           color: white;
           width: 15rem;
           height: 4rem;
@@ -67,7 +67,7 @@ main {
           transition-timing-function: linear;
 
           &:hover {
-            background-color: $dark-blue;
+            background-color: colors.$dark-blue;
             font-weight: bold;
             width: 25rem;
             cursor: pointer;
@@ -79,12 +79,12 @@ main {
     div:last-of-type {
       font-size: 1.2rem;
       a {
-        color: $dark-blue;
+        color: colors.$dark-blue;
         margin-right: 1rem;
         font-size: 1.5rem;
 
         &:hover {
-          color: $light-blue;
+          color: colors.$light-blue;
         }
       }
     }

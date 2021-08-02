@@ -1,5 +1,5 @@
 @use "headerFooter" as hf;
-@import "colors";
+@use "colors";
 $default-rem: 2rem;
 
 header {
@@ -38,7 +38,7 @@ main {
 #songInfo {
   height: 30rem;
   max-width: 30rem;
-  background-color: $dark-pink;
+  background-color: colors.$dark-pink;
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
   border-radius: $default-rem;
   padding: $default-rem;

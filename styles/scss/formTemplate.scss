@@ -2,19 +2,19 @@
   display: flex;
   justify-content: center;
 }
-@import "./colors";
+@use "./colors";
 
 $default-rem:2rem;
 
 @mixin createNav {
-  background-color: $light-gray;
+  background-color: colors.$light-gray;
   height: 10rem;
   nav {
     height: 100%;
     width: 100%;
 
     img {
-      margin-right: $default-rem;
+      margin-right: colors.$default-rem;
       margin-top: 1.7rem;
       float: right;
     }
@@ -23,13 +23,13 @@ $default-rem:2rem;
       margin-top: 3.5rem;
       margin-right: 1rem;
       font-size: $default-rem;
-      color: $darker-pink;
+      color: colors.$darker-pink;
       font-weight: bold;
       float: right;
     }
 
     #home {
-      color: $dark-blue;
+      color: colors.$dark-blue;
       margin-top: 3.5rem;
       margin-left: $default-rem;
       float: left;
@@ -40,7 +40,7 @@ $default-rem:2rem;
       }
 
       &:hover {
-        color: $light-blue;
+        color: colors.$light-blue;
         font-weight: bold;
       }
     }
@@ -51,7 +51,7 @@ $default-rem:2rem;
   border-radius: $default-rem;
   margin: 5rem 0;
   max-width: 85%;
-  box-shadow: 0 0 $default-rem $light-gray;
+  box-shadow: 0 0 $default-rem colors.$light-gray;
   padding: 4rem;
   * {
     margin-bottom: 1.5rem;
@@ -60,22 +60,22 @@ $default-rem:2rem;
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 5rem;
-    color: $dark-blue;
+    color: colors.$dark-blue;
   }
 }
 
 @mixin createInputBoxes {
   border-radius: 999rem;
-  border: 1px solid $dark-blue;
+  border: 1px solid colors.$dark-blue;
   height: 3.5rem;
   padding: $default-rem;
 
   &:hover {
-    border: 0.2rem solid $dark-pink;
+    border: 0.2rem solid colors.$dark-pink;
   }
 
   &:focus {
-    border: 0.2rem solid $darker-pink;
+    border: 0.2rem solid colors.$darker-pink;
     border-radius: 0.5rem;
     outline: none;
   }

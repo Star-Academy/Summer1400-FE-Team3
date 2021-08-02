@@ -1,9 +1,9 @@
-@import "colors";
+@use "colors";
 
 $default-rem:2rem;
 
 header {
-  background-color: $light-gray;
+  background-color: colors.$light-gray;
   height: 10rem;
   nav {
     img {
@@ -15,7 +15,7 @@ header {
       margin-top: 3.5rem;
       margin-right: 1rem;
       font-size: $default-rem;
-      color: $darker-pink;
+      color: colors.$darker-pink;
       font-weight: bold;
       float: right;
     }
@@ -26,10 +26,10 @@ header {
       width: 10rem;
       border-radius: 999rem;
       &:first-of-type {
-        background-color: $dark-pink;
+        background-color: colors.$dark-pink;
         border: none;
         &:hover {
-          background-color: $darker-pink;
+          background-color: colors.$darker-pink;
           cursor: pointer;
 
           a {
@@ -37,7 +37,7 @@ header {
           }
         }
         a {
-          color: $dark-blue;
+          color: colors.$dark-blue;
           font-size: 1.7rem;
           &:link {
             text-decoration: none;
@@ -45,13 +45,13 @@ header {
         }
       }
       &:last-of-type {
-        border: 0.2rem solid $darker-pink;
+        border: 0.2rem solid colors.$darker-pink;
         &:hover {
-          border-color: $dark-pink;
+          border-color: colors.$dark-pink;
           cursor: pointer;
         }
         a {
-          color: $darker-pink;
+          color: colors.$darker-pink;
           font-size: 1.7rem;
           &:link {
             text-decoration: none;
@@ -72,7 +72,7 @@ main {
 }
 
 footer {
-  background-color: $dark-blue;
+  background-color: colors.$dark-blue;
   height: 30rem;
   padding: 4rem;
   * {

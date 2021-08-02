@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 
 $default-rem:2rem;
 
@@ -9,7 +9,7 @@ $default-rem:2rem;
     float: left;
   }
   font-size: 12px;
-  background-color: $light-gray;
+  background-color: colors.$light-gray;
   width: auto;
   padding: 1rem;
   //display: grid;
@@ -20,16 +20,16 @@ $default-rem:2rem;
   li {
     display: inline;
     margin: $default-rem;
-    color: $darker-pink;
+    color: colors.$darker-pink;
     font-size: 1.5rem;
 
     a {
-      color: $darker-pink;
+      color: colors.$darker-pink;
       text-decoration: none;
       font-size: 1.5rem;
       margin-left: 3rem;
       &:hover{
-        color: $dark-blue;
+        color: colors.$dark-blue;
       }
 
     }
@@ -38,7 +38,7 @@ $default-rem:2rem;
 
 @mixin createFooter {
   font-size: 12px;
-  background-color: $dark-blue;
+  background-color: colors.$dark-blue;
   margin: auto;
   padding: 4rem;
   height: min-content;

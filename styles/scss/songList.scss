@@ -1,4 +1,4 @@
-@import "colors";
+@use "colors";
 $default-rem:2rem;
 
 @mixin createList {
@@ -93,12 +93,6 @@ $default-rem:2rem;
 
         }
       }
-      //#filter,
-      //#searchSection {
-      //  input, select {
-      //    width: 70%;
-      //  }
-      //}
     }
   }
 

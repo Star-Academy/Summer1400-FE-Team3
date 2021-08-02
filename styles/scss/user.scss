@@ -1,6 +1,6 @@
 @use "headerFooter" as hf;
 @use "songList" as list;
-@import "colors";
+@use "colors";
 
 $default-rem: 2rem;
 
@@ -22,15 +22,15 @@ header {
 
 aside {
   font-size: 1.3rem;
-  background-color: $light-pink;
+  background-color: colors.$light-pink;
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
   margin: $default-rem $default-rem 0 $default-rem;
   padding: $default-rem;
   height: min-content;
   border-radius: $default-rem;
-  color: $dark-blue;
+  color: colors.$dark-blue;
   a {
-    color: $dark-blue;
+    color: colors.$dark-blue;
     text-decoration: none;
     &:hover {
       font-weight: bold;
@@ -47,7 +47,7 @@ aside {
     margin-bottom:$default-rem;
     display: inline-block;
   }
-  background-color: $lighter-blue;
+  background-color: colors.$lighter-blue;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
   margin: $default-rem;
   padding: 4rem;
@@ -67,12 +67,12 @@ aside {
     width: 8rem;
     height: 3rem;
     border: none;
-    background-color: $dark-blue;
+    background-color: colors.$dark-blue;
     border-radius: 999rem;
      &:hover {
-       background-color: $light-gray;
+       background-color: colors.$light-gray;
        a{
-         color: $dark-blue;
+         color: colors.$dark-blue;
        }
      }
     a {

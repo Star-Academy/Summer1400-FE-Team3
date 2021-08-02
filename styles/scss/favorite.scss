@@ -1,6 +1,6 @@
 @use "headerFooter" as hf;
 @use "songList" as list;
-@import "colors";
+@use "colors";
 
 $default-rem:2rem;
 
@@ -9,12 +9,12 @@ $default-rem:2rem;
   width: 60%;
   height: 3rem;
   border-radius: 999rem;
-  border: 1px solid $light-blue;
+  border: 1px solid colors.$light-blue;
   &:hover {
-    border: 2px solid $light-blue;
+    border: 2px solid colors.$light-blue;
   }
   &:focus {
-    border: 2px solid $light-blue;
+    border: 2px solid colors.$light-blue;
     border-radius: 1rem;
   }
 }
@@ -25,7 +25,7 @@ header {
 #searchSection {
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
 
-  background-color: $light-pink;
+  background-color: colors.$light-pink;
   margin: $default-rem;
   padding: $default-rem;
   height: min-content;
@@ -39,15 +39,15 @@ header {
     height: 3rem;
     border-radius: 4rem;
     border: none;
-    background-color: $light-blue;
+    background-color: colors.$light-blue;
     color: white;
     &:hover {
       cursor: pointer;
-      background-color: $dark-blue;
+      background-color: colors.$dark-blue;
     }
 
     a {
-      color: $dark-blue;
+      color: colors.$dark-blue;
       text-decoration: none;
     }
   }
@@ -71,7 +71,7 @@ header {
     font-size: $default-rem;
   }
   @include list.createList;
-  background-color: $lighter-blue;
+  background-color: colors.$lighter-blue;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
   margin: $default-rem;
   padding: 4rem;
