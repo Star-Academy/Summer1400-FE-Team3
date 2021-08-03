@@ -1,14 +1,8 @@
-// submit a new user data
 let username = document.getElementById("username");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
 let firstName = document.getElementById("firstName");
 let lastName = document.getElementById("lastName");
-
-
-
-// let submitButton = document.getElementById("submitButton");
-// submitButton.addEventListener("click", submit);
 
 let registerForm = document.getElementById("registerForm");
 registerForm.addEventListener("submit", submit);
@@ -40,6 +34,6 @@ async function submit(event){
       }else if(response.status===400){
           alert(result.message);
       }else{
-          console.log(result)
+          alert(result.message)
       }
 }

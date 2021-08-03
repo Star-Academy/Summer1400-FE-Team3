@@ -17,7 +17,6 @@ function userCheckInput(){
     }
 }
 
-
 const loginForm = document.getElementById("loginForm");
 loginForm.addEventListener("submit", submit);
 
@@ -33,19 +32,16 @@ async function submit(event){
       });     
       let result = await response.json();
       if(response.status===200){
-          alert("You logged in successfully!");
           localStorage.setItem('token', result.token);
           window.location.href="./User.html";
-          
       }else if(response.status===400){
-          alert("Bad Request!");
+          alert(result.message);
       }else if(response.status===404){
-          alert("User not found!");
+          alert(result.message);
       }else{
-          alert("Server Error!");
+          alert(result.message);
       }
 }
-
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
