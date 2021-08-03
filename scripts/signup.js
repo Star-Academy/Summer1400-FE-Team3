@@ -32,16 +32,14 @@ async function submit(event){
       });     
       const result = await response.json();
       
-      if(response.status===200){
+      if(response.status===201){
           alert("You submitted successfully!");
           localStorage.setItem('token', result.token);
           window.location.href="./SignIn.html";
           
       }else if(response.status===400){
-          alert("Bad Request!");
-          console.log(result);
+          alert(result.message);
       }else{
-          alert("Server Error!");
-          console.log(response.json());
+          console.log(result)
       }
 }
