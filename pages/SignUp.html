@@ -9,6 +9,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../styles/css/main.css" />
     <link rel="stylesheet" href="../styles/css/signup.css" />
+    <script src="../scripts/signup.js" defer></script>
   </head>
   <body>
     <header>
@@ -19,7 +20,7 @@
       </nav>
     </header>
     <main>
-      <section class="form">
+      <section class="form" id="registerForm">
         <h2>ثبت نام</h2>
         <form action="">
           <div class="inputbox">
@@ -51,24 +52,25 @@
               required
             />
           </div>
+          
           <div class="inputbox">
-            <label for="birth">تاریخ تولد:</label>
-            <input id="birth" type="date" />
-          </div>
-          <div class="options">
-            <p>جنسیت:</p>
-            <input type="radio" name="gender" value="Male" id="Male" />
-            <label for="Male">مرد</label>
-            <input type="radio" name="gender" value="Female" id="Female" />
-            <label for="Female">زن</label>
+            <label for="firstName">نام:</label>
             <input
-              type="radio"
-              name="gender"
-              value="non-binary"
-              id="non-binary"
+              id="firstName"
+              type="text"
+              placeholder="Enter your first name"
             />
-            <label for="non-binary">سایر</label>
           </div>
+
+          <div class="inputbox">
+            <label for="lastName">نام خانوادگی:</label>
+            <input
+              id="lastName"
+              type="text"
+              placeholder="Enter your last name"
+            />
+          </div>
+
           <div class="options">
             <input
               type="checkbox"
@@ -81,7 +83,7 @@
               سایت Spotify به اشتراک بگذارید.</label
             ><br /><br />
           </div>
-          <div><button type="submit">ثبت نام</button></div>
+          <div><button type="submit" id="submitButton">ثبت نام</button></div>
         </form>
         <div>حساب کاربری دارید؟<a href="signIn.html">ورود</a></div>
       </section>
