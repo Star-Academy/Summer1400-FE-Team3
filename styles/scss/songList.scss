@@ -41,8 +41,9 @@ $default-rem:2rem;
         }
 
       }
-      .favorite {
+      .delete,.favorite {
         float: left;
+        margin-bottom: 1rem;
         &:hover {
           cursor: pointer;
         }

@@ -35,13 +35,13 @@ async function submit(event){
       if(response.status===200){
           alert("You submitted successfully!");
           localStorage.setItem('token', result.token);
-          window.location.href="./User.html";
+          window.location.href="./SignIn.html";
           
       }else if(response.status===400){
           alert("Bad Request!");
           console.log(result);
       }else{
           alert("Server Error!");
-          console.log(result);
+          console.log(response.json());
       }
 }

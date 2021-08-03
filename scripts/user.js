@@ -1,62 +1,14 @@
-import { addCard } from "./methods.js";
-const username = "KimiaParmida";
-const songArr = [
-  {
-    name: "Always",
-    genre: "metal",
-    singer: "isak",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: false,
-  },
-  {
-    name: "Hello",
-    genre: "pop",
-    singer: "adel",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-  },
-  {
-    name: "blinding lights",
-    genre: "rock",
-    singer: "the weekend",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-  },
-  {
-    name: "ocean eyes",
-    genre: "rap",
-    singer: "billie",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: false,
-  },
-];
-const favArr = [
-  {
-    name: "Always",
-    genre: "metal",
-    singer: "isak",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-  },
-  {
-    name: "Hello",
-    genre: "pop",
-    singer: "adel",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-  },
-  {
-    name: "ocean eyes",
-    genre: "rap",
-    singer: "billie",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-  },
-];
+import { addCard,addPlaylist } from "./methods.js";
+import {fetchSongs,fetchPlaylist} from "./fetchSongs.js";
+const songArr = [...await fetchSongs()];
+let playlistArr=[];
+// let playlistArr = [...await fetchPlaylist()];
 const username_html = document.getElementById("username");
 const songList = document.getElementById("songCards");
 const favList = document.getElementById("favCards");
 const likeIcons = document.getElementsByClassName("favorite");
+const addPlaylist_btn=document.getElementById("addPlaylist");
+const signOut=document.getElementById("signOut");
 
 const userToken = {
   token: localStorage.getItem("token"),
@@ -71,7 +23,6 @@ const response = await fetch("http://130.185.120.192:5000/user/auth", {
 });
 const result = await response.json();
 if (response.status === 200) {
-  alert("You logged in successfully!");
   id = result.id;
 } else if (response.status === 401) {
   alert("Authentication failed");
@@ -85,7 +36,6 @@ const getUserResponse = await fetch(
 );
 const getUserResult = await getUserResponse.json();
 if (getUserResponse.status === 200) {
-  console.log("User found successfully");
   userInfo = getUserResult;
 } else if (getUserResponse.status === 400) {
   console.log("Bad request");
@@ -96,36 +46,58 @@ if (getUserResponse.status === 200) {
 }
 
 username_html.innerHTML = userInfo.user.username;
-makeList();
+await makeList();
 
-function makeList() {
-  songArr.forEach((song) => createSongList(song));
-  favArr.forEach((favItem) => createFavList(favItem));
-  // likeUnlike();
-}
-// function likeUnlike() {
-//   for (const like of likeIcons) {
-//     like.addEventListener("click", () => {
-//       const id = like.getAttribute("id");
-//       const index = findIndex(parseInt(id));
-//       songArr[index].favorite = !songArr[index].favorite;
-//       like.setAttribute("src",heartIconSrc(songArr[index]));
-//     });
-//   }
-// }
-
-function createSongList(song) {
-  const likeIconSrc = heartIconSrc(song);
-  songList.innerHTML += addCard(likeIconSrc, song);
+async function makeList() {
+  playlistArr = [...await fetchPlaylist()];
+  for (let i=0;i<4;i++)
+  {
+    songList.innerHTML += addCard(songArr[i]);
+  }
+  playlistArr.forEach((playlist) => favList.innerHTML += addPlaylist(playlist));
 }
 
-function createFavList(favItem) {
-  const likeIconSrc = heartIconSrc(favItem);
-  favList.innerHTML += addCard(likeIconSrc, favItem);
-}
-
-function heartIconSrc(song) {
+ function heartIconSrc(song) {
   if (!song.favorite) return "../assets/images/heart.png";
 
   return "../assets/images/filled-heart.png";
 }
+
+ addPlaylist_btn.addEventListener("click",async()=>{
+  let name = prompt("Please enter your new playlist name");
+  if (name != null) {
+    const playlistInfo = {
+      token: localStorage.getItem('token'),
+      name: name
+    }
+    let response = await fetch('http://130.185.120.192:5000/playlist/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(playlistInfo)
+    });
+    const result = await response.json();
+
+    if(response.status===201){
+      localStorage.setItem(`playlist:${name}`,result.id);
+      await makeList();
+
+    }else if (response.status===400){
+      console.log(result);
+    }
+    else if (response.status===401)
+    {
+      console.log(result);
+    }
+    else {
+      console.log(response.status)
+      console.log("server error");
+
+    }
+  }
+})
+
+signOut.addEventListener("click", ()=>{
+  localStorage.clear();
+})

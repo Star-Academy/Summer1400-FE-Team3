@@ -152,10 +152,11 @@ header li a:hover {
 #list .card .container h4 a:hover {
   cursor: pointer;
 }
-#list .card .container .favorite {
+#list .card .container .delete, #list .card .container .favorite {
   float: left;
+  margin-bottom: 1rem;
 }
-#list .card .container .favorite:hover {
+#list .card .container .delete:hover, #list .card .container .favorite:hover {
   cursor: pointer;
 }
 
