@@ -114,14 +114,12 @@ aside a:hover {
 #favorites .card .container h4 a:hover {
   cursor: pointer;
 }
-#songs .card .container .delete, #songs .card .container .favorite,
-#favorites .card .container .delete,
+#songs .card .container .favorite,
 #favorites .card .container .favorite {
   float: left;
   margin-bottom: 1rem;
 }
-#songs .card .container .delete:hover, #songs .card .container .favorite:hover,
-#favorites .card .container .delete:hover,
+#songs .card .container .favorite:hover,
 #favorites .card .container .favorite:hover {
   cursor: pointer;
 }
