@@ -1,5 +1,7 @@
 @use "./formTemplate" as f;
-@import "./colors";
+@use "./colors";
+
+$default-rem:2rem;
 
 header {
   @include f.createNav;
@@ -16,8 +18,8 @@ main {
         display: inline-block;
         font-weight: bold;
         font-size: 1.3rem;
-        margin-left: 2rem;
-        color: $dark-blue;
+        margin-left: $default-rem;
+        color: colors.$dark-blue;
       }
 
       .inputbox {
@@ -26,8 +28,8 @@ main {
         label {
           font-weight: bold;
           font-size: 1.3rem;
-          margin-left: 2rem;
-          color: $dark-blue;
+          margin-left: $default-rem;
+          color: colors.$dark-blue;
           float: right;
         }
 
@@ -40,21 +42,21 @@ main {
 
       .options {
         label {
-          margin-left: 2rem;
+          margin-left: $default-rem;
         }
         #marketing + label, input[type="radio"] + label {
           font-size: 1.2rem;
         }
         #marketing:checked + label, input[type="radio"]:checked + label {
           font-weight: bold;
-          color: $dark-blue;
+          color: colors.$dark-blue;
         }
       }
 
       > div:last-of-type {
         @include f.centering;
         button {
-          background-color: $light-blue;
+          background-color: colors.$light-blue;
           color: white;
           width: 15rem;
           height: 4rem;
@@ -65,7 +67,7 @@ main {
           transition-timing-function: linear;
 
           &:hover {
-            background-color: $dark-blue;
+            background-color: colors.$dark-blue;
             font-weight: bold;
             width: 25rem;
             cursor: pointer;
@@ -77,12 +79,12 @@ main {
     div:last-of-type {
       font-size: 1.2rem;
       a {
-        color: $dark-blue;
+        color: colors.$dark-blue;
         margin-right: 1rem;
         font-size: 1.5rem;
 
         &:hover {
-          color: $light-blue;
+          color: colors.$light-blue;
         }
       }
     }

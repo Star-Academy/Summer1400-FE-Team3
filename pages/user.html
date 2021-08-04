@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles/css/main.css" />
 
     <link rel="stylesheet" href="../styles/css/user.css" />
-    <script src="../scripts/user.js" defer></script>
+  <script src="../scripts/user.js" type="module" defer></script>
     <title>User Site</title>
   </head>
   <body>
@@ -37,24 +37,15 @@
       <main>
         <section id="songs">
           <h2>لیست آهنگ ها</h2>
-          <ul id="songList">
-            <!-- <li><a href="Song.html">Diamonds</a></li>
-            <li><a href="">Always</a></li>
-            <li><a href="">Blinding Lights</a></li> -->
-          </ul>
-
-          <br />
           <button><a href="Songs.html">دیدن همه</a></button>
+          <div class="cards" id="songCards">
+          </div>
         </section>
         <section id="favorites">
           <h2>آهنگ های مورد علاقه</h2>
-          <ul id="favList">
-            <!-- <li><a href="">Always</a></li>
-          <li><a href="">Yellow</a></li> -->
-          </ul>
-
-          <br />
           <button><a href="Favorite.html">دیدن همه</a></button>
+          <div class="cards" id="favCards">     
+            </div>
         </section>
       </main>
     </div>

@@ -1,33 +1,35 @@
-@import "colors";
+@use "colors";
+
+$default-rem:2rem;
 
 header {
-  background-color: $light-gray;
+  background-color: colors.$light-gray;
   height: 10rem;
   nav {
     img {
-      margin-right: 2rem;
+      margin-right: $default-rem;
       margin-top: 1.7rem;
       float: right;
     }
     span {
       margin-top: 3.5rem;
       margin-right: 1rem;
-      font-size: 2rem;
-      color: $darker-pink;
+      font-size: $default-rem;
+      color: colors.$darker-pink;
       font-weight: bold;
       float: right;
     }
     button {
       float: left;
-      margin: 2.5rem 0 0 2rem;
+      margin: 2.5rem 0 0 $default-rem;
       height: 5rem;
       width: 10rem;
       border-radius: 999rem;
       &:first-of-type {
-        background-color: $dark-pink;
+        background-color: colors.$dark-pink;
         border: none;
         &:hover {
-          background-color: $darker-pink;
+          background-color: colors.$darker-pink;
           cursor: pointer;
 
           a {
@@ -35,7 +37,7 @@ header {
           }
         }
         a {
-          color: $dark-blue;
+          color: colors.$dark-blue;
           font-size: 1.7rem;
           &:link {
             text-decoration: none;
@@ -43,13 +45,13 @@ header {
         }
       }
       &:last-of-type {
-        border: 0.2rem solid $darker-pink;
+        border: 0.2rem solid colors.$darker-pink;
         &:hover {
-          border-color: $dark-pink;
+          border-color: colors.$dark-pink;
           cursor: pointer;
         }
         a {
-          color: $darker-pink;
+          color: colors.$darker-pink;
           font-size: 1.7rem;
           &:link {
             text-decoration: none;
@@ -70,7 +72,7 @@ main {
 }
 
 footer {
-  background-color: $dark-blue;
+  background-color: colors.$dark-blue;
   height: 30rem;
   padding: 4rem;
   * {
@@ -78,12 +80,12 @@ footer {
   }
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin-bottom: $default-rem;
+    font-size:$default-rem;
   }
   p {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: $default-rem;
     font-size: 1.2rem;
   }
   figure {
@@ -91,7 +93,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin-top: 2rem;
+    margin-top: $default-rem;
     img {
       margin-left: 1rem;
     }

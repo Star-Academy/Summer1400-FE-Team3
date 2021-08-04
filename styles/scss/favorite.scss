@@ -1,133 +1,92 @@
-@use "colors.scss" as *;
+@use "headerFooter" as hf;
+@use "songList" as list;
+@use "colors";
 
-header {
-  nav {
-    padding: 1.3rem;
+$default-rem: 2rem;
+
+@mixin inputs {
+  margin-top: $default-rem;
+  width: 60%;
+  height: 3rem;
+  border-radius: 999rem;
+  border: 1px solid colors.$light-blue;
+  &:hover {
+    border: 2px solid colors.$light-blue;
   }
-  font-size: 12px;
-  background-color: $light-gray;
-  width: auto;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  img {
-    margin-right: 2rem;
-  }
-
-  li {
-    display: inline;
-    margin: 3rem;
-    color: $darker-pink;
-    font-size: 1.3rem;
-
-    a {
-      color: $darker-pink;
-      text-decoration: none;
-      font-size: 1.3rem;
-
-    }
+  &:focus {
+    border: 2px solid colors.$light-blue;
+    border-radius: 1rem;
   }
 }
-
+header {
+  @include hf.createHeader;
+}
 #filter,
 #searchSection {
-  background-color: $light-pink;
-  margin: 2rem;
-  padding: 2rem;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+
+  background-color: colors.$light-pink;
+  margin: $default-rem;
+  padding: $default-rem;
   height: min-content;
-  border-radius: 2rem;
-  h3 {
-    margin-bottom: 2rem;
+  border-radius: $default-rem;
+  input {
+    @include inputs;
   }
   button {
-    margin-right: 2rem;
+    margin-right: $default-rem;
     width: 9rem;
     height: 3rem;
     border-radius: 4rem;
     border: none;
-    background-color: $light-blue;
+    background-color: colors.$light-blue;
     color: white;
     &:hover {
       cursor: pointer;
-      background-color: $dark-blue;
+      background-color: colors.$dark-blue;
     }
 
     a {
-      color: $dark-blue;
+      color: colors.$dark-blue;
       text-decoration: none;
     }
   }
 }
+#filter h3 {
+  margin-bottom: 3rem;
+}
 
-#songerName,
+#singerName,
 #genre {
   display: inline;
+  select {
+    @include inputs;
+  }
 }
 
 #list {
   h1 {
-    color: white;
-    margin-bottom: 3rem;
-    font-size: 2rem;
+    color: black;
+    margin-bottom: $default-rem;
+    font-size: $default-rem;
   }
-  #favList {
-    list-style: none;
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      font-size: 1.5rem;
-      &:hover  {
-        color: white;
-      }
-    }
-    button {
-      margin: 2rem;
-      width: 6rem;
-      height: 3rem;
-      border-radius: 4rem;
-      background-color: $light-gray;
-      border: none;
-      &:hover {
-        cursor: pointer;
-        background-color: $light-pink;
-        font-weight: bold;
-      }
-    }
-
-  }
-  background-color: $light-blue;
-  margin: 2rem;
+  @include list.createList;
+  background-color: colors.$lighter-blue;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  margin: $default-rem;
   padding: 4rem;
-  border-radius: 2rem;
-  color: $light-pink;
+  border-radius: $default-rem;
+  color: black;
 }
 
 main {
-  display: block;
-  padding: 2rem;
   font-size: 13px;
 }
 
 footer {
-  font-size: 12px;
-  background-color: $dark-blue;
-  padding: 4rem;
-  height: min-content;
-  color: white;
-  text-align: center;
-  h2,
-  p {
-    margin-bottom: 2rem;
-  }
+  @include hf.createFooter;
 }
 
-@media only screen and (min-width: 600px) {
-}
-@media only screen and (min-width: 768px) {
-  main {
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    padding: 1rem;
-  }
-}
+@include list.listQuery;
+
+@include hf.responsiveHeader;

@@ -1,35 +1,15 @@
-@use "colors.scss" as *;
+@use "headerFooter" as hf;
+@use "colors";
+$default-rem: 2rem;
 
 header {
-  nav {
-    padding: 1.3rem;
-  }
-  font-size: 12px;
-  background-color: $light-gray;
-  width: auto;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  img {
-    margin-right: 2rem;
-  }
-  li {
-    display: inline;
-    margin: 3rem;
-    color: $darker-pink;
-    font-size: 1.3rem;
-
-    a {
-      color: $darker-pink;
-      text-decoration: none;
-      font-size: 1.3rem;
-    }
-  }
+ @include hf.createHeader;
 }
 
 main {
-  padding: 2rem;
+  padding: $default-rem;
   font-size: 1.3rem;
+
 }
 
 #songImage,
@@ -45,20 +25,31 @@ main {
 #likePic:hover {
   cursor: pointer;
 }
+#songImage {
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
+  margin-top: 3rem;
+  height: 30rem;
+
+}
+#audio {
+  margin-bottom: 3rem;
+}
 
 #songInfo {
-  background-color: $dark-pink;
-  border-radius: 2rem;
-  padding: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  height: 30rem;
+  max-width: 30rem;
+  background-color: colors.$dark-pink;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
+  border-radius: $default-rem;
+  padding: $default-rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   color: black;
-  height: 60%;
   display: grid;
   justify-self: center;
   h1 {
     font-size: 2.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: $default-rem;
   }
   p {
     font-size: 1.5rem;
@@ -66,34 +57,32 @@ main {
   }
 
 }
+#likePic {
+  margin-bottom: $default-rem;
 
-footer {
-  font-size: 12px;
-  background-color: $dark-blue;
-  padding: 4rem;
-  height: min-content;
-  color: white;
-  text-align: center;
-  h2, p {
-    margin-bottom: 2rem;
-  }
 }
 
-@media only screen and (min-width: 600px) {
+footer {
+  @include hf.createFooter;
+}
+
+@media only screen and (min-width: 600px) and (max-height: 820px) {
   main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-  }
-
-  #songInfo #likePic {
-    margin: 2rem auto;
-    background-color: red;
+    grid-gap: $default-rem;
+    #likePic {
+      margin-top: 5.3rem;
+    }
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-height: 820px) {
   main {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    justify-content: center;
+    #songInfo {
+      width: 30rem;
+    }
   }
 }
+@include hf.responsiveHeader;

@@ -1,37 +1,105 @@
+import { addCard, findIndex } from "./methods.js";
+import { HEART, FILLED_HEART } from "./address.js";
+
 const songArr = [
-  { name: "Always", genre: "metal", singer: "isak" },
-  { name: "Hello", genre: "pop", singer: "adel" },
-  { name: "blinding lights", genre: "rock", singer: "the weekend" },
-  { name: "ocean eyes", genre: "rap", singer: "billie" },
-  { name: "Diamonds", genre: "pop", singer: "sam smith" },
-  { name: "bad", genre: "country", singer: "james" },
+  {
+    name: "Always",
+    genre: "metal",
+    singer: "isak",
+    src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    favorite: false,
+    id: 1,
+  },
+  {
+    name: "Hello",
+    genre: "pop",
+    singer: "adel",
+    src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    favorite: true,
+    id: 2,
+  },
+  {
+    name: "blinding lights",
+    genre: "rock",
+    singer: "the weekend",
+    src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    favorite: true,
+    id: 3,
+  },
+  {
+    name: "ocean eyes",
+    genre: "rap",
+    singer: "billie",
+    src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    favorite: false,
+    id: 4,
+  },
+  {
+    name: "Diamonds",
+    genre: "pop",
+    singer: "sam smith",
+    src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    favorite: true,
+    id: 5,
+  },
+  {
+    name: "bad",
+    genre: "country",
+    singer: "james",
+    src: "../assets/images/Single_by_Sam_Smith.jpeg",
+    favorite: true,
+    id: 6,
+  },
 ];
 const username = "KimiaParmida";
 
-let songList = document.getElementById("songList");
-let artistSelect = document.getElementById("artist");
-let genreSelect = document.getElementById("genreSelect");
-let filterButton = document.getElementById("filterButton");
-let searchButton = document.getElementById("searchButton");
-let searchInput = document.getElementById("search");
-let username_html= document.getElementById("username");
+const songList = document.getElementById("songCards");
+const username_html = document.getElementById("username");
+const artistSelect = document.getElementById("artist");
+const genreSelect = document.getElementById("genreSelect");
+const filterButton = document.getElementById("filterButton");
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("search");
+const likeIcons = document.getElementsByClassName("favorite");
 
 username_html.innerHTML = username;
+makeList();
 
 function makeList() {
   songArr.forEach((song) => {
-    songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`
+    setSongs(song);
   });
+  likeUnlike();
 }
 
-makeList();
+function likeUnlike() {
+  for (const like of likeIcons) {
+    like.addEventListener("click", () => {
+      const id = like.getAttribute("id");
+      const index = findIndex(parseInt(id), songArr);
+      songArr[index].favorite = !songArr[index].favorite;
+      like.setAttribute("src", heartIconSrc(songArr[index]));
+    });
+  }
+}
+
+function setSongs(song) {
+  const likeIconSrc = heartIconSrc(song);
+  songList.innerHTML += addCard(likeIconSrc, song);
+}
+
+function heartIconSrc(song) {
+  if (!song.favorite) return HEART;
+
+  return FILLED_HEART;
+}
 
 searchButton.addEventListener("click", () => {
   const searchValue = searchInput.value.toLowerCase();
   songList.innerHTML = "";
   songArr.forEach((song) => {
     if (song.name.toLowerCase().includes(searchValue)) {
-      songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`;
+      setSongs(song);
     }
   });
 });
@@ -39,11 +107,13 @@ searchButton.addEventListener("click", () => {
 filterButton.addEventListener("click", () => {
   const artist = artistSelect.value.toLowerCase();
   const genre = genreSelect.value.toLowerCase();
-
   songList.innerHTML = "";
   songArr.forEach((song) => {
-    if (song.singer.toLowerCase() === artist && song.genre.toLowerCase() === genre) {
-      songList.innerHTML += `<li><a href="Song.html">${song.name}</a></li>`;
+    if (
+      song.singer.toLowerCase() === artist &&
+      song.genre.toLowerCase() === genre
+    ) {
+      setSongs(song);
     }
   });
 });
