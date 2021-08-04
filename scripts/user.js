@@ -1,17 +1,17 @@
-import { addCard, addPlaylist } from "./methods.js";
-import { fetchData, fetchPlaylist, fetchUsername } from "./fetchData.js";
+import { addCard } from "./methods.js";
+import { fetchUsername } from "./fetchData.js";
 import { HEART, FILLED_HEART } from "./address.js";
-const songArr = [...(await fetchData())];
-let playlistArr = [...(await fetchPlaylist())];
+import { songArr, playlistArr } from "./arrays.js";
+import { createIcon } from "./methods.js";
 
 const username_html = document.getElementById("username");
 const songList = document.getElementById("songCards");
 const favList = document.getElementById("favCards");
 const likeIcons = document.getElementsByClassName("favorite");
-const addPlaylist_btn = document.getElementById("addPlaylist");
 const signOut = document.getElementById("signOut");
 
 username_html.innerHTML = await fetchUsername();
+
 await createFavorites();
 await makeList();
 
@@ -44,10 +44,11 @@ async function createFavorites() {
 
 async function makeList() {
   for (let i = 0; i < 4; i++) {
-    songList.innerHTML += addCard(songArr[i]);
+    let heartSrc = createIcon(songArr[i]);
+    songList.innerHTML += addCard(songArr[i], heartSrc);
   }
-  playlistArr.forEach(
-    (playlist) => (favList.innerHTML += addPlaylist(playlist))
+  playlistArr[0].songs.forEach(
+    (song) => (favList.innerHTML += addCard(song, FILLED_HEART))
   );
 }
 

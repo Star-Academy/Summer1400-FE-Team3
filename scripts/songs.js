@@ -1,102 +1,58 @@
 import { addCard, findIndex } from "./methods.js";
 import { HEART, FILLED_HEART } from "./address.js";
-
-const songArr = [
-  {
-    name: "Always",
-    genre: "metal",
-    singer: "isak",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: false,
-    id: 1,
-  },
-  {
-    name: "Hello",
-    genre: "pop",
-    singer: "adel",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-    id: 2,
-  },
-  {
-    name: "blinding lights",
-    genre: "rock",
-    singer: "the weekend",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-    id: 3,
-  },
-  {
-    name: "ocean eyes",
-    genre: "rap",
-    singer: "billie",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: false,
-    id: 4,
-  },
-  {
-    name: "Diamonds",
-    genre: "pop",
-    singer: "sam smith",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-    id: 5,
-  },
-  {
-    name: "bad",
-    genre: "country",
-    singer: "james",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    favorite: true,
-    id: 6,
-  },
-];
-const username = "KimiaParmida";
+import { songArr } from "./arrays.js";
+import { fetchUsername, fetchPage, addSongToPlaylist } from "./fetchData.js";
+import { createIcon, singerArray } from "./methods.js";
 
 const songList = document.getElementById("songCards");
 const username_html = document.getElementById("username");
 const artistSelect = document.getElementById("artist");
-const genreSelect = document.getElementById("genreSelect");
 const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
 const likeIcons = document.getElementsByClassName("favorite");
+const signOut = document.getElementById("signOut");
 
-username_html.innerHTML = username;
-makeList();
+const ALL = "all";
 
-function makeList() {
-  songArr.forEach((song) => {
-    setSongs(song);
-  });
-  likeUnlike();
-}
+username_html.innerHTML = await fetchUsername();
+const singerArr = singerArray(songArr);
+addOptions();
+await makeList();
 
-function likeUnlike() {
-  for (const like of likeIcons) {
-    like.addEventListener("click", () => {
-      const id = like.getAttribute("id");
-      const index = findIndex(parseInt(id), songArr);
-      songArr[index].favorite = !songArr[index].favorite;
-      like.setAttribute("src", heartIconSrc(songArr[index]));
+async function makeList() {
+  for (let i = 1; i < songArr.length; i += 4) {
+    let pageArr = await fetchPage(i);
+    pageArr.forEach((song) => {
+      setSongs(song);
     });
   }
 }
 
+for (const like of likeIcons) {
+  like.addEventListener("click", async () => {
+    const id = like.getAttribute("name");
+    if (like.getAttribute("src") === HEART) {
+      await addSongToPlaylist(id);
+      like.setAttribute("src", FILLED_HEART);
+    } else {
+      like.setAttribute("src", HEART);
+    }
+  });
+}
+
 function setSongs(song) {
-  const likeIconSrc = heartIconSrc(song);
-  songList.innerHTML += addCard(likeIconSrc, song);
+  let heartSrc = createIcon(song);
+  songList.innerHTML += addCard(song, heartSrc);
 }
 
-function heartIconSrc(song) {
-  if (!song.favorite) return HEART;
-
-  return FILLED_HEART;
-}
-
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", async () => {
   const searchValue = searchInput.value.toLowerCase();
   songList.innerHTML = "";
+  if (searchValue === "") {
+    await makeList();
+    return;
+  }
   songArr.forEach((song) => {
     if (song.name.toLowerCase().includes(searchValue)) {
       setSongs(song);
@@ -104,16 +60,26 @@ searchButton.addEventListener("click", () => {
   });
 });
 
-filterButton.addEventListener("click", () => {
+filterButton.addEventListener("click", async () => {
   const artist = artistSelect.value.toLowerCase();
-  const genre = genreSelect.value.toLowerCase();
   songList.innerHTML = "";
+  if (artist === ALL) {
+    await makeList();
+    return;
+  }
   songArr.forEach((song) => {
-    if (
-      song.singer.toLowerCase() === artist &&
-      song.genre.toLowerCase() === genre
-    ) {
+    if (song.artist.toLowerCase() === artist) {
       setSongs(song);
     }
   });
+});
+
+function addOptions() {
+  singerArr.forEach((singer) => {
+    artistSelect.innerHTML += `<option value="${singer}">${singer}</option>`;
+  });
+}
+
+signOut.addEventListener("click", () => {
+  localStorage.clear();
 });

@@ -67,6 +67,7 @@ const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
 const likeIcons = document.getElementsByClassName("favorite");
+const signOut = document.getElementById("signOut");
 
 username_html.innerHTML = username;
 makeList();
@@ -136,3 +137,7 @@ function matchFilter(genre, artist, favItem) {
     (artist.toLowerCase() === ALL && genre.toLowerCase() === ALL)
   );
 }
+
+signOut.addEventListener("click", () => {
+  localStorage.clear();
+});

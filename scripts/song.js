@@ -1,5 +1,7 @@
 import { HEART, FILLED_HEART } from "./address.js";
 import { fetchSong, fetchUsername } from "./fetchData.js";
+import { createIcon } from "./methods.js";
+import { addSongToPlaylist } from "./fetchData.js";
 
 const likeIcon = document.getElementById("likePic");
 const songName = document.getElementById("songName");
@@ -9,10 +11,12 @@ const audio = document.getElementById("audio");
 const lyrics = document.getElementById("lyrics");
 const username_html = document.getElementById("username");
 const title = document.getElementsByTagName("title");
+const signOut = document.getElementById("signOut");
+
 const songId = getSongId();
 const song = await fetchSong(songId);
+const heartSrc = createIcon(song);
 await createSongInfo();
-//createIcon();
 
 async function createSongInfo() {
   username_html.innerHTML = await fetchUsername();
@@ -22,32 +26,24 @@ async function createSongInfo() {
   image.setAttribute("src", song.cover);
   audio.setAttribute("src", song.file);
   lyrics.innerHTML = song.lyrics;
-  console.log(song.file);
+  likeIcon.setAttribute("src", heartSrc);
 }
 
 function getSongId() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const songId = urlParams.get("songId");
-  return songId;
+  return urlParams.get("songId");
 }
 
-// function createIcon() {
-//   if (!currentSong.favorite) {
-//     likeIcon.setAttribute("src", HEART);
-//   } else {
-//     likeIcon.setAttribute("src", FILLED_HEART);
-//   }
-// }
+likeIcon.addEventListener("click", async () => {
+  if (likeIcon.getAttribute("src") === HEART) {
+    await addSongToPlaylist(song.id);
+    likeIcon.setAttribute("src", FILLED_HEART);
+  } else {
+    likeIcon.setAttribute("src", HEART);
+  }
+});
 
-// likeIcon.addEventListener("click", changeIcon);
-
-// function changeIcon() {
-//   if (currentSong.favorite) {
-//     likeIcon.setAttribute("src", HEART);
-//     currentSong.favorite = false;
-//   } else {
-//     likeIcon.setAttribute("src", FILLED_HEART);
-//     currentSong.favorite = true;
-//   }
-// }
+signOut.addEventListener("click", () => {
+  localStorage.clear();
+});
