@@ -1,3 +1,5 @@
+import { HEART, FILLED_HEART } from "./address.js";
+
 let currentSong = {
   name: "Diamonds",
   genre: "pop",
@@ -36,9 +38,9 @@ function createSongInfo() {
 
 function createIcon() {
   if (!currentSong.favorite) {
-    likeIcon.setAttribute("src", "../assets/images/heart.png");
+    likeIcon.setAttribute("src", HEART);
   } else {
-    likeIcon.setAttribute("src", "../assets/images/filled-heart.png");
+    likeIcon.setAttribute("src", FILLED_HEART);
   }
 }
 
@@ -46,10 +48,10 @@ likeIcon.addEventListener("click", changeIcon);
 
 function changeIcon() {
   if (currentSong.favorite) {
-    likeIcon.setAttribute("src", "../assets/images/heart.png");
+    likeIcon.setAttribute("src", HEART);
     currentSong.favorite = false;
   } else {
-    likeIcon.setAttribute("src", "../assets/images/filled-heart.png");
+    likeIcon.setAttribute("src", FILLED_HEART);
     currentSong.favorite = true;
   }
 }

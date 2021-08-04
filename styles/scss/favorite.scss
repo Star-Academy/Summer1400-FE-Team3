@@ -2,7 +2,7 @@
 @use "songList" as list;
 @use "colors";
 
-$default-rem:2rem;
+$default-rem: 2rem;
 
 @mixin inputs {
   margin-top: $default-rem;
@@ -23,7 +23,7 @@ header {
 }
 #filter,
 #searchSection {
-  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
 
   background-color: colors.$light-pink;
   margin: $default-rem;
@@ -56,7 +56,7 @@ header {
   margin-bottom: 3rem;
 }
 
-#songerName,
+#singerName,
 #genre {
   display: inline;
   select {
@@ -72,7 +72,7 @@ header {
   }
   @include list.createList;
   background-color: colors.$lighter-blue;
-  box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   margin: $default-rem;
   padding: 4rem;
   border-radius: $default-rem;

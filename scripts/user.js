@@ -1,5 +1,6 @@
 import { addCard, addPlaylist } from "./methods.js";
 import { fetchData, fetchPlaylist, fetchUsername } from "./fetchData.js";
+import { HEART, FILLED_HEART } from "./address.js";
 const songArr = [...(await fetchData())];
 let playlistArr = [...(await fetchPlaylist())];
 
@@ -69,9 +70,9 @@ for (var i = 0; i < songNames.length; i++) {
 function songPageRedirect(songId) {}
 
 function heartIconSrc(song) {
-  if (!song.favorite) return "../assets/images/heart.png";
+  if (!song.favorite) return HEART;
 
-  return "../assets/images/filled-heart.png";
+  return FILLED_HEART;
 }
 
 signOut.addEventListener("click", () => {
