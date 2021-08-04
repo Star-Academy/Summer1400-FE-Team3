@@ -1,8 +1,9 @@
+@use "./colors"; 
 @mixin centering {
   display: flex;
   justify-content: center;
 }
-@use "./colors";
+
 
 $default-rem:2rem;
 
