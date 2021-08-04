@@ -1,6 +1,8 @@
 import { HEART, FILLED_HEART } from "./address.js";
 import { playlistArr } from "./arrays.js";
+
 const ALL = "all";
+
 function addCard(song, heartSrc) {
   return `<div class="card" id="${song.id}">
                               <a class="songImage " name="${song.id}">
@@ -10,6 +12,7 @@ function addCard(song, heartSrc) {
                                 <h4>
                                  <a class="songName" name="${song.id}"><b>${song.name}</b></a>
                                 </h4>
+                                 <p>${song.artist}</p>
                               <img
                                 src="${heartSrc}"                 
                                 class="favorite"
@@ -18,7 +21,6 @@ function addCard(song, heartSrc) {
                                 height="27"
                                 alt="Add to favorite"
                                 />
-                              <p>${song.artist}</p>
                             </div>
                           </div>`;
 }
@@ -47,4 +49,31 @@ function singerArray(songArray) {
   return singerArr;
 }
 
-export { addCard, findIndex, createIcon, singerArray };
+function goToSongPage() {
+  clickName();
+  clickImage();
+}
+
+function clickName() {
+  const songNames = document.getElementsByClassName("songName");
+
+  for (let songName of songNames) {
+    songName.addEventListener("click", function () {
+      const songId = songName.getAttribute("name");
+      const url = `./Song.html?songId=${songId}`;
+      window.location.href = url;
+    });
+  }
+}
+function clickImage() {
+  const songImages = document.getElementsByClassName("songImage");
+
+  for (let songImage of songImages) {
+    songImage.addEventListener("click", function () {
+      const songId = songImage.getAttribute("name");
+      const url = `./Song.html?songId=${songId}`;
+      window.location.href = url;
+    });
+  }
+}
+export { addCard, findIndex, createIcon, singerArray, goToSongPage };

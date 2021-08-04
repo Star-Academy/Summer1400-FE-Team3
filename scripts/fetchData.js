@@ -6,7 +6,7 @@ async function fetchData() {
   if (response.status === 200) {
     return [...result.songs];
   } else {
-    console.log("Server Error!");
+    alert(result.message);
   }
 }
 
@@ -50,11 +50,7 @@ async function findID() {
   const result = await response.json();
   if (response.status === 200) {
     return result.id;
-  } else if (response.status === 401) {
-    alert(result.message);
-  } else {
-    alert(result.message);
-  }
+  } else alert(result.message);
 }
 
 async function findUserInfo(id) {
@@ -62,13 +58,7 @@ async function findUserInfo(id) {
   const result = await response.json();
   if (response.status === 200) {
     return result;
-  } else if (response.status === 400) {
-    console.log(result.message);
-  } else if (response.status === 404) {
-    console.log(result.message);
-  } else {
-    console.log(result.message);
-  }
+  } else alert(result.message);
 }
 
 async function fetchSong(songId) {
@@ -78,13 +68,7 @@ async function fetchSong(songId) {
   const result = await response.json();
   if (response.status === 200) {
     return result.song;
-  } else if (response.status === 400) {
-    console.log(result.message);
-  } else if (response.status === 404) {
-    console.log(result.message);
-  } else {
-    console.log(result.message);
-  }
+  } else alert(result.message);
 }
 
 async function fetchPage(current) {
@@ -104,11 +88,7 @@ async function fetchPage(current) {
   const result = await response.json();
   if (response.status === 200) {
     return result.songs;
-  } else if (response.status === 400) {
-    alert(result.message);
-  } else {
-    alert(result.message);
-  }
+  } else alert(result.message);
 }
 
 async function addSongToPlaylist(songId) {
@@ -135,6 +115,7 @@ async function addSongToPlaylist(songId) {
     alert(result.message);
   }
 }
+
 export {
   fetchData,
   fetchPlaylist,

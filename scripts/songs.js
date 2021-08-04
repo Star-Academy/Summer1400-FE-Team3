@@ -3,6 +3,7 @@ import { HEART, FILLED_HEART } from "./address.js";
 import { songArr } from "./arrays.js";
 import { fetchUsername, fetchPage, addSongToPlaylist } from "./fetchData.js";
 import { createIcon, singerArray } from "./methods.js";
+import { goToSongPage } from "./methods.js";
 
 const songList = document.getElementById("songCards");
 const username_html = document.getElementById("username");
@@ -18,16 +19,8 @@ const ALL = "all";
 username_html.innerHTML = await fetchUsername();
 const singerArr = singerArray(songArr);
 addOptions();
+goToSongPage();
 await makeList();
-
-async function makeList() {
-  for (let i = 1; i < songArr.length; i += 4) {
-    let pageArr = await fetchPage(i);
-    pageArr.forEach((song) => {
-      setSongs(song);
-    });
-  }
-}
 
 for (const like of likeIcons) {
   like.addEventListener("click", async () => {
@@ -39,6 +32,15 @@ for (const like of likeIcons) {
       like.setAttribute("src", HEART);
     }
   });
+}
+
+async function makeList() {
+  for (let i = 1; i < songArr.length; i += 4) {
+    let pageArr = await fetchPage(i);
+    pageArr.forEach((song) => {
+      setSongs(song);
+    });
+  }
 }
 
 function setSongs(song) {

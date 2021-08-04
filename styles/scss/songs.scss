@@ -6,6 +6,7 @@ $default-rem: 2rem;
 
 @mixin inputs {
   margin-top: 2rem;
+  padding-right: $default-rem;
   width: 60%;
   height: 3rem;
   border-radius: 999rem;
@@ -30,14 +31,16 @@ main {
 
 #filter, #searchSection {
   background-color: colors.$light-pink;
-  box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   margin: $default-rem;
   padding: $default-rem;
   height: min-content;
   border-radius: $default-rem;
+
   input {
     @include inputs;
   }
+
   button {
     margin-top: 1rem;
     border: none;
@@ -46,6 +49,7 @@ main {
     border-radius: 4rem;
     background-color: colors.$light-blue;
     color: white;
+
     &:hover {
       cursor: pointer;
       background: colors.$dark-blue;
@@ -65,6 +69,7 @@ main {
 #songerName,
 #genre {
   display: inline;
+
   select {
     @include inputs;
   }
@@ -73,12 +78,14 @@ main {
 
 #list {
   @include list.createList;
+
   h1 {
     color: black;
     margin-bottom: $default-rem;
   }
+
   background-color: colors.$lighter-blue;
-  box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   margin: $default-rem;
   padding: 4rem;
   border-radius: $default-rem;

@@ -42,6 +42,7 @@ main {
 }
 #filter input, #searchSection input {
   margin-top: 2rem;
+  padding-right: 2rem;
   width: 60%;
   height: 3rem;
   border-radius: 999rem;
@@ -83,6 +84,7 @@ main {
 #songerName select,
 #genre select {
   margin-top: 2rem;
+  padding-right: 2rem;
   width: 60%;
   height: 3rem;
   border-radius: 999rem;
@@ -119,6 +121,7 @@ main {
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 0.5rem;
+  position: relative;
 }
 #list .card:hover {
   box-shadow: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.2);
@@ -132,8 +135,8 @@ main {
 #list .card .container {
   padding: 0.7rem 1.6rem;
 }
-#list .card .container h4 {
-  display: inline-block;
+#list .card .container p {
+  margin-bottom: 1rem;
 }
 #list .card .container h4 a {
   color: black;
@@ -145,8 +148,9 @@ main {
   cursor: pointer;
 }
 #list .card .container .favorite {
-  float: left;
-  margin-bottom: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 #list .card .container .favorite:hover {
   cursor: pointer;

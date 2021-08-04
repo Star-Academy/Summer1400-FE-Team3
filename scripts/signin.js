@@ -2,6 +2,7 @@ const loginInfo = document.getElementById("email"); //email or username
 const password = document.getElementById("password");
 
 let user = {};
+
 function userCheckInput() {
   if (validateEmail(loginInfo.value)) {
     // email

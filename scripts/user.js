@@ -1,4 +1,4 @@
-import { addCard } from "./methods.js";
+import { addCard, goToSongPage } from "./methods.js";
 import { fetchUsername } from "./fetchData.js";
 import { HEART, FILLED_HEART } from "./address.js";
 import { songArr, playlistArr } from "./arrays.js";
@@ -14,6 +14,7 @@ username_html.innerHTML = await fetchUsername();
 
 await createFavorites();
 await makeList();
+goToSongPage();
 
 async function createFavorites() {
   if (playlistArr.length !== 0) return;
@@ -33,13 +34,7 @@ async function createFavorites() {
   if (response.status === 201) {
     console.log("create favorite playlist");
     console.log(playlistArr);
-  } else if (response.status === 400) {
-    console.log(result.message);
-  } else if (response.status === 401) {
-    console.log(result.message);
-  } else {
-    console.log(result.message);
-  }
+  } else alert(result.message);
 }
 
 async function makeList() {
@@ -50,32 +45,6 @@ async function makeList() {
   playlistArr[0].songs.forEach(
     (song) => (favList.innerHTML += addCard(song, FILLED_HEART))
   );
-}
-
-const songImages = document.getElementsByClassName("songImage");
-
-for (let songImage of songImages) {
-  songImage.addEventListener("click", function () {
-    const songId = songImage.getAttribute("name");
-    const url = `./Song.html?songId=${songId}`;
-    window.location.href = url;
-  });
-}
-
-const songNames = document.getElementsByClassName("songName");
-
-for (let songName of songNames) {
-  songName.addEventListener("click", function () {
-    const songId = songName.getAttribute("name");
-    const url = `./Song.html?songId=${songId}`;
-    window.location.href = url;
-  });
-}
-
-function heartIconSrc(song) {
-  if (!song.favorite) return HEART;
-
-  return FILLED_HEART;
 }
 
 signOut.addEventListener("click", () => {

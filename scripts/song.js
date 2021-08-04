@@ -37,8 +37,8 @@ function getSongId() {
 
 likeIcon.addEventListener("click", async () => {
   if (likeIcon.getAttribute("src") === HEART) {
-    await addSongToPlaylist(song.id);
     likeIcon.setAttribute("src", FILLED_HEART);
+    await addSongToPlaylist(song.id);
   } else {
     likeIcon.setAttribute("src", HEART);
   }

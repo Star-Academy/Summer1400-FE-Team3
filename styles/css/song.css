@@ -68,16 +68,16 @@ details[open] {
   background-color: #ffa0a0;
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 2rem;
-  padding: 2rem;
+  padding: 3rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
   color: black;
   display: grid;
   justify-self: center;
+  align-items: center;
 }
 #songInfo h1 {
   font-size: 2.2rem;
-  margin-bottom: 2rem;
 }
 #songInfo p {
   font-size: 1.5rem;

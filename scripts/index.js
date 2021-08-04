@@ -3,4 +3,5 @@ function checkLoggedIn() {
     window.location.href = "./user.html";
   }
 }
+
 checkLoggedIn();
