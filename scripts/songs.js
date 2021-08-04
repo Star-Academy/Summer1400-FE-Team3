@@ -19,8 +19,8 @@ const ALL = "all";
 username_html.innerHTML = await fetchUsername();
 const singerArr = singerArray(songArr);
 addOptions();
-goToSongPage();
 await makeList();
+goToSongPage();
 
 for (const like of likeIcons) {
   like.addEventListener("click", async () => {
