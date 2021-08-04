@@ -11,7 +11,7 @@ const username_html = document.getElementById("username");
 const title = document.getElementsByTagName("title");
 const songId = getSongId();
 const song = await fetchSong(songId);
-createSongInfo();
+await createSongInfo();
 //createIcon();
 
 async function createSongInfo() {
