@@ -1,17 +1,18 @@
 // this is song card
 function addCard(song) {
     return `<div class="card" id="${song.id}">
-                              <a class="songImage" songId="${song.id}">
+                              <a class="songImage " name="${song.id}">
                                   <img src=${song.cover} alt="Avatar" style="width:100%"/>
                               </a>
                               <div class="container">
                                 <h4>
-                                 <a class="songName" songId="${song.id}"><b>${song.name}</b></a>
+                                 <a class="songName" name="${song.id}"><b>${song.name}</b></a>
                                 </h4>
                               <img
                                 src="../assets/images/filled-heart.png"
-                                songId="${song.id}"
+                      
                                 class="favorite"
+                                name="${song.id}"
                                 width="30"
                                 height="27"
                                 alt="Add to favorite"

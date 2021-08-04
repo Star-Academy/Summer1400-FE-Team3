@@ -77,4 +77,21 @@ async function findUserInfo(id) {
 
 }
 
-export {fetchData,fetchPlaylist, fetchUsername};
+async function fetchSong(songId) {
+    const response = await fetch(
+        `http://130.185.120.192:5000/song/one/${songId}`
+    );
+    const result = await response.json();
+    if (response.status === 200) {
+        return result.song;
+    } else if (response.status === 400) {
+        console.log(result.message);
+    } else if (response.status === 404) {
+        console.log(result.message);
+    } else {
+        console.log(result.message);
+    }
+
+}
+
+export {fetchData,fetchPlaylist, fetchUsername, fetchSong};

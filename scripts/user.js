@@ -52,22 +52,24 @@ async function makeList() {
 }
 
 const songImages = document.getElementsByClassName("songImage");
-for (var i = 0; i < songImages.length; i++) {
-  songImages[i].addEventListener(
-    "click",
-    songPageRedirect(songImages[i].getAttribute(songId))
-  );
+
+for (let songImage of songImages) {
+  songImage.addEventListener("click", function () {
+    const songId = songImage.getAttribute("name");
+    const url = `./Song.html?songId=${songId}`;
+    window.location.href = url;
+  });
 }
 
 const songNames = document.getElementsByClassName("songName");
-for (var i = 0; i < songNames.length; i++) {
-  songNames[i].addEventListener(
-    "click",
-    songPageRedirect(songNames[i].getAttribute(songId))
-  );
-}
 
-function songPageRedirect(songId) {}
+for (let songName of songNames) {
+  songName.addEventListener("click", function () {
+    const songId = songName.getAttribute("name");
+    const url = `./Song.html?songId=${songId}`;
+    window.location.href = url;
+  });
+}
 
 function heartIconSrc(song) {
   if (!song.favorite) return HEART;
