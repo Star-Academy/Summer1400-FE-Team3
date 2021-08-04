@@ -15,7 +15,7 @@ $default-rem:2rem;
     width: 100%;
 
     img {
-      margin-right: colors.$default-rem;
+      margin-right: $default-rem;
       margin-top: 1.7rem;
       float: right;
     }
