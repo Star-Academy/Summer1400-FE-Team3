@@ -79,11 +79,11 @@ header li a:hover {
   margin-bottom: 3rem;
 }
 
-#songerName,
+#singerName,
 #genre {
   display: inline;
 }
-#songerName select,
+#singerName select,
 #genre select {
   margin-top: 2rem;
   width: 60%;
@@ -91,11 +91,11 @@ header li a:hover {
   border-radius: 999rem;
   border: 1px solid #628395;
 }
-#songerName select:hover,
+#singerName select:hover,
 #genre select:hover {
   border: 2px solid #628395;
 }
-#songerName select:focus,
+#singerName select:focus,
 #genre select:focus {
   border: 2px solid #628395;
   border-radius: 1rem;

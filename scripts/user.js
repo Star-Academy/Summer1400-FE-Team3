@@ -1,4 +1,6 @@
-import {addCard} from './methods.js';
+import { addCard } from "./methods.js";
+import { HEART, FILLED_HEART } from "./address.js";
+
 const username = "KimiaParmida";
 const songArr = [
   {
@@ -64,33 +66,20 @@ makeList();
 function makeList() {
   songArr.forEach((song) => createSongList(song));
   favArr.forEach((favItem) => createFavList(favItem));
-  // likeUnlike();
 }
-// function likeUnlike() {
-//   for (const like of likeIcons) {
-//     like.addEventListener("click", () => {
-//       const id = like.getAttribute("id");
-//       const index = findIndex(parseInt(id));
-//       songArr[index].favorite = !songArr[index].favorite;
-//       like.setAttribute("src",heartIconSrc(songArr[index]));
-//     });
-//   }
-// }
-
 
 function createSongList(song) {
-  const likeIconSrc=heartIconSrc(song);
-  songList.innerHTML += addCard(likeIconSrc,song);
+  const likeIconSrc = heartIconSrc(song);
+  songList.innerHTML += addCard(likeIconSrc, song);
 }
 
 function createFavList(favItem) {
-  const likeIconSrc=heartIconSrc(favItem);
-  favList.innerHTML += addCard(likeIconSrc,favItem);
+  const likeIconSrc = heartIconSrc(favItem);
+  favList.innerHTML += addCard(likeIconSrc, favItem);
 }
 
 function heartIconSrc(song) {
-  if (!song.favorite)
-    return  "../assets/images/heart.png";
+  if (!song.favorite) return HEART;
 
-  return  "../assets/images/filled-heart.png";
+  return FILLED_HEART;
 }

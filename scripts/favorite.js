@@ -1,52 +1,54 @@
-import {addCard,findIndex} from './methods.js';
+import { addCard, findIndex } from "./methods.js";
+import { HEART, FILLED_HEART } from "./address.js";
+
+const ALL = "all";
 const favArr = [
   {
     name: "Always",
     genre: "metal",
     singer: "isak",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id:1
+    id: 1,
   },
   {
     name: "Hello",
     genre: "pop",
     singer: "adel",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id:2
+    id: 2,
   },
   {
     name: "blinding lights",
     genre: "rock",
     singer: "the weekend",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id:3
-
+    id: 3,
   },
   {
     name: "ocean eyes",
     genre: "rap",
     singer: "billie",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id:4
+    id: 4,
   },
   {
     name: "Diamonds",
     genre: "pop",
     singer: "sam smith",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id:5
+    id: 5,
   },
   {
     name: "bad",
     genre: "country",
     singer: "james",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id:6
+    id: 6,
   },
 ];
-const all = "all";
+
 const artistArr = [
-  all,
+  ALL,
   "adel",
   "isak",
   "the weekend",
@@ -54,7 +56,7 @@ const artistArr = [
   "sam smith",
   "james",
 ];
-const genreArr = [all, "pop", "rock", "metal", "rap", "country"];
+const genreArr = [ALL, "pop", "rock", "metal", "rap", "country"];
 const username = "KimiaParmida";
 const username_html = document.getElementById("username");
 const favList = document.getElementById("favCards");
@@ -77,18 +79,20 @@ function makeList() {
 }
 
 function setSongs(favItem) {
-  favList.innerHTML += addCard("../assets/images/filled-heart.png",favItem);
+  favList.innerHTML += addCard(FILLED_HEART, favItem);
+}
+
+function likeClick(like) {
+  const id = like.getAttribute("id");
+  favList.innerHTML = "";
+  const index = findIndex(parseInt(id), favArr);
+  favArr.splice(index, 1);
+  makeList();
 }
 
 function removeFromList() {
   for (const like of likeIcons) {
-    like.addEventListener("click", () => {
-      const id = like.getAttribute("id");
-      favList.innerHTML = "";
-      const index = findIndex(parseInt(id),favArr);
-      favArr.splice(index, 1);
-      makeList();
-    });
+    like.addEventListener("click", likeClick(like));
   }
 }
 
@@ -126,8 +130,8 @@ function matchFilter(genre, artist, favItem) {
   return (
     (favItem.singer.toLowerCase() === artist &&
       favItem.genre.toLowerCase() === genre) ||
-    (favItem.singer.toLowerCase() === artist && genre.toLowerCase() === all) ||
-    (artist.toLowerCase() === all && favItem.genre.toLowerCase() === genre) ||
-    (artist.toLowerCase() === all && genre.toLowerCase() === all)
+    (favItem.singer.toLowerCase() === artist && genre.toLowerCase() === ALL) ||
+    (artist.toLowerCase() === ALL && favItem.genre.toLowerCase() === genre) ||
+    (artist.toLowerCase() === ALL && genre.toLowerCase() === ALL)
   );
 }

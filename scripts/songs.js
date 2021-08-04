@@ -1,4 +1,6 @@
-import {addCard,findIndex} from './methods.js';
+import { addCard, findIndex } from "./methods.js";
+import { HEART, FILLED_HEART } from "./address.js";
+
 const songArr = [
   {
     name: "Always",
@@ -6,7 +8,7 @@ const songArr = [
     singer: "isak",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: false,
-    id: 1
+    id: 1,
   },
   {
     name: "Hello",
@@ -14,7 +16,7 @@ const songArr = [
     singer: "adel",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
-    id: 2
+    id: 2,
   },
   {
     name: "blinding lights",
@@ -22,7 +24,7 @@ const songArr = [
     singer: "the weekend",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
-    id: 3
+    id: 3,
   },
   {
     name: "ocean eyes",
@@ -30,7 +32,7 @@ const songArr = [
     singer: "billie",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: false,
-    id: 4
+    id: 4,
   },
   {
     name: "Diamonds",
@@ -38,7 +40,7 @@ const songArr = [
     singer: "sam smith",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
-    id: 5
+    id: 5,
   },
   {
     name: "bad",
@@ -46,7 +48,7 @@ const songArr = [
     singer: "james",
     src: "../assets/images/Single_by_Sam_Smith.jpeg",
     favorite: true,
-    id: 6
+    id: 6,
   },
 ];
 const username = "KimiaParmida";
@@ -74,24 +76,22 @@ function likeUnlike() {
   for (const like of likeIcons) {
     like.addEventListener("click", () => {
       const id = like.getAttribute("id");
-      const index = findIndex(parseInt(id),songArr);
+      const index = findIndex(parseInt(id), songArr);
       songArr[index].favorite = !songArr[index].favorite;
-      like.setAttribute("src",heartIconSrc(songArr[index]));
-
+      like.setAttribute("src", heartIconSrc(songArr[index]));
     });
   }
 }
 
 function setSongs(song) {
-  const likeIconSrc= heartIconSrc(song);
-  songList.innerHTML += addCard(likeIconSrc,song);
+  const likeIconSrc = heartIconSrc(song);
+  songList.innerHTML += addCard(likeIconSrc, song);
 }
 
 function heartIconSrc(song) {
-  if (!song.favorite)
-    return  "../assets/images/heart.png";
+  if (!song.favorite) return HEART;
 
-  return  "../assets/images/filled-heart.png";
+  return FILLED_HEART;
 }
 
 searchButton.addEventListener("click", () => {
