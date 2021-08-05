@@ -1,141 +1,94 @@
-import { addCard, findIndex } from "./methods.js";
+import { addCard } from "./methods.js";
 import { HEART, FILLED_HEART } from "./address.js";
+import { playlistArr } from "./arrays.js";
+import {
+  fetchUsername,
+  addSongToPlaylist,
+  removeSongFromPlaylist,
+} from "./fetchData.js";
+import { createIcon, singerArray } from "./methods.js";
+import { goToSongPage } from "./methods.js";
 
-const ALL = "all";
-
-const favArr = [
-  {
-    name: "Always",
-    genre: "metal",
-    singer: "isak",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id: 1,
-  },
-  {
-    name: "Hello",
-    genre: "pop",
-    singer: "adel",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id: 2,
-  },
-  {
-    name: "blinding lights",
-    genre: "rock",
-    singer: "the weekend",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id: 3,
-  },
-  {
-    name: "ocean eyes",
-    genre: "rap",
-    singer: "billie",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id: 4,
-  },
-  {
-    name: "Diamonds",
-    genre: "pop",
-    singer: "sam smith",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id: 5,
-  },
-  {
-    name: "bad",
-    genre: "country",
-    singer: "james",
-    src: "../assets/images/Single_by_Sam_Smith.jpeg",
-    id: 6,
-  },
-];
-
-const artistArr = [
-  ALL,
-  "adel",
-  "isak",
-  "the weekend",
-  "billie",
-  "sam smith",
-  "james",
-];
-const genreArr = [ALL, "pop", "rock", "metal", "rap", "country"];
-const username = "KimiaParmida";
-const username_html = document.getElementById("username");
 const favList = document.getElementById("favCards");
+const username_html = document.getElementById("username");
 const artistSelect = document.getElementById("artist");
-const genreSelect = document.getElementById("genreSelect");
 const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
-const likeIcons = document.getElementsByClassName("favorite");
+let likeIcons = document.getElementsByClassName("favorite");
 const signOut = document.getElementById("signOut");
 
-username_html.innerHTML = username;
-makeList();
-createSelectBoxes();
+const ALL = "all";
+const favSongs = [];
+for (const item of playlistArr[0].songs) {
+  favSongs.push(item.rest);
+}
+username_html.innerHTML = await fetchUsername();
+const singerArr = singerArray(favSongs);
+addOptions();
+await makeList();
+goToSongPage();
 
-function makeList() {
-  favArr.forEach((favItem) => {
-    setSongs(favItem);
-  });
-  removeFromList();
+async function makeList() {
+  for (const item of favSongs) {
+    await setSongs(item);
+  }
+  await setLikeIcon();
 }
 
-function setSongs(favItem) {
-  favList.innerHTML += addCard(FILLED_HEART, favItem);
+async function setSongs(song) {
+  let heartSrc = await createIcon(song);
+  favList.innerHTML += addCard(song, heartSrc);
 }
 
-function likeClick(like) {
-  const id = like.getAttribute("id");
-  favList.innerHTML = "";
-  const index = findIndex(parseInt(id), favArr);
-  favArr.splice(index, 1);
-  makeList();
-}
-
-function removeFromList() {
+async function setLikeIcon() {
+  likeIcons = document.getElementsByClassName("favorite");
   for (const like of likeIcons) {
-    like.addEventListener("click", likeClick(like));
+    like.addEventListener("click", async () => {
+      const id = like.getAttribute("name");
+      if (like.getAttribute("src") === HEART) {
+        await addSongToPlaylist(id);
+        like.setAttribute("src", FILLED_HEART);
+      } else {
+        await removeSongFromPlaylist(id);
+        like.setAttribute("src", HEART);
+      }
+    });
   }
 }
 
-function createSelectBoxes() {
-  artistArr.forEach((artist) => {
-    artistSelect.innerHTML += `<option value="${artist}">${artist}</option>`;
-  });
-  genreArr.forEach((genre) => {
-    genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
-  });
-}
-
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", async () => {
   const searchValue = searchInput.value.toLowerCase();
   favList.innerHTML = "";
-  favArr.forEach((favItem) => {
-    if (favItem.name.toLowerCase().includes(searchValue)) {
-      setSongs(favItem);
+  if (searchValue === "") {
+    await makeList();
+    return;
+  }
+  favSongs.forEach((song) => {
+    if (song.name.toLowerCase().includes(searchValue)) {
+      setSongs(song);
     }
   });
 });
 
-filterButton.addEventListener("click", () => {
+filterButton.addEventListener("click", async () => {
   const artist = artistSelect.value.toLowerCase();
-  const genre = genreSelect.value.toLowerCase();
   favList.innerHTML = "";
-  favArr.forEach((favItem) => {
-    if (matchFilter(genre, artist, favItem)) {
-      setSongs(favItem);
+  if (artist === ALL) {
+    await makeList();
+    return;
+  }
+  favSongs.forEach((song) => {
+    if (song.artist.toLowerCase() === artist) {
+      setSongs(song);
     }
   });
 });
 
-function matchFilter(genre, artist, favItem) {
-  return (
-    (favItem.singer.toLowerCase() === artist &&
-      favItem.genre.toLowerCase() === genre) ||
-    (favItem.singer.toLowerCase() === artist && genre.toLowerCase() === ALL) ||
-    (artist.toLowerCase() === ALL && favItem.genre.toLowerCase() === genre) ||
-    (artist.toLowerCase() === ALL && genre.toLowerCase() === ALL)
-  );
+function addOptions() {
+  singerArr.forEach((singer) => {
+    artistSelect.innerHTML += `<option value="${singer}">${singer}</option>`;
+  });
 }
 
 signOut.addEventListener("click", () => {

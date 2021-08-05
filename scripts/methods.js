@@ -28,8 +28,7 @@ function addCard(song, heartSrc) {
 
 
 async function createIcon(song) {
-  const playlistArr = [...(await fetchPlaylist())];
-  
+  const playlistArr = [...(await fetchPlaylist())];  
   const favoriteIDs=[];
   for(const item of playlistArr[0].songs){
     favoriteIDs.push(item.rest.id);

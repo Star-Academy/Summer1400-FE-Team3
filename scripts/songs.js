@@ -1,7 +1,12 @@
 import { addCard } from "./methods.js";
 import { HEART, FILLED_HEART } from "./address.js";
 import { songArr } from "./arrays.js";
-import { fetchUsername, fetchPage, addSongToPlaylist } from "./fetchData.js";
+import {
+  fetchUsername,
+  fetchPage,
+  addSongToPlaylist,
+  removeSongFromPlaylist,
+} from "./fetchData.js";
 import { createIcon, singerArray } from "./methods.js";
 import { goToSongPage } from "./methods.js";
 
@@ -11,7 +16,7 @@ const artistSelect = document.getElementById("artist");
 const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
-const likeIcons = document.getElementsByClassName("favorite");
+let likeIcons = document.getElementsByClassName("favorite");
 const signOut = document.getElementById("signOut");
 
 const ALL = "all";
@@ -22,16 +27,20 @@ addOptions();
 await makeList();
 goToSongPage();
 
-for (const like of likeIcons) {
-  like.addEventListener("click", async () => {
-    const id = like.getAttribute("name");
-    if (like.getAttribute("src") === HEART) {
-      await addSongToPlaylist(id);
-      like.setAttribute("src", FILLED_HEART);
-    } else {
-      like.setAttribute("src", HEART);
-    }
-  });
+async function setLikeIcon() {
+  likeIcons = document.getElementsByClassName("favorite");
+  for (const like of likeIcons) {
+    like.addEventListener("click", async () => {
+      const id = like.getAttribute("name");
+      if (like.getAttribute("src") === HEART) {
+        await addSongToPlaylist(id);
+        like.setAttribute("src", FILLED_HEART);
+      } else {
+        await removeSongFromPlaylist(id);
+        like.setAttribute("src", HEART);
+      }
+    });
+  }
 }
 
 async function makeList() {
@@ -40,6 +49,7 @@ async function makeList() {
     pageArr.forEach((song) => {
       setSongs(song);
     });
+    await setLikeIcon();
   }
 }
 

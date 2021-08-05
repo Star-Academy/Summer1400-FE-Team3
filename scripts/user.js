@@ -2,10 +2,7 @@ import { addCard, goToSongPage } from "./methods.js";
 import {
   fetchUsername,
   addSongToPlaylist,
-  fetchSong,
   removeSongFromPlaylist,
-  fetchPlaylist,
-  fetchData,
 } from "./fetchData.js";
 import { HEART, FILLED_HEART } from "./address.js";
 import { songArr, playlistArr } from "./arrays.js";
@@ -22,7 +19,6 @@ username_html.innerHTML = await fetchUsername();
 await createFavorites();
 await makeList();
 goToSongPage();
-await setLikeIcon();
 
 async function createFavorites() {
   if (playlistArr.length !== 0) return;
@@ -41,7 +37,6 @@ async function createFavorites() {
 
   if (response.status === 201) {
     console.log("create favorite playlist");
-    console.log(playlistArr);
   } else alert(result.message);
 }
 
@@ -54,31 +49,29 @@ async function makeList() {
     favList.innerHTML += addCard(song.rest, FILLED_HEART);
   });
 }
-async function setLikeIcon() {
-  for (const like of likeIcons) {
-    like.addEventListener("click", async () => {
-      const id = like.getAttribute("name");
-      if (like.getAttribute("src") === HEART) {
-        await addSongToPlaylist(id);
-        favList.innerHTML += addCard(await fetchSong(id), FILLED_HEART);
-        like.setAttribute("src", FILLED_HEART);
-      } else {
-        await removeSongFromPlaylist(id);
-        like.setAttribute("src", HEART);
-        songList.innerHTML = "";
-        for (let i = 0; i < 4; i++) {
-          let heartSrc = await createIcon(songArr[i]);
-          songList.innerHTML += addCard(songArr[i], heartSrc);
-        }
-        favList.innerHTML = "";
-        const newPlaylistArr = [...(await fetchPlaylist())];
-        newPlaylistArr[0].songs.forEach((song) => {
-          favList.innerHTML += addCard(song.rest, FILLED_HEART);
-        });
-      }
-      await setLikeIcon();
-    });
-  }
+
+for (const like of likeIcons) {
+  like.addEventListener("click", async () => {
+    const id = like.getAttribute("name");
+    if (like.getAttribute("src") === HEART) {
+      await addSongToPlaylist(id);
+      //favList.innerHTML += addCard(await fetchSong(id), FILLED_HEART);
+      like.setAttribute("src", FILLED_HEART);
+    } else {
+      await removeSongFromPlaylist(id);
+      like.setAttribute("src", HEART);
+      // songList.innerHTML = "";
+      // for (let i = 0; i < 4; i++) {
+      //   let heartSrc = await createIcon(songArr[i]);
+      //   songList.innerHTML += addCard(songArr[i], heartSrc);
+      // }
+      // favList.innerHTML = "";
+      // const newPlaylistArr = [...(await fetchPlaylist())];
+      // newPlaylistArr[0].songs.forEach((song) => {
+      //   favList.innerHTML += addCard(song.rest, FILLED_HEART);
+      // });
+    }
+  });
 }
 
 signOut.addEventListener("click", () => {
