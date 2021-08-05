@@ -1,6 +1,6 @@
 import { HEART, FILLED_HEART } from "./address.js";
-import { playlistArr } from "./arrays.js";
-
+//import { playlistArr } from "./arrays.js";
+import {fetchPlaylist,} from "./fetchData.js";
 const ALL = "all";
 
 function addCard(song, heartSrc) {
@@ -20,13 +20,20 @@ function addCard(song, heartSrc) {
                                 width="30"
                                 height="27"
                                 alt="Add to favorite"
+                               
                                 />
                             </div>
                           </div>`;
 }
 
-function createIcon(song) {
-  const favoriteIDs = playlistArr[0].songs.map((song) => song.id);
+
+async function createIcon(song) {
+  const playlistArr = [...(await fetchPlaylist())];
+  
+  const favoriteIDs=[];
+  for(const item of playlistArr[0].songs){
+    favoriteIDs.push(item.rest.id);
+  }
   if (favoriteIDs.includes(song.id)) return FILLED_HEART;
   return HEART;
 }

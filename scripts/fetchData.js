@@ -92,7 +92,6 @@ async function fetchPage(current) {
 }
 
 async function addSongToPlaylist(songId) {
-  console.log(playlistArr[0]);
   const details = {
     token: localStorage.getItem("token"),
     playlistId: playlistArr[0].id,
@@ -108,11 +107,37 @@ async function addSongToPlaylist(songId) {
       body: JSON.stringify(details),
     }
   );
-  const result = await response.json();
+  
   if (response.status === 200) {
-    return result.songs;
+   console.log("song added successfully!")
   } else {
-    alert(result.message);
+    const result = await response.json();
+    console.log(result.message);
+  }
+}
+
+async function removeSongFromPlaylist(songId) {
+  const details = {
+    token: localStorage.getItem("token"),
+    playlistId: playlistArr[0].id,
+    songId: songId,
+  };
+  const response = await fetch(
+    "http://130.185.120.192:5000/playlist/remove-song",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(details),
+    }
+  );
+  
+  if (response.status === 200) {
+   console.log("song removed successfully!")
+  } else {
+    const result = await response.json();
+    console.log(result.message);
   }
 }
 
@@ -123,4 +148,5 @@ export {
   fetchSong,
   fetchPage,
   addSongToPlaylist,
+  removeSongFromPlaylist,
 };

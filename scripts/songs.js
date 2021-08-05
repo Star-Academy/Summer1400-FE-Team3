@@ -1,4 +1,4 @@
-import { addCard, findIndex } from "./methods.js";
+import { addCard } from "./methods.js";
 import { HEART, FILLED_HEART } from "./address.js";
 import { songArr } from "./arrays.js";
 import { fetchUsername, fetchPage, addSongToPlaylist } from "./fetchData.js";
@@ -43,8 +43,8 @@ async function makeList() {
   }
 }
 
-function setSongs(song) {
-  let heartSrc = createIcon(song);
+async function setSongs(song) {
+  let heartSrc = await createIcon(song);
   songList.innerHTML += addCard(song, heartSrc);
 }
 
