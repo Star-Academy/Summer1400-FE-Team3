@@ -56,7 +56,6 @@ header li a:hover {
 }
 #filter button,
 #searchSection button {
-  margin-right: 2rem;
   width: 9rem;
   height: 3rem;
   border-radius: 4rem;
