@@ -54,21 +54,14 @@ main .form h2 {
   margin-bottom: 5rem;
   color: #262a53;
 }
-main .form form p {
-  display: inline-block;
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin-left: 2rem;
-  color: #262a53;
-}
 main .form form .inputbox {
   height: 4.5rem;
 }
 main .form form .inputbox label {
   font-weight: bold;
   font-size: 1.3rem;
-  margin-left: 2rem;
   color: #262a53;
+  margin-top: 1.1rem;
   float: right;
 }
 main .form form .inputbox input {
@@ -87,14 +80,8 @@ main .form form .inputbox input:focus {
   border-radius: 0.5rem;
   outline: none;
 }
-main .form form .inputbox input:-moz-placeholder {
-  text-align: left;
-}
-main .form form .inputbox input:-ms-input-placeholder {
-  text-align: left;
-}
-main .form form .inputbox input::-webkit-input-placeholder {
-  text-align: left;
+main .form form .options {
+  margin-top: 3rem;
 }
 main .form form .options label {
   margin-left: 2rem;

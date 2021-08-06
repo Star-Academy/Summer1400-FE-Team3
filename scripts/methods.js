@@ -1,6 +1,6 @@
 import { HEART, FILLED_HEART } from "./address.js";
 import { fetchPlaylist } from "./fetchData.js";
-const ALL = "all";
+const ALL = "همه";
 
 function addCard(song, heartSrc) {
   return `<div class="card">

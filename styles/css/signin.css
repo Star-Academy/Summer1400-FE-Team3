@@ -70,15 +70,6 @@ main .form form .inputbox input:focus {
   border-radius: 0.5rem;
   outline: none;
 }
-main .form form .inputbox input:-moz-placeholder {
-  text-align: left;
-}
-main .form form .inputbox input:-ms-input-placeholder {
-  text-align: left;
-}
-main .form form .inputbox input::-webkit-input-placeholder {
-  text-align: left;
-}
 main .form form .inputbox label {
   display: block;
   font-size: 1.2rem;

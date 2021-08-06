@@ -42,7 +42,7 @@ async function setSongs(song) {
 async function setLikeIcon() {
   let likeIcons = document.getElementsByClassName("favorite");
   for (let i = 0; i < likeIcons.length; i++) {
-    likeIcons[i].addEventListener("click", async () => {
+    likeIcons[i].onclick = async () => {
       if (likeIcons[i].getAttribute("src") === HEART) {
         await addSongToPlaylist(likeIcons[i].getAttribute("name"));
         likeIcons[i].setAttribute("src", FILLED_HEART);
@@ -50,7 +50,7 @@ async function setLikeIcon() {
         await removeSongFromPlaylist(likeIcons[i].getAttribute("name"));
         likeIcons[i].setAttribute("src", HEART);
       }
-    });
+    };
   }
 }
 
