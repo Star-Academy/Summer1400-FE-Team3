@@ -9,19 +9,19 @@ $default-rem: 2rem;
 
 @mixin createNav {
   background-color: colors.$light-gray;
-  height: 10rem;
+  height: 9rem;
   nav {
     height: 100%;
     width: 100%;
 
     img {
-      margin-right: $default-rem;
-      margin-top: 1.7rem;
+      margin-right: 3rem;
+      margin-top: 1rem;
       float: right;
     }
 
     span {
-      margin-top: 3.5rem;
+      margin-top: 2.8rem;
       margin-right: 1rem;
       font-size: $default-rem;
       color: colors.$darker-pink;
@@ -31,7 +31,7 @@ $default-rem: 2rem;
 
     #home {
       color: colors.$dark-blue;
-      margin-top: 3.5rem;
+      margin-top: 2.9rem;
       margin-left: $default-rem;
       float: left;
       font-size: 1.8rem;

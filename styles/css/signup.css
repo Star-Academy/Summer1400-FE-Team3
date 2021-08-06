@@ -1,18 +1,18 @@
 header {
   background-color: #f3f3f3;
-  height: 10rem;
+  height: 9rem;
 }
 header nav {
   height: 100%;
   width: 100%;
 }
 header nav img {
-  margin-right: 2rem;
-  margin-top: 1.7rem;
+  margin-right: 3rem;
+  margin-top: 1rem;
   float: right;
 }
 header nav span {
-  margin-top: 3.5rem;
+  margin-top: 2.8rem;
   margin-right: 1rem;
   font-size: 2rem;
   color: #da5656;
@@ -21,7 +21,7 @@ header nav span {
 }
 header nav #home {
   color: #262a53;
-  margin-top: 3.5rem;
+  margin-top: 2.9rem;
   margin-left: 2rem;
   float: left;
   font-size: 1.8rem;

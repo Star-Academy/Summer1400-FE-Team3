@@ -9,6 +9,14 @@ header nav {
   display: inline-block;
   float: left;
 }
+header > span {
+  position: absolute;
+  top: 2.8rem;
+  right: 10.5rem;
+  font-size: 2rem;
+  color: #da5656;
+  font-weight: bold;
+}
 header img {
   margin-right: 2rem;
 }
@@ -223,7 +231,7 @@ main #searchSection select {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
   header nav {
     padding-top: 1.3rem;
   }
