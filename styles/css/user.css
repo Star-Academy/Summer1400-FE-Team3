@@ -26,6 +26,9 @@ header li {
   color: #da5656;
   font-size: 1.5rem;
 }
+header li #username {
+  color: black;
+}
 header li a {
   color: #da5656;
   text-decoration: none;
@@ -33,7 +36,7 @@ header li a {
   margin-left: 3rem;
 }
 header li a:hover {
-  color: #262a53;
+  color: black;
 }
 
 #content {

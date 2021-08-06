@@ -9,6 +9,8 @@ $default-rem: 2rem;
   width: 60%;
   height: 3rem;
   border-radius: 999rem;
+  padding-right: $default-rem;
+
   border: 1px solid colors.$light-blue;
   &:hover {
     border: 2px solid colors.$light-blue;
