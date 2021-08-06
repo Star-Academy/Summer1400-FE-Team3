@@ -1,4 +1,3 @@
-import { addCard } from "./methods.js";
 import { HEART, FILLED_HEART } from "./address.js";
 import { songArr } from "./arrays.js";
 import {
@@ -7,8 +6,7 @@ import {
   addSongToPlaylist,
   removeSongFromPlaylist,
 } from "./fetchData.js";
-import { createIcon, singerArray } from "./methods.js";
-import { goToSongPage } from "./methods.js";
+import { createIcon, singerArray, addCard, goToSongPage } from "./methods.js";
 
 const songList = document.getElementById("songCards");
 const username_html = document.getElementById("username");
@@ -27,20 +25,18 @@ addOptions();
 await makeList();
 goToSongPage();
 
-async function setLikeIcon() {
-  likeIcons = document.getElementsByClassName("favorite");
-  for (const like of likeIcons) {
-    like.addEventListener("click", async () => {
-      const id = like.getAttribute("name");
-      if (like.getAttribute("src") === HEART) {
-        await addSongToPlaylist(id);
-        like.setAttribute("src", FILLED_HEART);
-      } else {
-        await removeSongFromPlaylist(id);
-        like.setAttribute("src", HEART);
-      }
-    });
-  }
+async function setLikeIcon(song) {
+  const likeIcon = document.getElementsByClassName("favorite");
+  likeIcon.addEventListener("click", async () => {
+    console.log("here");
+    if (likeIcon.getAttribute("src") === HEART) {
+      await addSongToPlaylist(song.id);
+      likeIcon.setAttribute("src", FILLED_HEART);
+    } else {
+      await removeSongFromPlaylist(song.id);
+      likeIcon.setAttribute("src", HEART);
+    }
+  });
 }
 
 async function makeList() {
@@ -49,13 +45,13 @@ async function makeList() {
     pageArr.forEach((song) => {
       setSongs(song);
     });
-    await setLikeIcon();
   }
 }
 
 async function setSongs(song) {
   let heartSrc = await createIcon(song);
   songList.innerHTML += addCard(song, heartSrc);
+  await setLikeIcon(song);
 }
 
 searchButton.addEventListener("click", async () => {
@@ -95,3 +91,5 @@ function addOptions() {
 signOut.addEventListener("click", () => {
   localStorage.clear();
 });
+
+export { setLikeIcon };

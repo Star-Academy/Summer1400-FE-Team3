@@ -1,10 +1,10 @@
 import { HEART, FILLED_HEART } from "./address.js";
 //import { playlistArr } from "./arrays.js";
-import {fetchPlaylist,} from "./fetchData.js";
+import { fetchPlaylist } from "./fetchData.js";
 const ALL = "all";
 
 function addCard(song, heartSrc) {
-  return `<div class="card" id="${song.id}">
+  return `<div class="card">
                               <a class="songImage " name="${song.id}">
                                   <img src=${song.cover} alt="Avatar" loading="lazy" style="width:100%"/>
                               </a>
@@ -26,25 +26,14 @@ function addCard(song, heartSrc) {
                           </div>`;
 }
 
-
 async function createIcon(song) {
-  const playlistArr = [...(await fetchPlaylist())];  
-  const favoriteIDs=[];
-  for(const item of playlistArr[0].songs){
+  const playlistArr = [...(await fetchPlaylist())];
+  const favoriteIDs = [];
+  for (const item of playlistArr[0].songs) {
     favoriteIDs.push(item.rest.id);
   }
   if (favoriteIDs.includes(song.id)) return FILLED_HEART;
   return HEART;
-}
-
-function findIndex(id, array) {
-  let index = -1;
-  array.forEach((song, songIndex) => {
-    if (song.id === id) {
-      index = songIndex;
-    }
-  });
-  return index;
 }
 
 function singerArray(songArray) {
@@ -82,4 +71,4 @@ function clickImage() {
     });
   }
 }
-export { addCard, findIndex, createIcon, singerArray, goToSongPage };
+export { addCard, createIcon, singerArray, goToSongPage };
