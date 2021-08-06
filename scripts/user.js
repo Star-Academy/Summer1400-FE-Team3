@@ -45,9 +45,9 @@ async function makeList() {
     let heartSrc = await createIcon(songArr[i]);
     songList.innerHTML += addCard(songArr[i], heartSrc);
   }
-  playlistArr[0].songs.forEach((song) => {
-    favList.innerHTML += addCard(song.rest, FILLED_HEART);
-  });
+  for (let i = 0; i < 4 && i < playlistArr[0].songs.length; i++) {
+    favList.innerHTML += addCard(playlistArr[0].songs[i].rest, FILLED_HEART);
+  }
 }
 
 for (const like of likeIcons) {
@@ -55,21 +55,10 @@ for (const like of likeIcons) {
     const id = like.getAttribute("name");
     if (like.getAttribute("src") === HEART) {
       await addSongToPlaylist(id);
-      //favList.innerHTML += addCard(await fetchSong(id), FILLED_HEART);
       like.setAttribute("src", FILLED_HEART);
     } else {
       await removeSongFromPlaylist(id);
       like.setAttribute("src", HEART);
-      // songList.innerHTML = "";
-      // for (let i = 0; i < 4; i++) {
-      //   let heartSrc = await createIcon(songArr[i]);
-      //   songList.innerHTML += addCard(songArr[i], heartSrc);
-      // }
-      // favList.innerHTML = "";
-      // const newPlaylistArr = [...(await fetchPlaylist())];
-      // newPlaylistArr[0].songs.forEach((song) => {
-      //   favList.innerHTML += addCard(song.rest, FILLED_HEART);
-      // });
     }
   });
 }

@@ -1,7 +1,7 @@
 import { HEART, FILLED_HEART } from "./address.js";
 import { fetchSong, fetchUsername } from "./fetchData.js";
 import { createIcon } from "./methods.js";
-import { addSongToPlaylist } from "./fetchData.js";
+import { addSongToPlaylist, removeSongFromPlaylist } from "./fetchData.js";
 
 const likeIcon = document.getElementById("likePic");
 const songName = document.getElementById("songName");
@@ -15,7 +15,7 @@ const signOut = document.getElementById("signOut");
 
 const songId = getSongId();
 const song = await fetchSong(songId);
-const heartSrc = createIcon(song);
+const heartSrc = await createIcon(song);
 await createSongInfo();
 
 async function createSongInfo() {
@@ -41,6 +41,7 @@ likeIcon.addEventListener("click", async () => {
     await addSongToPlaylist(song.id);
   } else {
     likeIcon.setAttribute("src", HEART);
+    await removeSongFromPlaylist(song.id);
   }
 });
 

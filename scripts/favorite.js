@@ -43,17 +43,29 @@ async function setSongs(song) {
 
 async function setLikeIcon() {
   likeIcons = document.getElementsByClassName("favorite");
-  for (const like of likeIcons) {
-    like.addEventListener("click", async () => {
-      const id = like.getAttribute("name");
-      if (like.getAttribute("src") === HEART) {
-        await addSongToPlaylist(id);
-        like.setAttribute("src", FILLED_HEART);
+  for (let i = 0; i < likeIcons.length; i++) {
+    likeIcons[i].addEventListener("click", async () => {
+      if (likeIcons[i].getAttribute("src") === HEART) {
+        await addSongToPlaylist(likeIcons[i].getAttribute("name"));
+        likeIcons[i].setAttribute("src", FILLED_HEART);
       } else {
-        await removeSongFromPlaylist(id);
-        like.setAttribute("src", HEART);
+        await removeSongFromPlaylist(likeIcons[i].getAttribute("name"));
+        likeIcons[i].setAttribute("src", HEART);
       }
     });
+  }
+}
+
+async function searchFunction(searchValue) {
+  for (let i = 0; i <= favSongs.length; i++) {
+    if (i < favSongs.length) {
+      if (favSongs[i].name.toLowerCase().includes(searchValue)) {
+        await setSongs(favSongs[i]);
+      }
+    }
+    if (i == favSongs.length) {
+      await setLikeIcon();
+    }
   }
 }
 
@@ -64,12 +76,21 @@ searchButton.addEventListener("click", async () => {
     await makeList();
     return;
   }
-  favSongs.forEach((song) => {
-    if (song.name.toLowerCase().includes(searchValue)) {
-      setSongs(song);
-    }
-  });
+  await searchFunction(searchValue);
 });
+
+async function filterFunction(artist) {
+  for (let i = 0; i <= favSongs.length; i++) {
+    if (i < favSongs.length) {
+      if (favSongs[i].artist.toLowerCase() === artist) {
+        await setSongs(favSongs[i]);
+      }
+    }
+    if (i == favSongs.length) {
+      await setLikeIcon();
+    }
+  }
+}
 
 filterButton.addEventListener("click", async () => {
   const artist = artistSelect.value.toLowerCase();
@@ -78,11 +99,7 @@ filterButton.addEventListener("click", async () => {
     await makeList();
     return;
   }
-  favSongs.forEach((song) => {
-    if (song.artist.toLowerCase() === artist) {
-      setSongs(song);
-    }
-  });
+  await filterFunction(artist);
 });
 
 function addOptions() {

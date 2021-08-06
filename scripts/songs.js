@@ -14,7 +14,6 @@ const artistSelect = document.getElementById("artist");
 const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
-let likeIcons = document.getElementsByClassName("favorite");
 const signOut = document.getElementById("signOut");
 
 const ALL = "all";
@@ -25,33 +24,47 @@ addOptions();
 await makeList();
 goToSongPage();
 
-async function setLikeIcon(song) {
-  const likeIcon = document.getElementsByClassName("favorite");
-  likeIcon.addEventListener("click", async () => {
-    console.log("here");
-    if (likeIcon.getAttribute("src") === HEART) {
-      await addSongToPlaylist(song.id);
-      likeIcon.setAttribute("src", FILLED_HEART);
-    } else {
-      await removeSongFromPlaylist(song.id);
-      likeIcon.setAttribute("src", HEART);
-    }
-  });
-}
-
 async function makeList() {
-  for (let i = 1; i < songArr.length; i += 4) {
+  for (let i = 1; i < songArr.length; i += 2) {
     let pageArr = await fetchPage(i);
-    pageArr.forEach((song) => {
-      setSongs(song);
+    pageArr.forEach(async (song) => {
+      await setSongs(song);
     });
   }
+  await setLikeIcon();
 }
 
 async function setSongs(song) {
   let heartSrc = await createIcon(song);
   songList.innerHTML += addCard(song, heartSrc);
-  await setLikeIcon(song);
+}
+
+async function setLikeIcon() {
+  let likeIcons = document.getElementsByClassName("favorite");
+  for (let i = 0; i < likeIcons.length; i++) {
+    likeIcons[i].addEventListener("click", async () => {
+      if (likeIcons[i].getAttribute("src") === HEART) {
+        await addSongToPlaylist(likeIcons[i].getAttribute("name"));
+        likeIcons[i].setAttribute("src", FILLED_HEART);
+      } else {
+        await removeSongFromPlaylist(likeIcons[i].getAttribute("name"));
+        likeIcons[i].setAttribute("src", HEART);
+      }
+    });
+  }
+}
+
+async function searchFunction(searchValue) {
+  for (let i = 0; i <= songArr.length; i++) {
+    if (i < songArr.length) {
+      if (songArr[i].name.toLowerCase().includes(searchValue)) {
+        await setSongs(songArr[i]);
+      }
+    }
+    if (i == songArr.length) {
+      await setLikeIcon();
+    }
+  }
 }
 
 searchButton.addEventListener("click", async () => {
@@ -61,12 +74,21 @@ searchButton.addEventListener("click", async () => {
     await makeList();
     return;
   }
-  songArr.forEach((song) => {
-    if (song.name.toLowerCase().includes(searchValue)) {
-      setSongs(song);
-    }
-  });
+  await searchFunction(searchValue);
 });
+
+async function filterFunction(artist) {
+  for (let i = 0; i <= songArr.length; i++) {
+    if (i < songArr.length) {
+      if (songArr[i].artist.toLowerCase() === artist) {
+        await setSongs(songArr[i]);
+      }
+    }
+    if (i == songArr.length) {
+      await setLikeIcon();
+    }
+  }
+}
 
 filterButton.addEventListener("click", async () => {
   const artist = artistSelect.value.toLowerCase();
@@ -75,11 +97,7 @@ filterButton.addEventListener("click", async () => {
     await makeList();
     return;
   }
-  songArr.forEach((song) => {
-    if (song.artist.toLowerCase() === artist) {
-      setSongs(song);
-    }
-  });
+  await filterFunction(artist);
 });
 
 function addOptions() {
@@ -91,5 +109,3 @@ function addOptions() {
 signOut.addEventListener("click", () => {
   localStorage.clear();
 });
-
-export { setLikeIcon };

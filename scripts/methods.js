@@ -1,5 +1,4 @@
 import { HEART, FILLED_HEART } from "./address.js";
-//import { playlistArr } from "./arrays.js";
 import { fetchPlaylist } from "./fetchData.js";
 const ALL = "all";
 
@@ -19,8 +18,7 @@ function addCard(song, heartSrc) {
                                 name="${song.id}"
                                 width="30"
                                 height="27"
-                                alt="Add to favorite"
-                               
+                                alt="Add to favorite"                                
                                 />
                             </div>
                           </div>`;

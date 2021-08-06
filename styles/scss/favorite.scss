@@ -23,6 +23,7 @@ header {
 }
 #filter,
 #searchSection {
+  position: sticky;
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
 
   background-color: colors.$light-pink;
