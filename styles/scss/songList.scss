@@ -61,6 +61,11 @@ $default-rem:2rem;
     main {
       display: grid;
       grid-template-columns: 1fr 2fr;
+      #filter_search {
+        position: sticky;
+        top: 0;
+        height: min-content;
+      }
       #list {
         margin-right: 0;
       }
@@ -76,6 +81,11 @@ $default-rem:2rem;
     main {
       display: grid;
       grid-template-columns: 1fr 2fr;
+      #filter_search {
+        position: sticky;
+        top: 0;
+        height: min-content;
+      }
       #list {
         margin-right: 0;
         .cards {

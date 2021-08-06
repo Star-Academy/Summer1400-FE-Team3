@@ -29,6 +29,7 @@ main {
 
 }
 
+
 #filter, #searchSection {
   background-color: colors.$light-pink;
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
@@ -61,12 +62,12 @@ main {
     }
   }
 }
+  h3 {
+    margin-bottom: $default-rem;
 
-#filter h3 {
-  margin-bottom: $default-rem;
-}
+  }
 
-#songerName,
+#singerName,
 #genre {
   display: inline;
 
@@ -74,7 +75,6 @@ main {
     @include inputs;
   }
 }
-
 
 #list {
   @include list.createList;

@@ -184,6 +184,11 @@ footer h2, footer p {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
+  main #filter_search {
+    position: sticky;
+    top: 0;
+    height: min-content;
+  }
   main #list {
     margin-right: 0;
   }
@@ -197,6 +202,11 @@ main #searchSection select {
   main {
     display: grid;
     grid-template-columns: 1fr 2fr;
+  }
+  main #filter_search {
+    position: sticky;
+    top: 0;
+    height: min-content;
   }
   main #list {
     margin-right: 0;

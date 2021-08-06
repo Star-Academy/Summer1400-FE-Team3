@@ -61,8 +61,9 @@ async function searchFunction(searchValue) {
         await setSongs(songArr[i]);
       }
     }
-    if (i == songArr.length) {
+    if (i === songArr.length) {
       await setLikeIcon();
+      await goToSongPage();
     }
   }
 }
@@ -84,8 +85,9 @@ async function filterFunction(artist) {
         await setSongs(songArr[i]);
       }
     }
-    if (i == songArr.length) {
+    if (i === songArr.length) {
       await setLikeIcon();
+      await goToSongPage();
     }
   }
 }
