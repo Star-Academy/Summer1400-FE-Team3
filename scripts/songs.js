@@ -22,16 +22,14 @@ username_html.innerHTML = await fetchUsername();
 const singerArr = singerArray(songArr);
 addOptions();
 await makeList();
+await setLikeIcon();
 goToSongPage();
 
 async function makeList() {
-  for (let i = 1; i < songArr.length; i += 2) {
-    let pageArr = await fetchPage(i);
-    pageArr.forEach(async (song) => {
-      await setSongs(song);
-    });
+  let pageArr = await fetchPage();
+  for (const song of pageArr) {
+    await setSongs(song);
   }
-  await setLikeIcon();
 }
 
 async function setSongs(song) {
@@ -42,15 +40,15 @@ async function setSongs(song) {
 async function setLikeIcon() {
   let likeIcons = document.getElementsByClassName("favorite");
   for (let i = 0; i < likeIcons.length; i++) {
-    likeIcons[i].onclick = async () => {
+    likeIcons[i].addEventListener("click", async () => {
       if (likeIcons[i].getAttribute("src") === HEART) {
         await addSongToPlaylist(likeIcons[i].getAttribute("name"));
-        likeIcons[i].setAttribute("src", FILLED_HEART);
+        likeIcons[i].src = FILLED_HEART;
       } else {
         await removeSongFromPlaylist(likeIcons[i].getAttribute("name"));
-        likeIcons[i].setAttribute("src", HEART);
+        likeIcons[i].src = HEART;
       }
-    };
+    });
   }
 }
 

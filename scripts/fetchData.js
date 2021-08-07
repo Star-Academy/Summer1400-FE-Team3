@@ -71,10 +71,10 @@ async function fetchSong(songId) {
   } else alert(result.message);
 }
 
-async function fetchPage(current) {
+async function fetchPage() {
   const details = {
-    size: 4,
-    current: current,
+    size: 20,
+    current: 1,
     sorter: "name",
     desc: true,
   };
@@ -107,9 +107,9 @@ async function addSongToPlaylist(songId) {
       body: JSON.stringify(details),
     }
   );
-  
+
   if (response.status === 200) {
-   console.log("song added successfully!")
+    console.log("song added successfully!");
   } else {
     const result = await response.json();
     console.log(result.message);
@@ -132,9 +132,9 @@ async function removeSongFromPlaylist(songId) {
       body: JSON.stringify(details),
     }
   );
-  
+
   if (response.status === 200) {
-   console.log("song removed successfully!")
+    console.log("song removed successfully!");
   } else {
     const result = await response.json();
     console.log(result.message);

@@ -45,15 +45,34 @@ $default-rem:2rem;
 }
 
 @mixin createFooter {
-  font-size: 12px;
   background-color: colors.$dark-blue;
-  margin: auto;
+  height: 30rem;
   padding: 4rem;
-  height: min-content;
-  color: white;
-  text-align: center;
-  h2, p {
+  * {
+    color: white;
+  }
+  h2 {
+    text-align: center;
     margin-bottom: $default-rem;
+    font-size:$default-rem;
+  }
+  p {
+    text-align: center;
+    margin-bottom: $default-rem;
+    font-size: 1.2rem;
+  }
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: $default-rem;
+    img {
+      margin-left: 1rem;
+    }
+    figcaption {
+      font-size: 1.5rem;
+    }
   }
 }
 

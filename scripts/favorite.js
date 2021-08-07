@@ -47,10 +47,10 @@ async function setLikeIcon() {
     likeIcons[i].addEventListener("click", async () => {
       if (likeIcons[i].getAttribute("src") === HEART) {
         await addSongToPlaylist(likeIcons[i].getAttribute("name"));
-        likeIcons[i].setAttribute("src", FILLED_HEART);
+        likeIcons[i].src = FILLED_HEART;
       } else {
         await removeSongFromPlaylist(likeIcons[i].getAttribute("name"));
-        likeIcons[i].setAttribute("src", HEART);
+        likeIcons[i].src = HEART;
       }
     });
   }

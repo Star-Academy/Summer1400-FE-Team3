@@ -23,10 +23,10 @@ async function createSongInfo() {
   songName.innerHTML = song.name;
   title[0].innerHTML = song.name;
   singerName.innerHTML = song.artist;
-  image.setAttribute("src", song.cover);
-  audio.setAttribute("src", song.file);
+  image.src = song.cover;
+  audio.src = song.file;
   lyrics.innerHTML = song.lyrics;
-  likeIcon.setAttribute("src", heartSrc);
+  likeIcon.src = heartSrc;
 }
 
 function getSongId() {
@@ -37,10 +37,10 @@ function getSongId() {
 
 likeIcon.addEventListener("click", async () => {
   if (likeIcon.getAttribute("src") === HEART) {
-    likeIcon.setAttribute("src", FILLED_HEART);
+    likeIcon.src = FILLED_HEART;
     await addSongToPlaylist(song.id);
   } else {
-    likeIcon.setAttribute("src", HEART);
+    likeIcon.src = HEART;
     await removeSongFromPlaylist(song.id);
   }
 });

@@ -55,10 +55,10 @@ for (const like of likeIcons) {
     const id = like.getAttribute("name");
     if (like.getAttribute("src") === HEART) {
       await addSongToPlaylist(id);
-      like.setAttribute("src", FILLED_HEART);
+      like.src = FILLED_HEART;
     } else {
       await removeSongFromPlaylist(id);
-      like.setAttribute("src", HEART);
+      like.src = HEART;
     }
   });
 }
