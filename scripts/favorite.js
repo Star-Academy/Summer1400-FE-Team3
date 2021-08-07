@@ -23,7 +23,8 @@ const favSongs = [];
 for (const item of playlistArr[0].songs) {
   favSongs.push(item.rest);
 }
-username_html.innerHTML = await fetchUsername();
+const user = await fetchUsername();
+username_html.innerHTML = user.username;
 const singerArr = singerArray(favSongs);
 addOptions();
 await makeList();

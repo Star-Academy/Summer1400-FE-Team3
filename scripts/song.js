@@ -19,7 +19,8 @@ const heartSrc = await createIcon(song);
 await createSongInfo();
 
 async function createSongInfo() {
-  username_html.innerHTML = await fetchUsername();
+  const user = await fetchUsername();
+  username_html.innerHTML = user.username;
   songName.innerHTML = song.name;
   title[0].innerHTML = song.name;
   singerName.innerHTML = song.artist;

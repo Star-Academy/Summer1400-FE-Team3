@@ -272,5 +272,10 @@ footer figure figcaption {
     margin: 0 0 0 2rem;
   }
 }
+@media screen and (max-width: 400px) {
+  .username_hidden {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=user.css.map */
