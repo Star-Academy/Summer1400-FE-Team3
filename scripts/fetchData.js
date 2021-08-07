@@ -71,10 +71,10 @@ async function fetchSong(songId) {
   } else alert(result.message);
 }
 
-async function fetchPage() {
+async function fetchPage(index, size) {
   const details = {
-    size: 20,
-    current: 1,
+    size: size,
+    current: index,
     sorter: "name",
     desc: true,
   };
@@ -141,6 +141,28 @@ async function removeSongFromPlaylist(songId) {
   }
 }
 
+async function fetchFind(phrase) {
+  const details = {
+    phrase: phrase,
+    count: 20,
+    sorter: name,
+    desc: true,
+  };
+  const response = await fetch("http://130.185.120.192:5000/song/find", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(details),
+  });
+  const result = await response.json();
+  if (response.status === 200) {
+    return result.songs;
+  } else {
+    const result = await response.json();
+  }
+}
+
 export {
   fetchData,
   fetchPlaylist,
@@ -149,4 +171,5 @@ export {
   fetchPage,
   addSongToPlaylist,
   removeSongFromPlaylist,
+  fetchFind,
 };

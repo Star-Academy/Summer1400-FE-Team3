@@ -3,9 +3,10 @@ import {
   fetchUsername,
   addSongToPlaylist,
   removeSongFromPlaylist,
+  fetchPage,
 } from "./fetchData.js";
 import { HEART, FILLED_HEART } from "./address.js";
-import { songArr, playlistArr } from "./arrays.js";
+import { playlistArr } from "./arrays.js";
 import { createIcon } from "./methods.js";
 
 const username_html = document.getElementById("username");
@@ -41,9 +42,10 @@ async function createFavorites() {
 }
 
 async function makeList() {
-  for (let i = 0; i < 4; i++) {
-    let heartSrc = await createIcon(songArr[i]);
-    songList.innerHTML += addCard(songArr[i], heartSrc);
+  const songs = await fetchPage(1, 4);
+  for (const song of songs) {
+    let heartSrc = await createIcon(song);
+    songList.innerHTML += addCard(song, heartSrc);
   }
   for (let i = 0; i < 4 && i < playlistArr[0].songs.length; i++) {
     favList.innerHTML += addCard(playlistArr[0].songs[i].rest, FILLED_HEART);

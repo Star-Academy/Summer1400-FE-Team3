@@ -112,6 +112,7 @@ h3 {
 }
 
 #list {
+  position: relative;
   background-color: #a7becb;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   margin: 2rem;
@@ -169,6 +170,40 @@ h3 {
 #list h1 {
   color: black;
   margin-bottom: 2rem;
+}
+
+#noResult h2 {
+  text-align: center;
+  margin-top: 10rem;
+  color: #262a53;
+}
+
+.arrows {
+  bottom: 2rem;
+  margin-top: 4rem;
+}
+.arrows button {
+  position: absolute;
+  bottom: 2rem;
+  border: none;
+  border-radius: 999rem;
+  background-color: #262a53;
+  color: white;
+  width: 8rem;
+  height: 3rem;
+}
+.arrows button:first-child {
+  right: 4rem;
+  display: none;
+}
+.arrows button:last-child {
+  left: 4rem;
+}
+.arrows button:hover {
+  background-color: #f3f3f3;
+  color: #262a53;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 footer {

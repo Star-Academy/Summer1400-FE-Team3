@@ -1,12 +1,13 @@
 import { HEART, FILLED_HEART } from "./address.js";
-import { songArr } from "./arrays.js";
 import {
   fetchUsername,
   fetchPage,
   addSongToPlaylist,
   removeSongFromPlaylist,
+  fetchFind,
 } from "./fetchData.js";
 import { createIcon, singerArray, addCard, goToSongPage } from "./methods.js";
+import { songArr } from "./arrays.js";
 
 const songList = document.getElementById("songCards");
 const username_html = document.getElementById("username");
@@ -15,20 +16,51 @@ const filterButton = document.getElementById("filterButton");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
 const signOut = document.getElementById("signOut");
+const previous = document.getElementById("previous");
+const next = document.getElementById("next");
 
-const ALL = "all";
+let pageNumber = 1;
+const ALL = "همه";
 
 username_html.innerHTML = await fetchUsername();
 const singerArr = singerArray(songArr);
 addOptions();
+nextPage();
+previousPage();
 await makeList();
-await setLikeIcon();
-goToSongPage();
+
+function nextPage() {
+  next.addEventListener("click", async () => {
+    songList.innerHTML = "";
+    pageNumber++;
+    await makeList();
+  });
+}
+
+function previousPage() {
+  previous.addEventListener("click", async () => {
+    songList.innerHTML = "";
+    pageNumber--;
+    await makeList();
+  });
+}
 
 async function makeList() {
-  let pageArr = await fetchPage();
+  if (pageNumber !== 1) previous.style.display = "inline";
+  else previous.style.display = "none";
+  let pageArr = await fetchPage(pageNumber, 20);
+  await checkEnd();
   for (const song of pageArr) {
     await setSongs(song);
+  }
+  await setLikeIcon();
+  goToSongPage();
+}
+
+async function checkEnd() {
+  let pageArr = await fetchPage(pageNumber + 1, 20);
+  if (pageArr.length === 0) {
+    next.style.display = "none";
   }
 }
 
@@ -53,23 +85,29 @@ async function setLikeIcon() {
 }
 
 async function searchFunction(searchValue) {
-  for (let i = 0; i <= songArr.length; i++) {
-    if (i < songArr.length) {
-      if (songArr[i].name.toLowerCase().includes(searchValue)) {
-        await setSongs(songArr[i]);
-      }
-    }
-    if (i === songArr.length) {
-      await setLikeIcon();
-      await goToSongPage();
-    }
+  next.style.display = "none";
+  previous.style.display = "none";
+  const searchArr = await fetchFind(searchValue);
+  if (searchArr.length === 0) {
+    document.getElementById("noResult").style.display = "block";
+    document.getElementById("noResult").innerHTML =
+      "<h2 id='noResult'>آهنگ مورد نظر یافت نشد!</h2>";
+    return;
   }
+  for (const song of searchArr) {
+    await setSongs(song);
+  }
+  await setLikeIcon();
+  await goToSongPage();
 }
 
 searchButton.addEventListener("click", async () => {
   const searchValue = searchInput.value.toLowerCase();
   songList.innerHTML = "";
   if (searchValue === "") {
+    document.getElementById("noResult").style.display = "none";
+    pageNumber = 1;
+    next.style.display = "inline";
     await makeList();
     return;
   }
@@ -77,23 +115,23 @@ searchButton.addEventListener("click", async () => {
 });
 
 async function filterFunction(artist) {
-  for (let i = 0; i <= songArr.length; i++) {
-    if (i < songArr.length) {
-      if (songArr[i].artist.toLowerCase() === artist) {
-        await setSongs(songArr[i]);
-      }
-    }
-    if (i === songArr.length) {
-      await setLikeIcon();
-      await goToSongPage();
-    }
+  next.style.display = "none";
+  previous.style.display = "none";
+  const filterArr = await fetchFind(artist);
+  for (const song of filterArr) {
+    await setSongs(song);
   }
+  await setLikeIcon();
+  await goToSongPage();
 }
 
 filterButton.addEventListener("click", async () => {
   const artist = artistSelect.value.toLowerCase();
   songList.innerHTML = "";
   if (artist === ALL) {
+    console.log("h");
+    pageNumber = 1;
+    next.style.display = "inline";
     await makeList();
     return;
   }

@@ -62,10 +62,11 @@ main {
     }
   }
 }
-  h3 {
-    margin-bottom: $default-rem;
 
-  }
+h3 {
+  margin-bottom: $default-rem;
+
+}
 
 #singerName,
 #genre {
@@ -78,6 +79,7 @@ main {
 
 #list {
   @include list.createList;
+  position: relative;
 
   h1 {
     color: black;
@@ -90,6 +92,48 @@ main {
   padding: 4rem;
   border-radius: $default-rem;
   color: black;
+
+}
+
+#noResult {
+  h2 {
+    text-align: center;
+    margin-top: 10rem;
+    color: colors.$dark-blue;
+  }
+}
+
+.arrows {
+  bottom: $default-rem;
+  margin-top: 4rem;
+
+  button {
+    &:first-child {
+      right: 4rem;
+      display: none;
+    }
+
+    &:last-child {
+      left: 4rem;
+
+    }
+
+    position: absolute;
+    bottom: $default-rem;
+    border: none;
+    border-radius: 999rem;
+    background-color: colors.$dark-blue;
+    color: white;
+    width: 8rem;
+    height: 3rem;
+
+    &:hover {
+      background-color: colors.$light-gray;
+      color: colors.$dark-blue;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
 
 }
 
