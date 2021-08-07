@@ -145,7 +145,7 @@ async function fetchFind(phrase) {
   const details = {
     phrase: phrase,
     count: 20,
-    sorter: name,
+    sorter: "name",
     desc: true,
   };
   const response = await fetch("http://130.185.120.192:5000/song/find", {
@@ -159,7 +159,29 @@ async function fetchFind(phrase) {
   if (response.status === 200) {
     return result.songs;
   } else {
+    console.log(result.message);
+  }
+}
+
+async function fetchAlterProfile(base64) {
+  const details = {
+    token: localStorage.getItem("token"),
+    avatar: base64,
+  };
+  console.log(details);
+  const response = await fetch("http://130.185.120.192:5000/user/alter", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(details),
+  });
+  
+  if (response.status === 200) {
+    console.log("avatar changed!")
+  } else {    
     const result = await response.json();
+    console.log(result.message);
   }
 }
 
@@ -173,4 +195,5 @@ export {
   removeSongFromPlaylist,
   fetchFind,
   findUserInfo,
+  fetchAlterProfile
 };

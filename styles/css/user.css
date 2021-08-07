@@ -82,6 +82,9 @@ aside a:hover {
 }
 .userInfo #avatar {
   cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
 }
 .userInfo #uploadAvatar > input {
   display: none;

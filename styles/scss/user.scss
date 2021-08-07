@@ -51,6 +51,9 @@ aside {
   }
   #avatar {
     cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
   }
   #uploadAvatar > input {
     display: none;
