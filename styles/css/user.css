@@ -69,6 +69,24 @@ aside a:hover {
   font-weight: bold;
 }
 
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.userInfo #name {
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  color: #262a53;
+  font-weight: bold;
+}
+.userInfo #avatar {
+  cursor: pointer;
+}
+.userInfo #uploadAvatar > input {
+  display: none;
+}
+
 #songs,
 #favorites {
   background-color: #a7becb;
@@ -222,7 +240,8 @@ footer figure figcaption {
   }
 }
 @media screen and (min-width: 600px) {
-  #songs .cards, #favorites .cards {
+  #songs .cards,
+#favorites .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -236,7 +255,8 @@ footer figure figcaption {
   }
 }
 @media screen and (min-width: 1000px) {
-  #songs .cards, #favorites .cards {
+  #songs .cards,
+#favorites .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

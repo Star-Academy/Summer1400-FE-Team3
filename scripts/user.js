@@ -4,6 +4,7 @@ import {
   addSongToPlaylist,
   removeSongFromPlaylist,
   fetchPage,
+  findUserInfo,
 } from "./fetchData.js";
 import { HEART, FILLED_HEART } from "./address.js";
 import { playlistArr } from "./arrays.js";
@@ -14,12 +15,40 @@ const songList = document.getElementById("songCards");
 const favList = document.getElementById("favCards");
 const likeIcons = document.getElementsByClassName("favorite");
 const signOut = document.getElementById("signOut");
+const name = document.getElementById("name");
+const avatarInput = document.getElementById("file-input");
 
-username_html.innerHTML = await fetchUsername();
+const user = await fetchUsername();
+username_html.innerHTML = user.username;
+name.innerHTML = user.first_name + " " + user.last_name;
 
 await createFavorites();
 await makeList();
 goToSongPage();
+
+let image;
+avatarInput.addEventListener("change", getAvatar);
+function getAvatar() {
+  image = avatarInput.files[0];
+  console.log(image);
+}
+
+// function getDataUrl(img) {
+//   // Create canvas
+//   const canvas = document.createElement("canvas");
+//   const ctx = canvas.getContext("2d");
+//   // Set width and height
+//   canvas.width = img.width;
+//   canvas.height = img.height;
+//   // Draw the image
+//   ctx.drawImage(img, 0, 0);
+//   return canvas.toDataURL("image/jpeg");
+// }
+// // Select the image
+// image.addEventListener("load", function (event) {
+//   const dataUrl = getDataUrl(event.currentTarget);
+//   console.log(dataUrl);
+// });
 
 async function createFavorites() {
   if (playlistArr.length !== 0) return;

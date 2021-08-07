@@ -33,7 +33,7 @@ async function fetchPlaylist() {
 async function fetchUsername() {
   const id = await findID();
   const userInfo = await findUserInfo(id);
-  return userInfo.user.username;
+  return userInfo.user;
 }
 
 async function findID() {
@@ -172,4 +172,5 @@ export {
   addSongToPlaylist,
   removeSongFromPlaylist,
   fetchFind,
+  findUserInfo,
 };
