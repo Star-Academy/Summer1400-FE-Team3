@@ -22,7 +22,9 @@ const next = document.getElementById("next");
 let pageNumber = 1;
 const ALL = "همه";
 
-username_html.innerHTML = await fetchUsername();
+const user = await fetchUsername();
+username_html.innerHTML = user.username;
+
 const singerArr = singerArray(songArr);
 addOptions();
 nextPage();
