@@ -119,12 +119,17 @@ searchButton.addEventListener("click", async () => {
 async function filterFunction(artist) {
   next.style.display = "none";
   previous.style.display = "none";
-  const filterArr = await fetchFind(artist);
-  for (const song of filterArr) {
-    await setSongs(song);
+  for (let i = 0; i <= songArr.length; i++) {
+    if (i < songArr.length) {
+      if (songArr[i].artist.toLowerCase() === artist) {
+        await setSongs(songArr[i]);
+      }
+    }
+    if (i === songArr.length) {
+      await setLikeIcon();
+      await goToSongPage();
+    }
   }
-  await setLikeIcon();
-  await goToSongPage();
 }
 
 filterButton.addEventListener("click", async () => {

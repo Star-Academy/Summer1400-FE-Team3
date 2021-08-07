@@ -7,8 +7,8 @@ import {
   fetchAlterProfile,
 } from "./fetchData.js";
 import { HEART, FILLED_HEART } from "./address.js";
-import { playlistArr } from "./arrays.js";
 import { createIcon } from "./methods.js";
+import { fetchPlaylist } from "./fetchData.js";
 
 const username_html = document.getElementById("username");
 const songList = document.getElementById("songCards");
@@ -18,6 +18,8 @@ const signOut = document.getElementById("signOut");
 const name = document.getElementById("name");
 const avatarInput = document.getElementById("file-input");
 const avatarImg = document.getElementById("avatar");
+
+let playlistArr = [...(await fetchPlaylist())];
 
 const user = await fetchUsername();
 username_html.innerHTML = user.username;
@@ -32,6 +34,7 @@ goToSongPage();
 
 let image;
 avatarInput.addEventListener("change", getAvatar);
+
 async function getAvatar() {
   image = avatarInput.files[0];
   const reader = new FileReader();
@@ -58,6 +61,7 @@ async function createFavorites() {
   const result = await response.json();
 
   if (response.status === 201) {
+    playlistArr = [...(await fetchPlaylist())];
     console.log("create favorite playlist");
   } else alert(result.message);
 }

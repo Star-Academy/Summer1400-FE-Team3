@@ -92,11 +92,20 @@ async function fetchPage(index, size) {
 }
 
 async function addSongToPlaylist(songId) {
-  const details = {
-    token: localStorage.getItem("token"),
-    playlistId: playlistArr[0].id,
-    songId: songId,
-  };
+  let details = {};
+  if (playlistArr.length === 0) {
+    details = {
+      token: localStorage.getItem("token"),
+      playlistId: [...(await fetchPlaylist())][0].id,
+      songId: songId,
+    };
+  } else {
+    details = {
+      token: localStorage.getItem("token"),
+      playlistId: playlistArr[0].id,
+      songId: songId,
+    };
+  }
   const response = await fetch(
     "http://130.185.120.192:5000/playlist/add-song",
     {
@@ -117,11 +126,21 @@ async function addSongToPlaylist(songId) {
 }
 
 async function removeSongFromPlaylist(songId) {
-  const details = {
-    token: localStorage.getItem("token"),
-    playlistId: playlistArr[0].id,
-    songId: songId,
-  };
+  let details = {};
+  if (playlistArr.length === 0) {
+    details = {
+      token: localStorage.getItem("token"),
+      playlistId: [...(await fetchPlaylist())][0].id,
+      songId: songId,
+    };
+  } else {
+    details = {
+      token: localStorage.getItem("token"),
+      playlistId: playlistArr[0].id,
+      songId: songId,
+    };
+  }
+
   const response = await fetch(
     "http://130.185.120.192:5000/playlist/remove-song",
     {
@@ -176,10 +195,10 @@ async function fetchAlterProfile(base64) {
     },
     body: JSON.stringify(details),
   });
-  
+
   if (response.status === 200) {
-    console.log("avatar changed!")
-  } else {    
+    console.log("avatar changed!");
+  } else {
     const result = await response.json();
     console.log(result.message);
   }
@@ -195,5 +214,5 @@ export {
   removeSongFromPlaylist,
   fetchFind,
   findUserInfo,
-  fetchAlterProfile
+  fetchAlterProfile,
 };
