@@ -22,7 +22,9 @@ const avatarImg = document.getElementById("avatar");
 const user = await fetchUsername();
 username_html.innerHTML = user.username;
 name.innerHTML = user.first_name + " " + user.last_name;
-avatarImg.src = user.avatar;
+if (user.avatar !== null) {
+  avatarImg.src = user.avatar;
+}
 
 await createFavorites();
 await makeList();
