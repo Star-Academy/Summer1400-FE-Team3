@@ -92,7 +92,6 @@ for (const like of likeIcons) {
     }
   });
 }
-
 signOut.addEventListener("click", () => {
   localStorage.clear();
 });
