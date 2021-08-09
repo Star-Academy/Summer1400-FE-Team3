@@ -24,7 +24,7 @@ loginForm.addEventListener("submit", submit);
 async function submit(event) {
   event.preventDefault();
   userCheckInput();
-  let response = await fetch("http://130.185.120.192:5000/user/login", {
+  let response = await fetch("https://songs.code-star.ir/api-docs/user/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

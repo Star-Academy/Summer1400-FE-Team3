@@ -1,7 +1,7 @@
 import { playlistArr } from "./arrays.js";
 
 async function fetchData() {
-  const response = await fetch("http://130.185.120.192:5000/song/all");
+  const response = await fetch("https://songs.code-star.ir/api-docs/song/all");
   const result = await response.json();
   if (response.status === 200) {
     return [...result.songs];
@@ -14,7 +14,7 @@ async function fetchPlaylist() {
   const userToken = {
     token: localStorage.getItem("token"),
   };
-  let response = await fetch("http://130.185.120.192:5000/playlist/all", {
+  let response = await fetch("https://songs.code-star.ir/api-docs/playlist/all", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -40,7 +40,7 @@ async function findID() {
   const userToken = {
     token: localStorage.getItem("token"),
   };
-  const response = await fetch("http://130.185.120.192:5000/user/auth", {
+  const response = await fetch("https://songs.code-star.ir/api-docs/user/auth", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -54,7 +54,7 @@ async function findID() {
 }
 
 async function findUserInfo(id) {
-  const response = await fetch(`http://130.185.120.192:5000/user/one/${id}`);
+  const response = await fetch(`https://songs.code-star.ir/api-docs/user/one/${id}`);
   const result = await response.json();
   if (response.status === 200) {
     return result;
@@ -63,7 +63,7 @@ async function findUserInfo(id) {
 
 async function fetchSong(songId) {
   const response = await fetch(
-    `http://130.185.120.192:5000/song/one/${songId}`
+    `https://songs.code-star.ir/api-docs/song/one/${songId}`
   );
   const result = await response.json();
   if (response.status === 200) {
@@ -78,7 +78,7 @@ async function fetchPage(index, size) {
     sorter: "name",
     desc: true,
   };
-  const response = await fetch("http://130.185.120.192:5000/song/page", {
+  const response = await fetch("https://songs.code-star.ir/api-docs/song/page", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -107,7 +107,7 @@ async function addSongToPlaylist(songId) {
     };
   }
   const response = await fetch(
-    "http://130.185.120.192:5000/playlist/add-song",
+    "https://songs.code-star.ir/api-docs/playlist/add-song",
     {
       method: "POST",
       headers: {
@@ -142,7 +142,7 @@ async function removeSongFromPlaylist(songId) {
   }
 
   const response = await fetch(
-    "http://130.185.120.192:5000/playlist/remove-song",
+    "https://songs.code-star.ir/api-docs/playlist/remove-song",
     {
       method: "POST",
       headers: {
@@ -167,7 +167,7 @@ async function fetchFind(phrase) {
     sorter: "name",
     desc: true,
   };
-  const response = await fetch("http://130.185.120.192:5000/song/find", {
+  const response = await fetch("https://songs.code-star.ir/api-docs/song/find", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -188,7 +188,7 @@ async function fetchAlterProfile(base64) {
     avatar: base64,
   };
   console.log(details);
-  const response = await fetch("http://130.185.120.192:5000/user/alter", {
+  const response = await fetch("https://songs.code-star.ir/api-docs/user/alter", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

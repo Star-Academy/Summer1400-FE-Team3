@@ -51,13 +51,16 @@ async function createFavorites() {
     token: localStorage.getItem("token"),
     name: "مورد علاقه ها",
   };
-  let response = await fetch("http://130.185.120.192:5000/playlist/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: JSON.stringify(playlistInfo),
-  });
+  let response = await fetch(
+    "https://songs.code-star.ir/api-docs/playlist/create",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(playlistInfo),
+    }
+  );
   const result = await response.json();
 
   if (response.status === 201) {
