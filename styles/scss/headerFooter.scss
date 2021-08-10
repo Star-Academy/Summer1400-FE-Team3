@@ -1,0 +1,94 @@
+@use "colors";
+
+$default-rem:2rem;
+
+@mixin createHeader {
+  nav {
+    padding-top: 2.1rem;
+    display: inline-block;
+    float: left;
+  }
+  font-size: 12px;
+  background-color: colors.$light-gray;
+  width: auto;
+  padding: 1rem;
+  > span {
+    position: absolute;
+    top: 2.8rem;
+    right: 10.5rem;
+  font-size: $default-rem;
+  color: colors.$darker-pink;
+  font-weight: bold;
+}
+  img {
+    margin-right: $default-rem;
+  }
+  li {
+    display: inline;
+    margin: $default-rem;
+    color: colors.$darker-pink;
+    font-size: 1.5rem;
+    #username {
+      color: black;
+    }
+    a {
+      color: colors.$darker-pink;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin-left: 3rem;
+      &:hover{
+        color: black;
+      }
+
+    }
+  }
+}
+
+@mixin createFooter {
+  background-color: colors.$dark-blue;
+  height: 30rem;
+  padding: 4rem;
+  * {
+    color: white;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: $default-rem;
+    font-size:$default-rem;
+  }
+  p {
+    text-align: center;
+    margin-bottom: $default-rem;
+    font-size: 1.2rem;
+  }
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: $default-rem;
+    img {
+      margin-left: 1rem;
+    }
+    figcaption {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@mixin responsiveHeader {
+  @media screen and (max-width: 600px){
+    header nav {
+      padding-top: 1.3rem;
+      li{
+        display: block;
+        margin: 0 0 0 $default-rem;
+      }
+
+    }
+  }@media screen and (max-width: 400px){
+    .username_hidden {
+      display: none;
+    }
+  }
+}

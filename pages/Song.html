@@ -2,37 +2,36 @@
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <title>Diamonds</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title></title>
     <link rel="stylesheet" href="../styles/css/main.css" />
 
     <link rel="stylesheet" href="../styles/css/song.css" />
-    <script src="../scripts/song.js" defer></script>
+    <script src="../scripts/song.js" type="module" defer></script>
   </head>
   <body>
-    <header>
-      <img src="../assets/images/spotify.png" alt="" />
-      <nav>
-        <ul>
-          <li><b>نام کاربری:  <span id="username"></span> </b></li>
-          <li>
-            <a href="index.html"> <b>خروج</b></a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <img src="../assets/images/spotify.png" alt="" />
+    <span>اسپاتیفای</span>
+
+    <nav>
+      <ul>
+        <li><b><span class="username_hidden">نام کاربری: </span><span id="username"></span></b></li>
+        <li>
+          <a href="Index.html" id="signOut"> <b>خروج</b></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
     <main>
       <div>
-        <img
-          id="songImage"
-          src=""
-          alt="Song Cover"
-        /><br /><br />
+        <img id="songImage" src="" alt="Song Cover" /><br /><br />
         <audio controls id="audio">
-          <source id="audio_source"
-            src=""
-            type="audio/mpeg"
-          />
+          <source id="audio_source" src="" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>
@@ -41,39 +40,42 @@
         <section id="songInfo">
           <h1 id="songName"></h1>
           <p><b>نام خواننده: </b><span id="singerName"></span></p>
-          <p><b>آلبوم: </b><span id="album"></span></p>
-          <p><b>سال انتشار: </b><span id="year"></span></p>
-          <p><b>سبک موسیقی: </b><span id="genre"></span></p>
+            <details>
+              <summary><b>متن آهنگ</b></summary>
+              <p id="lyrics"></p>
+            </details>
+          <img
+            id="likePic"
+            src=""
+            alt="Add to favorite"
+            width="30"
+            height="27"
+          />
         </section>
-
-        <img
-          id="likePic"
-          src=""
-          alt="Add to favorite"
-          width="30"
-          height="27"
-        />
-
       </div>
     </main>
     <footer>
       <h2>اسپاتیفای</h2>
       <p>با اسپاتیفای جدیدترین آهنگ ها را پیدا کن و لیست آهنگ های خودتو بساز</p>
       <p>تلفن پشتیبانی: 02144730000</p>
-      <img
-        src="../assets/images/5296765_camera_instagram_instagram%20logo_icon.png"
-        alt="instagram"
-        width="25"
-        height="25"
-      />
-      <span>Spotify</span><br /><br />
-      <img
-        src="../assets/images/7089163_gmail_google_icon.png"
-        alt="Gmail"
-        width="25"
-        height="25"
-      />
-      <span>Spotify@gmail.com</span>
+      <figure>
+        <img
+                src="../assets/images/5882205_instagram_logo_media_social_icon.png"
+                alt="instagram"
+                width="25"
+                height="25"
+        />
+        <figcaption>Spotify</figcaption>
+      </figure>
+      <figure>
+        <img
+                src="../assets/images/5882200_email_gmail_google_mail_icon.png"
+                alt="Gmail"
+                width="25"
+                height="25"
+        />
+        <figcaption>Spotify@gmail.com</figcaption>
+      </figure>
     </footer>
   </body>
 </html>

@@ -1,56 +1,51 @@
-let currentSong = {
-  name: "Diamonds",
-  singer: "sam smith",
-  album: "Love Goes",
-  year: "2004",
-  genre: "pop",
-  image_source: "../assets/images/Single_by_Sam_Smith.jpeg",
-  audio_source:"../assets/musics/Sam%20Smith%20-%20Diamonds.mp3",
-  favorite: true
+import { HEART, FILLED_HEART } from "./address.js";
+import { fetchSong, fetchUsername } from "./fetchData.js";
+import { createIcon } from "./methods.js";
+import { addSongToPlaylist, removeSongFromPlaylist } from "./fetchData.js";
 
-};
-// let likeUnlike = "like";
-const username = "KimiaParmida";
-let likeIcon = document.getElementById("likePic");
-let songName = document.getElementById("songName");
-let singerName = document.getElementById("singerName");
-let album = document.getElementById("album");
-let year = document.getElementById("year");
-let genre = document.getElementById("genre");
-let image=document.getElementById("songImage");
-let audio=document.getElementById("audio");
-let username_html= document.getElementById("username");
+const likeIcon = document.getElementById("likePic");
+const songName = document.getElementById("songName");
+const singerName = document.getElementById("singerName");
+const image = document.getElementById("songImage");
+const audio = document.getElementById("audio");
+const lyrics = document.getElementById("lyrics");
+const username_html = document.getElementById("username");
+const title = document.getElementsByTagName("title");
+const signOut = document.getElementById("signOut");
 
-songName.innerHTML = currentSong.name;
-singerName.innerHTML = currentSong.singer;
-album.innerHTML = currentSong.album;
-year.innerHTML = currentSong.year;
-genre.innerHTML = currentSong.genre;
-username_html.innerHTML = username;
-image.setAttribute("src",currentSong.image_source);
-audio.setAttribute("src",currentSong.audio_source);
-createIcon();
+const songId = getSongId();
+const song = await fetchSong(songId);
+const heartSrc = await createIcon(song);
+await createSongInfo();
 
-likeIcon.addEventListener("click", changeIcon);
-
-function changeIcon() {
-  if (currentSong.favorite){
-    likeIcon.setAttribute("src", "../assets/images/heart.png");
-    currentSong.favorite=false;
-  }
-  else
-  {
-    likeIcon.setAttribute("src", "../assets/images/1200px-Heart_corazón.svg.webp");
-    currentSong.favorite=true;
-  }
+async function createSongInfo() {
+  const user = await fetchUsername();
+  username_html.innerHTML = user.username;
+  songName.innerHTML = song.name;
+  title[0].innerHTML = song.name;
+  singerName.innerHTML = song.artist;
+  image.src = song.cover;
+  audio.src = song.file;
+  lyrics.innerHTML = song.lyrics;
+  likeIcon.src = heartSrc;
 }
 
-function createIcon() {
-  if (!currentSong.favorite){
-    likeIcon.setAttribute("src", "../assets/images/heart.png");
-  }
-  else
-  {
-    likeIcon.setAttribute("src", "../assets/images/1200px-Heart_corazón.svg.webp");
-  }
+function getSongId() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get("songId");
 }
+
+likeIcon.addEventListener("click", async () => {
+  if (likeIcon.getAttribute("src") === HEART) {
+    likeIcon.src = FILLED_HEART;
+    await addSongToPlaylist(song.id);
+  } else {
+    likeIcon.src = HEART;
+    await removeSongFromPlaylist(song.id);
+  }
+});
+
+signOut.addEventListener("click", () => {
+  localStorage.clear();
+});

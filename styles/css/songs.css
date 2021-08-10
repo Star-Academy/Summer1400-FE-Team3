@@ -3,39 +3,71 @@ header {
   background-color: #f3f3f3;
   width: auto;
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
 }
 header nav {
-  padding: 1.3rem;
+  padding-top: 2.1rem;
+  display: inline-block;
+  float: left;
+}
+header > span {
+  position: absolute;
+  top: 2.8rem;
+  right: 10.5rem;
+  font-size: 2rem;
+  color: #da5656;
+  font-weight: bold;
 }
 header img {
   margin-right: 2rem;
 }
 header li {
   display: inline;
-  margin: 3rem;
+  margin: 2rem;
   color: #da5656;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+}
+header li #username {
+  color: black;
 }
 header li a {
   color: #da5656;
   text-decoration: none;
+  font-size: 1.5rem;
+  margin-left: 3rem;
+}
+header li a:hover {
+  color: black;
+}
+
+main {
   font-size: 1.3rem;
 }
 
 #filter, #searchSection {
   background-color: #ffe3e3;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   margin: 2rem;
   padding: 2rem;
   height: min-content;
   border-radius: 2rem;
 }
-#filter h3, #searchSection h3 {
-  margin-bottom: 2rem;
+#filter input, #searchSection input {
+  margin-top: 2rem;
+  padding-right: 2rem;
+  width: 60%;
+  height: 3rem;
+  border-radius: 999rem;
+  border: 1px solid #628395;
+}
+#filter input:hover, #searchSection input:hover {
+  border: 2px solid #628395;
+}
+#filter input:focus, #searchSection input:focus {
+  border: 2px solid #628395;
+  border-radius: 1rem;
 }
 #filter button, #searchSection button {
-  margin-right: 2rem;
+  margin-top: 1rem;
   border: none;
   width: 9rem;
   height: 3rem;
@@ -52,62 +84,227 @@ header li a {
   text-decoration: none;
 }
 
-#songerName,
+h3 {
+  margin-bottom: 2rem;
+}
+
+#singerName,
 #genre {
   display: inline;
 }
+#singerName select,
+#genre select {
+  margin-top: 2rem;
+  padding-right: 2rem;
+  width: 60%;
+  height: 3rem;
+  border-radius: 999rem;
+  border: 1px solid #628395;
+}
+#singerName select:hover,
+#genre select:hover {
+  border: 2px solid #628395;
+}
+#singerName select:focus,
+#genre select:focus {
+  border: 2px solid #628395;
+  border-radius: 1rem;
+}
 
 #list {
-  background-color: #628395;
+  position: relative;
+  background-color: #a7becb;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   margin: 2rem;
   padding: 4rem;
   border-radius: 2rem;
-  color: #ffe3e3;
+  color: black;
+}
+#list .cards {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  padding-top: 4rem;
+  border-top: 1px solid black;
+}
+#list .card {
+  background-color: white;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 0.5rem;
+  position: relative;
+}
+#list .card:hover {
+  box-shadow: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.2);
+}
+#list .card a img {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+#list .card a img:hover {
+  cursor: pointer;
+}
+#list .card .container {
+  padding: 0.7rem 1.6rem;
+}
+#list .card .container p {
+  margin-bottom: 1rem;
+}
+#list .card .container h4 a {
+  color: black;
+}
+#list .card .container h4 a:link {
+  text-decoration: none;
+}
+#list .card .container h4 a:hover {
+  cursor: pointer;
+}
+#list .card .container .favorite {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+#list .card .container .favorite:hover {
+  cursor: pointer;
 }
 #list h1 {
-  color: white;
-  margin-bottom: 3rem;
-}
-#list #songList {
-  list-style: none;
-}
-#list #songList li {
-  margin-bottom: 2rem;
-  margin-right: 2rem;
-}
-#list #songList li a {
-  text-decoration: none;
   color: black;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-#list #songList li a:hover {
-  color: white;
+  margin-bottom: 2rem;
 }
 
-main {
-  display: block;
-  padding: 2rem;
-  font-size: 13px;
+#noResult h2 {
+  text-align: center;
+  margin-top: 10rem;
+  color: #262a53;
+}
+
+.arrows {
+  bottom: 2rem;
+  margin-top: 4rem;
+}
+.arrows button {
+  position: absolute;
+  bottom: 2rem;
+  border: none;
+  border-radius: 999rem;
+  background-color: #262a53;
+  color: white;
+  width: 8rem;
+  height: 3rem;
+}
+.arrows button:first-child {
+  right: 4rem;
+  display: none;
+}
+.arrows button:last-child {
+  left: 4rem;
+}
+.arrows button:hover {
+  background-color: #f3f3f3;
+  color: #262a53;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 footer {
-  font-size: 12px;
   background-color: #262a53;
+  height: 30rem;
   padding: 4rem;
-  height: min-content;
-  color: white;
-  text-align: center;
 }
-footer h2, footer p {
+footer * {
+  color: white;
+}
+footer h2 {
+  text-align: center;
   margin-bottom: 2rem;
+  font-size: 2rem;
+}
+footer p {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+footer figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+footer figure img {
+  margin-left: 1rem;
+}
+footer figure figcaption {
+  font-size: 1.5rem;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 476px) {
+  main #list .cards .card {
+    height: 25rem;
+  }
+}
+@media only screen and (min-width: 600px) {
   main {
     display: grid;
-    grid-template-columns: 2fr 2fr;
-    padding: 2rem;
+    grid-template-columns: 1fr 2fr;
+  }
+  main #filter_search {
+    position: sticky;
+    top: 0;
+    height: min-content;
+  }
+  main #list {
+    margin-right: 0;
+  }
+  main #filter input, main #filter select,
+main #searchSection input,
+main #searchSection select {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 870px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  main #filter_search {
+    position: sticky;
+    top: 0;
+    height: min-content;
+  }
+  main #list {
+    margin-right: 0;
+  }
+  main #list .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-right: 0;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+  main #list {
+    margin-right: 0;
+  }
+  main #list .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  header nav {
+    padding-top: 1.3rem;
+  }
+  header nav li {
+    display: block;
+    margin: 0 0 0 2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .username_hidden {
+    display: none;
   }
 }
 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="stylesheet" href="../styles/css/main.css" />
+
+    <link rel="stylesheet" href="../styles/css/user.css" />
+  <script src="../scripts/user.js" type="module" defer></script>
+    <title>User Site</title>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/images/spotify.png" alt="" />
+      <span>اسپاتیفای</span>
+
+      <nav>
+        <ul>
+          <li><b><span class="username_hidden">نام کاربری: </span><span id="username"></span></b></li>
+          <li>
+            <a href="Index.html" id="signOut"> <b>خروج</b></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="content">
+      <aside>
+        <section>
+          <h3>اطلاعات کاربر</h3>
+          <div class="userInfo">
+            <div id="uploadAvatar">
+              <label for="file-input">
+                <img src="../assets/images/avatar.png" id="avatar"/>
+              </label>          
+              <input id="file-input" type="file" />
+            </div>           
+            <span id="name"></span>
+          </div>         
+            
+        </section>
+        <section>
+          <h3>محتوای سایت</h3>
+          <ul>
+            <li><a href="#songs">لیست آهنگ ها</a></li>
+            <li><a href="#favorites">آهنگ های مورد علاقه</a></li>
+          </ul>
+        </section>
+      </aside>
+      <main>
+        <section id="songs">
+          <h2>لیست آهنگ ها</h2>
+          <button><a href="Songs.html">دیدن همه</a></button>
+          <div class="cards" id="songCards">
+          </div>
+        </section>
+        <section id="favorites">
+          <h2>آهنگ های مورد علاقه</h2>
+          <button><a href="Favorite.html">دیدن همه</a></button>
+          <div class="cards" id="favCards">     
+            </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <h2>اسپاتیفای</h2>
+      <p>با اسپاتیفای جدیدترین آهنگ ها را پیدا کن و لیست آهنگ های خودتو بساز</p>
+      <p>تلفن پشتیبانی: 02144730000</p>
+      <figure>
+        <img
+                src="../assets/images/5882205_instagram_logo_media_social_icon.png"
+                alt="instagram"
+                width="25"
+                height="25"
+        />
+        <figcaption>Spotify</figcaption>
+      </figure>
+      <figure>
+        <img
+                src="../assets/images/5882200_email_gmail_google_mail_icon.png"
+                alt="Gmail"
+                width="25"
+                height="25"
+        />
+        <figcaption>Spotify@gmail.com</figcaption>
+      </figure>
+    </footer>
+  </body>
+</html>

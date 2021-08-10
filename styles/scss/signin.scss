@@ -1,7 +1,8 @@
 @use "./formTemplate" as f;
-@import "./colors";
+@use "./colors";
 
 $input-height: 4rem;
+$default-rem:2rem;
 
 header {
   @include f.createNav;
@@ -21,26 +22,26 @@ main {
         label {
           display: block;
           font-size: 1.2rem;
-          color: $dark-blue;
+          color: colors.$dark-blue;
         }
       }
 
       #forget {
         display: block;
         font-size: 1.1rem;
-        color: $light-blue;
+        color: colors.$light-blue;
         &:link {
           text-decoration: none;
         }
         &:hover {
-          color: $dark-blue;
+          color: colors.$dark-blue;
         }
       }
 
       #remember + label {
-        color: $dark-blue;
+        color: colors.$dark-blue;
         font-size: 1.1rem;
-        margin-left: 2rem;
+        margin-left: $default-rem;
       }
       #remember:checked + label {
         font-weight: bold;
@@ -50,40 +51,40 @@ main {
         border-radius: 999rem;
         height: $input-height;
         min-width: 19rem;
-        background-color: $dark-pink;
+        background-color: colors.$dark-pink;
 
         a {
-          color: $dark-blue;
+          color: colors.$dark-blue;
           text-decoration: none;
           font-size: 1.5rem;
         }
         &:hover {
-          background-color: $light-pink;
+          background-color: colors.$light-pink;
           cursor: pointer;
 
           a {
-            color: $darker-pink;
+            color: colors.$darker-pink;
           }
         }
       }
     }
     h4 {
-      color: $dark-blue;
+      color: colors.$dark-blue;
     }
     > button {
       width: 100%;
       border-radius: 999rem;
       height: $input-height;
       background: none;
-      border: 2px solid $light-blue;
+      border: 2px solid colors.$light-blue;
       a {
         text-decoration: none;
-        color: $light-blue;
+        color: colors.$light-blue;
         font-weight: bold;
         font-size: 1.3rem;
       }
       &:hover {
-        background-color: $light-blue;
+        background-color: colors.$light-blue;
         cursor: pointer;
         a {
           color: white;

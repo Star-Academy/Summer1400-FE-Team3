@@ -1,96 +1,116 @@
-let favArr = [
-  { name: "Always", genre: "metal", singer: "isak" },
-  { name: "Hello", genre: "pop", singer: "adel" },
-  { name: "blinding lights", genre: "rock", singer: "the weekend" },
-  { name: "ocean eyes", genre: "rap", singer: "billie" },
-  { name: "Diamonds", genre: "pop", singer: "sam smith" },
-  { name: "bad", genre: "country", singer: "james" },
-];
-const all ="all";
-const artistArr = [
-  all,
-  "adel",
-  "isak",
-  "the weekend",
-  "billie",
-  "sam smith",
-  "james",
-];
-const genreArr = [all, "pop", "rock", "metal", "rap", "country"];
-const username = "KimiaParmida";
+import { addCard } from "./methods.js";
+import { HEART, FILLED_HEART } from "./address.js";
+import { playlistArr } from "./arrays.js";
+import {
+  fetchUsername,
+  addSongToPlaylist,
+  removeSongFromPlaylist,
+} from "./fetchData.js";
+import { createIcon, singerArray } from "./methods.js";
+import { goToSongPage } from "./methods.js";
 
-let username_html= document.getElementById("username");
-let favList = document.getElementById("favList");
-let artistSelect = document.getElementById("artist");
-let genreSelect = document.getElementById("genreSelect");
-let filterButton = document.getElementById("filterButton");
-let searchButton = document.getElementById("searchButton");
-let searchInput = document.getElementById("search");
-let removeButtons = document.getElementsByClassName("remove");
+const favList = document.getElementById("favCards");
+const username_html = document.getElementById("username");
+const artistSelect = document.getElementById("artist");
+const filterButton = document.getElementById("filterButton");
+const searchButton = document.getElementById("searchButton");
+const searchInput = document.getElementById("search");
+let likeIcons = document.getElementsByClassName("favorite");
+const signOut = document.getElementById("signOut");
 
-username_html.innerHTML = username;
+const ALL = "all";
+const favSongs = [];
+for (const item of playlistArr[0].songs) {
+  favSongs.push(item.rest);
+}
+const user = await fetchUsername();
+username_html.innerHTML = user.username;
+const singerArr = singerArray(favSongs);
+addOptions();
+await makeList();
+goToSongPage();
 
-function makeList() {
-  favArr.forEach((favItem) => {
-    favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
+async function makeList() {
+  for (const item of favSongs) {
+    await setSongs(item);
+  }
+  await setLikeIcon();
+}
 
-  });
-  artistArr.forEach((artist) => {
-    artistSelect.innerHTML += `<option value="${artist}">${artist}</option>`;
-  });
-  genreArr.forEach((genre) => {
-    genreSelect.innerHTML += `<option value="${genre}">${genre}</option>`;
-  });
+async function setSongs(song) {
+  let heartSrc = await createIcon(song);
+  favList.innerHTML += addCard(song, heartSrc);
+}
 
-  for (let button of removeButtons) {
-    button.addEventListener("click", () => {
-      let name = button.getAttribute("name");
-      favList.innerHTML = "";
-      let index = findIndex(name);
-      favArr.splice(index, 1);
-      makeList();
+async function setLikeIcon() {
+  likeIcons = document.getElementsByClassName("favorite");
+  for (let i = 0; i < likeIcons.length; i++) {
+    likeIcons[i].addEventListener("click", async () => {
+      if (likeIcons[i].getAttribute("src") === HEART) {
+        await addSongToPlaylist(likeIcons[i].getAttribute("name"));
+        likeIcons[i].src = FILLED_HEART;
+      } else {
+        await removeSongFromPlaylist(likeIcons[i].getAttribute("name"));
+        likeIcons[i].src = HEART;
+      }
     });
   }
 }
 
-makeList();
-
-function findIndex(name){
-  let index = -1;
-  favArr.forEach((song, songIndex) => {
-    if (song.name === name) {
-      index = songIndex;
+async function searchFunction(searchValue) {
+  for (let i = 0; i <= favSongs.length; i++) {
+    if (i < favSongs.length) {
+      if (favSongs[i].name.toLowerCase().includes(searchValue)) {
+        await setSongs(favSongs[i]);
+      }
     }
-  });
-  return index;
+    if (i === favSongs.length) {
+      await setLikeIcon();
+      await goToSongPage();
+    }
+  }
 }
 
-searchButton.addEventListener("click", () => {
-  let searchValue = searchInput.value.toLowerCase();
+searchButton.addEventListener("click", async () => {
+  const searchValue = searchInput.value.toLowerCase();
   favList.innerHTML = "";
-  favArr.forEach((favItem) => {
-    if (favItem.name.toLowerCase().includes(searchValue)) {
-      favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
-
-    }
-  });
+  if (searchValue === "") {
+    await makeList();
+    return;
+  }
+  await searchFunction(searchValue);
 });
 
-filterButton.addEventListener("click", () => {
+async function filterFunction(artist) {
+  for (let i = 0; i <= favSongs.length; i++) {
+    if (i < favSongs.length) {
+      if (favSongs[i].artist.toLowerCase() === artist) {
+        await setSongs(favSongs[i]);
+      }
+    }
+    if (i === favSongs.length) {
+      await setLikeIcon();
+      await goToSongPage();
+    }
+  }
+}
+
+filterButton.addEventListener("click", async () => {
   const artist = artistSelect.value.toLowerCase();
-  const genre = genreSelect.value.toLowerCase();
-
   favList.innerHTML = "";
-  favArr.forEach((favItem) => {
-    if (matchFilter(genre,artist,favItem)) {
-      favList.innerHTML += `<li><a href="Song.html">${favItem.name}</a><button class="remove" name="${favItem.name}">حذف</button></li>`
-    }
-  });
+  if (artist === ALL) {
+    await makeList();
+    return;
+  }
+  await filterFunction(artist);
 });
 
-function matchFilter(genre,artist,favItem) {
-  return (favItem.singer.toLowerCase() === artist && favItem.genre.toLowerCase() === genre) ||
-  (favItem.singer.toLowerCase() === artist && genre.toLowerCase() === all) ||
-  (artist.toLowerCase() === all && favItem.genre.toLowerCase() === genre) ||
-  (artist.toLowerCase() === all && genre.toLowerCase() === all)
+function addOptions() {
+  singerArr.forEach((singer) => {
+    artistSelect.innerHTML += `<option value="${singer}">${singer}</option>`;
+  });
 }
+
+signOut.addEventListener("click", () => {
+  localStorage.clear();
+});

@@ -4,51 +4,37 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width-device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <link rel="stylesheet" href="../styles/css/main.css" />
     <link rel="stylesheet" href="../styles/css/favorite.css" />
-    <script src="../scripts/favorite.js" defer></script>
+    <script src="../scripts/favorite.js" type="module" defer></script>
     <title>Favorite Songs</title>
   </head>
   <body>
-    <header>
-      <img src="../assets/images/spotify.png" alt="" />
-      <nav>
-        <ul>
-          <li><b>نام کاربری:  <span id="username"></span> </b></li>
-          <li>
-            <a href="index.html"> <b>خروج</b></a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+  <header>
+    <img src="../assets/images/spotify.png" alt="" />
+    <span>اسپاتیفای</span>
+
+    <nav>
+      <ul>
+        <li><b><span class="username_hidden">نام کاربری: </span><span id="username"></span></b></li>
+        <li>
+          <a href="Index.html" id="signOut"> <b>خروج</b></a>
+        </li>
+      </ul>
+    </nav>
+  </header>
     <main>
-      <section>
+      <section id="filter_search">
         <section id="filter">
           <h3>فیلتر</h3>
 
-          <div id="songerName">
+          <div id="singerName">
             <label for="artist">نام خواننده:</label><br />
-            <select name="artist" id="artist">
-              <!-- <option value="adel">adel</option>
-              <option value="samSmith">sam smith</option>
-              <option value="weekend">the weekend</option>
-              <option value="danielson">isak danielson</option> -->
-            </select>
+            <select name="artist" id="artist"></select>
           </div>
           <br /><br />
-          <div id="genre">
-            <label for="genre">سبک موسیقی:</label> <br />
-            <select name="Genre" id="genreSelect">
-              <!-- <option value="pop">pop</option>
-              <option value="rock">rock</option>
-              <option value="jazz">jazz</option>
-              <option value="country">country</option> -->
-            </select>
-          </div>
-          <br />
-          <br />
           <button id="filterButton">مشاهده نتایج</button><br /><br />
         </section>
 
@@ -64,34 +50,32 @@
       <section>
         <section id="list">
           <h1>آهنگ های مورد علاقه</h1>
-          <ul id="favList">
-            <!-- <li><a href="Song.html">Diamonds</a> <button>حذف</button></li>
-            <li><a href="">Always</a> <button>حذف</button></li>
-            <li><a href="">Stone by Stone</a> <button>حذف</button></li> -->
-          </ul>
+          <div class="cards" id="favCards"></div>
         </section>
       </section>
     </main>
     <footer>
       <h2>اسپاتیفای</h2>
-      <p>
-        با اسپاتیفای جدیدترین آهنگ ها را پیدا کن و لیست آهنگ های خودتو بساز.
-      </p>
+      <p>با اسپاتیفای جدیدترین آهنگ ها را پیدا کن و لیست آهنگ های خودتو بساز</p>
       <p>تلفن پشتیبانی: 02144730000</p>
-      <img
-        src="../assets/images/5296765_camera_instagram_instagram%20logo_icon.png"
-        alt="instagram"
-        width="25"
-        height="25"
-      />
-      <span>Spotify</span><br /><br />
-      <img
-        src="../assets/images/7089163_gmail_google_icon.png"
-        alt="Gmail"
-        width="25"
-        height="25"
-      />
-      <span>Spotify@gmail.com</span>
+      <figure>
+        <img
+                src="../assets/images/5882205_instagram_logo_media_social_icon.png"
+                alt="instagram"
+                width="25"
+                height="25"
+        />
+        <figcaption>Spotify</figcaption>
+      </figure>
+      <figure>
+        <img
+                src="../assets/images/5882200_email_gmail_google_mail_icon.png"
+                alt="Gmail"
+                width="25"
+                height="25"
+        />
+        <figcaption>Spotify@gmail.com</figcaption>
+      </figure>
     </footer>
   </body>
 </html>
