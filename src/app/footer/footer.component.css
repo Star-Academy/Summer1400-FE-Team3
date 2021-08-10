@@ -1,0 +1,40 @@
+footer {
+  background-color: #262a53;
+  height: 30rem;
+  padding: 4rem;
+}
+footer * {
+  color: white;
+}
+footer h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+footer p {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+footer figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+footer figure img {
+  margin-left: 1rem;
+}
+footer figure figcaption {
+  font-size: 1.5rem;
+}
+
+@media screen and (min-height: 720px) and (min-width: 490px) {
+  footer {
+    height: 35rem;
+    padding-top: 7rem;
+  }
+}
+
+/*# sourceMappingURL=footer.component.css.map */

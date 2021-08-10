@@ -1,0 +1,10 @@
+@use "../../styles/headerFooter" as hf;
+footer {
+  @include hf.createFooter;
+}
+@media screen and (min-height: 720px) and (min-width: 490px) {
+  footer {
+    height: 35rem;
+    padding-top: 7rem;
+  }
+}
