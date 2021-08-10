@@ -1,1 +1,0 @@
-{"version":3,"sourceRoot":"","sources":["footer.component.scss","../../styles/headerFooter.scss","../../styles/colors.scss"],"names":[],"mappings":"AACA;EC8CE,kBC/CU;EDgDV;EACA;;AACA;EACE;;AAEF;EACE;EACA,eArDS;EAsDT,WAtDS;;AAwDX;EACE;EACA,eA1DS;EA2DT;;AAEF;EACE;EACA;EACA;EACA;EACA,YAlES;;AAmET;EACE;;AAEF;EACE;;;ADrEN;EACE;IACE;IACA","file":"footer.component.css"}

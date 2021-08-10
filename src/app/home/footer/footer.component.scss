@@ -1,4 +1,4 @@
-@use "../../styles/headerFooter" as hf;
+@use "../../../styles/headerFooter" as hf;
 footer {
   @include hf.createFooter;
 }
