@@ -1,0 +1,65 @@
+<main>
+  <section class="form" id="registerForm">
+    <h2>ثبت نام</h2>
+    <form action="">
+      <div class="inputbox">
+        <label for="email" class="">ایمیل:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="ایمیل خود را وارد کنید"
+          required
+        />
+      </div>
+      <div class="inputbox">
+        <label for="password">رمز:</label>
+        <input
+          id="password"
+          type="password"
+          minlength="6"
+          maxlength="12"
+          placeholder="رمز خود را وارد کنید"
+          required
+        />
+      </div>
+      <div class="inputbox">
+        <label for="username">نام کاربری:</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="نام کاربری خود را وارد کنید"
+          required
+        />
+      </div>
+
+      <div class="inputbox">
+        <label for="firstName">نام:</label>
+        <input id="firstName" type="text" placeholder="نام خود را وارد کنید" />
+      </div>
+
+      <div class="inputbox">
+        <label for="lastName">نام خانوادگی:</label>
+        <input
+          id="lastName"
+          type="text"
+          placeholder="نام خانوادگی خود را وارد کنید"
+        />
+      </div>
+
+      <div class="options">
+        <input
+          type="checkbox"
+          name="marketing"
+          value="marketing"
+          id="marketing"
+        />
+        <label for="marketing"
+          >اطلاعات ثبت نام من را برای اهداف بازاریابی با ارائه دهندگان وب سایت
+          Spotify به اشتراک بگذارید.</label
+        ><br /><br />
+      </div>
+      <div><button type="submit" id="submitButton">ثبت نام</button></div>
+    </form>
+    <div>حساب کاربری دارید؟<a routerLink="/signIn">ورود</a></div>
+  </section>
+</main>

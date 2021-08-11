@@ -10,8 +10,11 @@ import { FooterComponent } from './home/footer/footer.component';
 // @ts-ignore
 import { SignInComponent } from './signIn';
 import { SignUpComponent } from './signUp';
-import {appRoutingModule} from "./app-routing.module";
-
+import { appRoutingModule } from './app-routing.module';
+import { FormHeaderComponent } from './signIn/form-header/form-header.component';
+import { SignInFormComponent } from './signIn/sign-in-form/sign-in-form.component';
+import { SignUpFormComponent } from './signUp/sign-up-form/sign-up-form.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,14 +23,18 @@ import {appRoutingModule} from "./app-routing.module";
     FooterComponent,
     HomeComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    FormHeaderComponent,
+    SignInFormComponent,
+    SignUpFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    appRoutingModule
+    appRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

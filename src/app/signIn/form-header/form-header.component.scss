@@ -1,0 +1,4 @@
+@use "../../../styles/formTemplate" as f;
+header {
+  @include f.createNav;
+}
