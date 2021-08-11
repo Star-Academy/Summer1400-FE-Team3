@@ -52,7 +52,7 @@ async function createFavorites() {
     name: "مورد علاقه ها",
   };
   let response = await fetch(
-    "https://songs.code-star.ir/api-docs/playlist/create",
+    "https://songs.code-star.ir/playlist/create",
     {
       method: "POST",
       headers: {

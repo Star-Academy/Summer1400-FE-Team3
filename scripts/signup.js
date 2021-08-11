@@ -17,7 +17,7 @@ async function submit(event) {
     lastName: lastName.value,
   };
 
-  let response = await fetch("https://songs.code-star.ir/api-docs/user/register", {
+  let response = await fetch("https://songs.code-star.ir/user/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
