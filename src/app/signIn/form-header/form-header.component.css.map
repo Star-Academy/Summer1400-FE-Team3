@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["form-header.component.scss","../../../styles/formTemplate.scss","../../../styles/colors.scss"],"names":[],"mappings":"AACA;ECSE,kBCNW;EDOX;;AACA;EACE;EACA;;AAEA;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA,WAlBQ;EAmBR,OCrBQ;EDsBR;EACA;;AAGF;EACE,OChCM;EDiCN;EACA,aA3BQ;EA4BR;EACA;;AAEA;EACE;;AAGF;EACE,OC1CK;ED2CL","file":"form-header.component.css"}

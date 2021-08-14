@@ -15,6 +15,8 @@ import { FormHeaderComponent } from './signIn/form-header/form-header.component'
 import { SignInFormComponent } from './signIn/sign-in-form/sign-in-form.component';
 import { SignUpFormComponent } from './signUp/sign-up-form/sign-up-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import {FetchDataService} from './services/fetch-data.service';
+import {FormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,8 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     appRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [FetchDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
