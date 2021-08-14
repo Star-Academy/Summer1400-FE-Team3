@@ -1,0 +1,6 @@
+@use "../../../styles/headerFooter" as hf;
+
+header {
+  @include hf.createHeader;
+}
+@include hf.responsiveHeader;

@@ -17,6 +17,8 @@ import { SignUpFormComponent } from './signUp/sign-up-form/sign-up-form.componen
 import { HttpClientModule } from '@angular/common/http';
 import {FetchDataService} from './services/fetch-data.service';
 import {FormsModule} from "@angular/forms";
+import { UserComponent } from './user/user.component';
+import { MainHeaderComponent } from './user/main-header/main-header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,8 @@ import {FormsModule} from "@angular/forms";
     FormHeaderComponent,
     SignInFormComponent,
     SignUpFormComponent,
+    UserComponent,
+    MainHeaderComponent,
   ],
   imports: [
     BrowserModule,
