@@ -1,0 +1,79 @@
+@use "../../../styles/colors";
+
+
+$default-rem: 2rem;
+#songs {
+  .cards {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr ;
+    grid-gap: $default-rem;
+    padding-top: 4rem;
+    border-top: 1px solid black;
+
+  }  h2 {
+    color: black;
+    margin-bottom: $default-rem;
+    display: inline-block;
+  }
+  background-color: colors.$lighter-blue;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  margin: $default-rem;
+  padding: 4rem;
+
+  border-radius: $default-rem;
+  a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.4rem;
+    &:hover {
+      color: white;
+    }
+  }
+  button {
+    float: left;
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    background-color: colors.$dark-blue;
+    border-radius: 999rem;
+    &:hover {
+      background-color: colors.$light-gray;
+      a {
+        color: colors.$dark-blue;
+      }
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  #songs .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #songs .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 870px) {
+      .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-right: 0;
+
+      }
+}
+@media only screen and (min-width: 1000px) {
+      .cards {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-right: 0;
+      }
+}

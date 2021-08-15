@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FetchDataService} from "../../services/fetch-data.service";
+import {FetchUserDataService} from "../../services/fetch-user-data.service";
 import {SignUpModel} from "../../models";
 import {Router} from "@angular/router";
 
@@ -15,7 +15,7 @@ export class SignUpFormComponent implements OnInit {
   firstName: string = ""
   lastName: string = ""
 
-  constructor(private fetchDataService: FetchDataService, private router: Router) {
+  constructor(private fetchDataService: FetchUserDataService, private router: Router) {
   }
 
   ngOnInit(): void {

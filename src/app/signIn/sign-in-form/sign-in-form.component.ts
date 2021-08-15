@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchDataService } from '../../services/fetch-data.service';
+import { FetchUserDataService } from '../../services/fetch-user-data.service';
 import { SignInModel_username, signInModel_email } from '../../models';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class SignInFormComponent implements OnInit {
   username: string = '';
 
   constructor(
-    private fetchDataService: FetchDataService,
+    private fetchDataService: FetchUserDataService,
     private router: Router
   ) {}
 

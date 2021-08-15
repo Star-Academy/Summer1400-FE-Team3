@@ -1,0 +1,53 @@
+
+.card {
+  background-color: white;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all .2s ease-in-out;
+  &:hover {
+    box-shadow: 0 1.2rem 2.4rem 0 rgba(0,0,0,0.2);
+    transform: scale(1.1);
+  }
+  a img {
+    border-radius: 0.5rem 0.5rem 0 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .container {
+    padding: 0.7rem 1.6rem;
+    p {
+      margin-bottom: 1rem;
+
+    }
+    h4 {
+      a {
+        &:link {
+          text-decoration: none;
+        }
+        color: black;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+    }
+    .favorite {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 476px) {
+  .card {
+    height: 25rem;
+  }
+}
+
+

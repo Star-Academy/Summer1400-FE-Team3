@@ -15,10 +15,16 @@ import { FormHeaderComponent } from './signIn/form-header/form-header.component'
 import { SignInFormComponent } from './signIn/sign-in-form/sign-in-form.component';
 import { SignUpFormComponent } from './signUp/sign-up-form/sign-up-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FetchDataService} from './services/fetch-data.service';
+import {FetchUserDataService} from './services/fetch-user-data.service';
 import {FormsModule} from "@angular/forms";
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './user';
 import { MainHeaderComponent } from './user/main-header/main-header.component';
+import { UserAsideComponent } from './user/user-aside/user-aside.component';
+import { SongListComponent } from './user/song-list/song-list.component';
+import { FavoriteListComponent } from './user/favorite-list/favorite-list.component';
+import { CardComponent } from './card/card.component';
+import {FetchSongDataService} from "./services/fetch-song-data.service";
+import {SendRequestService} from "./services/send-request.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +39,10 @@ import { MainHeaderComponent } from './user/main-header/main-header.component';
     SignUpFormComponent,
     UserComponent,
     MainHeaderComponent,
+    UserAsideComponent,
+    SongListComponent,
+    FavoriteListComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,7 @@ import { MainHeaderComponent } from './user/main-header/main-header.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [FetchDataService],
+  providers: [FetchUserDataService,FetchSongDataService,SendRequestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,9 @@
+<section id="favorites">
+  <h2>آهنگ های مورد علاقه</h2>
+  <button><a>دیدن همه</a></button>
+  <div class="cards" id="favCards">
+    <div *ngFor="let song of songs">
+      <app-card [song]="song" ></app-card>
+    </div>
+  </div>
+</section>

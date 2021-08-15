@@ -1,0 +1,19 @@
+<div class="card">
+  <a class="songImage " [name]="song.id">
+    <img [src]="song.cover" alt="Avatar" loading="lazy" style="width:100%"/>
+  </a>
+  <div class="container">
+    <h4>
+      <a class="songName" [name]="song.id"><b>{{song.name}}</b></a>
+    </h4>
+    <p>{{song.artist}}</p>
+    <img
+      src="../../assets/images/heart.png"
+      class="favorite"
+      [name]="song.id"
+      width="30"
+      height="27"
+      alt="Add to favorite"
+    />
+  </div>
+</div>

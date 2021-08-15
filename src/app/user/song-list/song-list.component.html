@@ -1,0 +1,11 @@
+<main>
+  <section id="songs">
+    <h2>لیست آهنگ ها</h2>
+    <button><a>دیدن همه</a></button>
+    <div class="cards" id="songCards">
+      <div *ngFor="let song of songs">
+        <app-card [song]="song" ></app-card>
+      </div>
+    </div>
+  </section>
+</main>

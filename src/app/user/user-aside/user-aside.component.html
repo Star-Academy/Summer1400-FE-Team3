@@ -1,0 +1,28 @@
+  <aside>
+    <section>
+      <h3>اطلاعات کاربر</h3>
+      <div class="userInfo">
+        <div id="uploadAvatar">
+          <label for="file-input">
+            <span *ngIf="user?.avatar">
+              <img [src]="user.avatar" src="" alt="User Avatar">
+            </span>
+            <span *ngIf="!user?.avatar">
+              <img src="../../../assets/images/avatar.png" id="avatar" alt="User Avatar"/>
+            </span>
+          </label>
+          <input id="file-input" type="file"/>
+        </div>
+        <span id="name">{{user?.first_name}} {{user?.last_name}}</span>
+      </div>
+
+    </section>
+    <section>
+      <h3>محتوای سایت</h3>
+      <ul>
+        <li><a href="#songs">لیست آهنگ ها</a></li>
+        <li><a href="#favorites">آهنگ های مورد علاقه</a></li>
+      </ul>
+    </section>
+  </aside>
+

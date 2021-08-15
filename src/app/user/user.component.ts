@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {userInfo} from "../models";
+import {FetchUserDataService} from "../services/fetch-user-data.service";
+import {FetchSongDataService} from "../services/fetch-song-data.service";
+
 
 @Component({
   selector: 'app-user',
@@ -6,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  public user!:userInfo;
+  constructor(private fetchUserDataService:FetchUserDataService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public async ngOnInit() {
+    this.user =await this.fetchUserDataService.fetchUsername();
   }
 
 }

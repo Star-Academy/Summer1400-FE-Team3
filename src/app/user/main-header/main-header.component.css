@@ -1,0 +1,57 @@
+header {
+  font-size: 12px;
+  background-color: #f3f3f3;
+  width: auto;
+  padding: 1rem;
+}
+header nav {
+  padding-top: 2.1rem;
+  display: inline-block;
+  float: left;
+}
+header > span {
+  position: absolute;
+  top: 2.8rem;
+  right: 10.5rem;
+  font-size: 2rem;
+  color: #da5656;
+  font-weight: bold;
+}
+header img {
+  margin-right: 2rem;
+}
+header li {
+  display: inline;
+  margin: 2rem;
+  color: #da5656;
+  font-size: 1.5rem;
+}
+header li #username {
+  color: black;
+}
+header li a {
+  color: #da5656;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-left: 3rem;
+}
+header li a:hover {
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  header nav {
+    padding-top: 1.3rem;
+  }
+  header nav li {
+    display: block;
+    margin: 0 0 0 2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .username_hidden {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=main-header.component.css.map */
