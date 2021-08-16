@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { userInfo } from '../models';
+import {SongModel, userInfo} from '../models';
 import { FetchUserDataService } from '../services/fetch-user-data.service';
 import { UserComponent } from '../user';
+import {FetchSongDataService} from "../services/fetch-song-data.service";
 
 @Component({
   selector: 'app-songs-page',
@@ -9,5 +10,17 @@ import { UserComponent } from '../user';
   styleUrls: ['./songs-page.component.scss'],
 })
 export class SongsPageComponent implements OnInit {
-  ngOnInit(): void {}
+  searchSongs:SongModel[]=[];
+  filterSongs:SongModel[]=[];
+  constructor() {
+  }
+  public async ngOnInit() {
+  }
+
+  public async sendSearchSongs(event:any) {
+    this.searchSongs=event;
+  }
+  public async sendFilterSongs(event:any) {
+    this.filterSongs=event;
+  }
 }

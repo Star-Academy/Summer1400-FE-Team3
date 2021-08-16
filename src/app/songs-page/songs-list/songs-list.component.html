@@ -1,10 +1,14 @@
 <section id="list">
   <h1>لیست آهنگ ها:</h1>
 
-  <div class="cards" id="songCards"></div>
+  <div class="cards" id="songCards">
+    <div *ngFor="let song of songs">
+      <app-card [song]="song"></app-card>
+    </div>
+  </div>
   <div id="noResult"></div>
   <div class="arrows">
-    <button id="previous">صفحه قبل</button>
-    <button id="next">صفحه بعد</button>
+    <button [hidden]="pageNumber===1" id="previous" (click)="previousPage()">صفحه قبل</button>
+    <button [hidden]="hiddenNext" id="next" (click)="nextPage()">صفحه بعد</button>
   </div>
 </section>

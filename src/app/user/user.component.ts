@@ -9,15 +9,9 @@ import { FetchSongDataService } from '../services/fetch-song-data.service';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  public user!: userInfo;
-  constructor(private fetchUserDataService: FetchUserDataService) {}
+  constructor() {}
 
   public async ngOnInit() {
-    this.user = await this.fetchUserDataService.fetchUsername();
-    console.log('here');
   }
-  changeAvatar(base64: any) {
-    this.user.avatar = base64;
-    console.log(base64);
-  }
+
 }

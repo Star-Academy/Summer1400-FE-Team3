@@ -9,12 +9,22 @@ import { userInfo } from '../../models';
   styleUrls: ['./main-header.component.scss'],
 })
 export class MainHeaderComponent implements OnInit {
-  user: userInfo = this.fetchUserDataService.user;
+  user: userInfo={
+    id: 0,
+    username: '',
+    email: '',
+    first_name: '',
+    last_name: '',
+    avatar: '',
+    gender: '',
+    birth_date: '',
+  };
   constructor(
-    private router: Router,
-    private fetchUserDataService: FetchUserDataService
+    private router: Router
   ) {}
-  public async ngOnInit() {}
+  public async ngOnInit() {
+      this.user=JSON.parse(<string>localStorage.getItem("user"));
+  }
   async signOut() {
     localStorage.clear();
     await this.router.navigateByUrl('');

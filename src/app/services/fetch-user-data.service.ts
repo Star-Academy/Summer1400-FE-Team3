@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { SignUpModel, userInfo } from '../models';
 import { SendRequestService } from './send-request.service';
@@ -6,19 +6,13 @@ import { SendRequestService } from './send-request.service';
 @Injectable({
   providedIn: 'root',
 })
-export class FetchUserDataService {
-  constructor(private http: HttpClient) {}
-  user: userInfo = {
-    id: 0,
-    username: '',
-    email: '',
-    first_name: '',
-    last_name: '',
-    avatar: '',
-    gender: '',
-    birth_date: '',
-  };
-
+export class FetchUserDataService implements OnInit{
+  constructor(private http: HttpClient) {
+  }
+  public async ngOnInit(){
+    await this.fetchUsername();
+    console.log("hhh")
+  }
   public signUpSubmit(user: SignUpModel) {
     const options = {
       headers: new HttpHeaders({
@@ -44,7 +38,7 @@ export class FetchUserDataService {
     );
   }
 
-  async fetchUsername(): Promise<userInfo> {
+  async fetchUsername(){
     const userToken = {
       token: localStorage.getItem('token'),
     };
@@ -55,8 +49,7 @@ export class FetchUserDataService {
     const { user } = await SendRequestService.sendRequest(
       `https://songs.code-star.ir/user/one/${id}`
     );
-    this.user = user;
-    return user;
+    localStorage.setItem("user",JSON.stringify(user));
   }
 
   async fetchAlterProfile(base64: any) {

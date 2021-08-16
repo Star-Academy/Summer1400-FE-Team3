@@ -1,10 +1,10 @@
 <app-main-header></app-main-header>
 <main>
   <section id="filter-search">
-    <app-filter-songs></app-filter-songs>
-    <app-search-songs></app-search-songs>
+    <app-filter-songs (filterSongs)="sendFilterSongs($event)"></app-filter-songs>
+    <app-search-songs (searchSongs)="sendSearchSongs($event)"></app-search-songs>
   </section>
 
-  <app-songs-list></app-songs-list>
+  <app-songs-list [searchInput]="searchSongs" [filterInput]="filterSongs"></app-songs-list>
 </main>
 <app-footer></app-footer>

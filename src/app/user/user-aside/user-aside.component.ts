@@ -8,19 +8,19 @@ import { userInfo } from '../../models';
   styleUrls: ['./user-aside.component.scss'],
 })
 export class UserAsideComponent implements OnInit {
-  @Input() user!: userInfo;
-  @Output()
-  userAvatar: EventEmitter<any> = new EventEmitter<any>();
+  user!: userInfo;
   constructor(private fetchUserData: FetchUserDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user=JSON.parse(<string>localStorage.getItem("user"));
+  }
 
   avatarChange(event: any) {
     let image = event.target.files[0];
     const reader = new FileReader();
     reader.onloadend = async () => {
       this.user.avatar = reader.result;
-      this.userAvatar.emit(reader.result);
+      localStorage.setItem("user",JSON.stringify(this.user));
       await this.fetchUserData.fetchAlterProfile(reader.result);
     };
     reader.readAsDataURL(image);

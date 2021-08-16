@@ -5,12 +5,12 @@
       <div id="uploadAvatar">
         <label for="file-input">
           <span *ngIf="user?.avatar">
-            <img [src]="user.avatar" src="" alt="User Avatar" id="avatar" />
+            <img [src]="user.avatar" src="" alt="User Avatar" class="avatar" />
           </span>
           <span *ngIf="!user?.avatar">
             <img
               src="../../../assets/images/avatar.png"
-              id="avatar"
+              class="avatar"
               alt="User Avatar"
             />
           </span>
