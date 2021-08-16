@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home';
 import { SignInComponent } from './signIn';
 import { SignUpComponent } from './signUp';
+import { SongsPageComponent } from './songs-page/songs-page.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   { path: 'user', component: UserComponent },
+  { path: 'songsPage', component: SongsPageComponent },
   { path: '**', redirectTo: '' },
 ];
 

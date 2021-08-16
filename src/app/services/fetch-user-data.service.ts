@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { SignUpModel, userInfo } from '../models';
-import {SendRequestService} from "./send-request.service";
+import { SendRequestService } from './send-request.service';
 
 @Injectable({
   providedIn: 'root',
@@ -48,8 +48,26 @@ export class FetchUserDataService {
     const userToken = {
       token: localStorage.getItem('token'),
     };
-    const {id} = await SendRequestService.sendRequest('https://songs.code-star.ir/user/auth',userToken);
-    const {user}=  await SendRequestService.sendRequest(`https://songs.code-star.ir/user/one/${id}`)
+    const { id } = await SendRequestService.sendRequest(
+      'https://songs.code-star.ir/user/auth',
+      userToken
+    );
+    const { user } = await SendRequestService.sendRequest(
+      `https://songs.code-star.ir/user/one/${id}`
+    );
+    this.user = user;
     return user;
+  }
+
+  async fetchAlterProfile(base64: any) {
+    const details = {
+      token: localStorage.getItem('token'),
+      avatar: base64,
+    };
+    console.log(base64);
+    await SendRequestService.sendRequest(
+      'https://songs.code-star.ir/user/alter',
+      details
+    );
   }
 }

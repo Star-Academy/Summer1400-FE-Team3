@@ -25,6 +25,10 @@ import { FavoriteListComponent } from './user/favorite-list/favorite-list.compon
 import { CardComponent } from './card/card.component';
 import {FetchSongDataService} from "./services/fetch-song-data.service";
 import {SendRequestService} from "./services/send-request.service";
+import { SongsPageComponent } from './songs-page/songs-page.component';
+import { FilterSongsComponent } from './songs-page/filter-songs/filter-songs.component';
+import { SearchSongsComponent } from './songs-page/search-songs/search-songs.component';
+import { SongsListComponent } from './songs-page/songs-list/songs-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,10 @@ import {SendRequestService} from "./services/send-request.service";
     SongListComponent,
     FavoriteListComponent,
     CardComponent,
+    SongsPageComponent,
+    FilterSongsComponent,
+    SearchSongsComponent,
+    SongsListComponent,
   ],
   imports: [
     BrowserModule,

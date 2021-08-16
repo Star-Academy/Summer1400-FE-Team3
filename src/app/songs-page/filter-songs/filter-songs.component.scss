@@ -1,0 +1,73 @@
+@use "../../../styles/colors";
+
+$default-rem: 2rem;
+
+@mixin inputs {
+  margin-top: 2rem;
+  padding-right: $default-rem;
+  width: 60%;
+  height: 3rem;
+  border-radius: 999rem;
+  border: 1px solid colors.$light-blue;
+  &:hover {
+    border: 2px solid colors.$light-blue;
+  }
+  &:focus {
+    border: 2px solid colors.$light-blue;
+    border-radius: 1rem;
+  }
+}
+#filter {
+  background-color: colors.$light-pink;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  margin: $default-rem;
+  padding: $default-rem;
+  height: min-content;
+  border-radius: $default-rem;
+
+  input {
+    @include inputs;
+  }
+
+  button {
+    margin-top: 1rem;
+    border: none;
+    width: 9rem;
+    height: 3rem;
+    border-radius: 4rem;
+    background-color: colors.$light-blue;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      background: colors.$dark-blue;
+    }
+
+    a {
+      color: colors.$dark-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+h3 {
+  margin-bottom: $default-rem;
+}
+
+#singerName,
+#genre {
+  display: inline;
+
+  select {
+    @include inputs;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #filter {
+    input,
+    select {
+      width: 90%;
+    }
+  }
+}

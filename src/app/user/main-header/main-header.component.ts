@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {userInfo} from "../../models";
+import { FetchUserDataService } from 'src/app/services/fetch-user-data.service';
+import { userInfo } from '../../models';
 
 @Component({
   selector: 'app-main-header',
@@ -8,12 +9,12 @@ import {userInfo} from "../../models";
   styleUrls: ['./main-header.component.scss'],
 })
 export class MainHeaderComponent implements OnInit {
-  @Input() user!:userInfo;
+  user: userInfo = this.fetchUserDataService.user;
   constructor(
-    private router: Router
+    private router: Router,
+    private fetchUserDataService: FetchUserDataService
   ) {}
-   public async ngOnInit() {
-   }
+  public async ngOnInit() {}
   async signOut() {
     localStorage.clear();
     await this.router.navigateByUrl('');

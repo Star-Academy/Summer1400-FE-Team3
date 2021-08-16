@@ -4,7 +4,7 @@ export interface userInfo {
   email: string;
   first_name?: string;
   last_name?: string;
-  avatar?: string;
+  avatar?: any;
   gender?: string;
   birth_date?: string;
 }

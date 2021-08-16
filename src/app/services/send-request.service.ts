@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SendRequestService {
-
-  constructor() { }
+  constructor() {}
 
   public static async sendRequest(url: string, body?: object): Promise<any> {
     const init: RequestInit = {
@@ -20,7 +19,10 @@ export class SendRequestService {
     }
 
     return fetch(url, init).then((res) => {
-      if (res.ok) return res.json();
+      if (res.ok) {
+        return res.json();
+      }
+
       throw res.json();
     });
   }
