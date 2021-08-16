@@ -37,7 +37,7 @@ export class SignInFormComponent implements OnInit {
         async(result) => {
           console.log(result);
           localStorage.setItem('token', result.token);
-          await this.fetchDataService.fetchUsername();
+          await this.fetchDataService.fetchUsername(result.id);
           await this.router.navigateByUrl('/user');
         },
         (response) => {
