@@ -6,9 +6,15 @@
       <app-card [song]="song"></app-card>
     </div>
   </div>
-  <div id="noResult"></div>
+  <div id="noResult" *ngIf="!hiddenNoResult">
+    <h2>آهنگ مورد نظر یافت نشد</h2>
+  </div>
   <div class="arrows">
-    <button [hidden]="pageNumber===1" id="previous" (click)="previousPage()">صفحه قبل</button>
-    <button [hidden]="hiddenNext" id="next" (click)="nextPage()">صفحه بعد</button>
+    <button [hidden]="hiddenPrev" id="previous" (click)="previousPage()">
+      صفحه قبل
+    </button>
+    <button [hidden]="hiddenNext" id="next" (click)="nextPage()">
+      صفحه بعد
+    </button>
   </div>
 </section>
