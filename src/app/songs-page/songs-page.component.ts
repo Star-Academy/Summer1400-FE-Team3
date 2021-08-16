@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SongModel, userInfo } from '../models';
-import { FetchUserDataService } from '../services/fetch-user-data.service';
-import { UserComponent } from '../user';
-import { FetchSongDataService } from '../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-songs-page',

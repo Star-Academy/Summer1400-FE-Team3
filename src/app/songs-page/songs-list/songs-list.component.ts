@@ -56,6 +56,7 @@ export class SongsListComponent implements OnInit {
   async nextPage() {
     this.songs = [];
     this.pageNumber++;
+    this.hiddenPrev=false;
     await this.checkEnd();
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
   }
@@ -70,8 +71,9 @@ export class SongsListComponent implements OnInit {
   async previousPage() {
     this.songs = [];
     this.pageNumber--;
+    if(this.pageNumber===1)
+      this.hiddenPrev=true;
     await this.checkEnd();
-
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
   }
 }
