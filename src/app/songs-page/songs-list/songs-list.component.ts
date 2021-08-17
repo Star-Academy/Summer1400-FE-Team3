@@ -25,7 +25,7 @@ export class SongsListComponent implements OnInit {
     const tempSongs = [];
     this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
     for (const item of this.playlistArray[0].songs) {
-      tempSongs.push(item.rest.id);
+      tempSongs.push(item.id);
     }
     this.playlistIds = tempSongs;
   }

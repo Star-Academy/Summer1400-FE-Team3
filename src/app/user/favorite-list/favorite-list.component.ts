@@ -20,16 +20,13 @@ export class FavoriteListComponent implements OnInit {
     await this.fetchSongDataService.createFavorites(this.playlistArr);
     if (this.playlistArr.length === 0)
       this.playlistArr = await this.fetchSongDataService.fetchPlaylist();
-    // @ts-ignore
     for (let i = 0; i < 4 && i < this.playlistArr[0].songs.length; i++) {
-      // @ts-ignore
-      this.songs.push(this.playlistArr[0].songs[i].rest);
+      this.songs.push(this.playlistArr[0].songs[i]);
     }
-
     const tempSongs = [];
 
     for (const item of this.playlistArr[0].songs) {
-      tempSongs.push(item.rest.id);
+      tempSongs.push(item.id);
     }
     this.playlistIds = tempSongs;
   }

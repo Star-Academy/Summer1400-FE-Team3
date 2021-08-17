@@ -105,4 +105,11 @@ export class FetchSongDataService {
       details
     );
   }
+  async fetchSong(songId:number): Promise<SongModel>{
+    const {song}= await SendRequestService.sendRequest(
+      `https://songs.code-star.ir/song/one/${songId}`,
+      true
+    );
+    return song;
+  }
 }

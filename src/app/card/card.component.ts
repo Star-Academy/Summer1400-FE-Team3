@@ -9,6 +9,7 @@ import {
 
 import { PlaylistModel, SongModel } from '../models';
 import { FetchSongDataService } from '../services/fetch-song-data.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -23,7 +24,7 @@ export class CardComponent implements OnInit, OnChanges {
 
   @Input() playlistIds!: number[];
   @Output() playlistIdsChange = new EventEmitter<number[]>();
-  constructor(private fetchSongDataService: FetchSongDataService) {}
+  constructor(private fetchSongDataService: FetchSongDataService, private router:Router) {}
 
   ngOnInit(): void {}
 
@@ -49,5 +50,8 @@ export class CardComponent implements OnInit, OnChanges {
       });
       this.playlistIdsChange.emit(this.playlistIds);
     }
+  }
+  public async goToSongPage() {
+    await this.router.navigateByUrl(`/song/${this.song.id}`)
   }
 }

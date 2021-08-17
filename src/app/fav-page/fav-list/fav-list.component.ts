@@ -21,8 +21,8 @@ export class FavListComponent implements OnInit {
     const tempSongs = [];
     this.favSongs=[];
     for (const item of this.playlistArray[0].songs) {
-      tempSongs.push(item.rest.id);
-      this.favSongs.push(item.rest);
+      tempSongs.push(item.id);
+      this.favSongs.push(item);
     }
     this.playlistIds = tempSongs;
   }
@@ -64,7 +64,7 @@ export class FavListComponent implements OnInit {
     this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
     this.favSongs=[];
     for (const item of this.playlistArray[0].songs) {
-      this.favSongs.push(item.rest);
+      this.favSongs.push(item);
     }
   }
 

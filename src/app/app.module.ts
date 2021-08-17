@@ -31,6 +31,10 @@ import { SearchSongsComponent } from './songs-page/search-songs/search-songs.com
 import { SongsListComponent } from './songs-page/songs-list/songs-list.component';
 import { FavPageComponent } from './fav-page/fav-page.component';
 import { FavListComponent } from './fav-page/fav-list/fav-list.component';
+import { SongPageComponent } from './song-page/song-page.component';
+import { SongMediaComponent } from './song-page/song-media/song-media.component';
+import { SongDetailsComponent } from './song-page/song-details/song-details.component';
+import { SongAudioComponent } from './song-page/song-audio/song-audio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +59,10 @@ import { FavListComponent } from './fav-page/fav-list/fav-list.component';
     SongsListComponent,
     FavPageComponent,
     FavListComponent,
+    SongPageComponent,
+    SongMediaComponent,
+    SongDetailsComponent,
+    SongAudioComponent,
   ],
   imports: [
     BrowserModule,
