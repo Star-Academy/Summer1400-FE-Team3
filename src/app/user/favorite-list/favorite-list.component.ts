@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchUserDataService } from '../../services/fetch-user-data.service';
 import { FetchSongDataService } from '../../services/fetch-song-data.service';
-import { SongModel } from '../../models';
+import { SongModel, PlaylistModel } from '../../models';
 
 @Component({
   selector: 'app-favorite-list',
@@ -9,10 +9,10 @@ import { SongModel } from '../../models';
   styleUrls: ['./favorite-list.component.scss'],
 })
 export class FavoriteListComponent implements OnInit {
-  public playlistArr!: object[];
+  public playlistArr!: PlaylistModel[];
   public songs: SongModel[] = [];
-  public FILLED_HEART = "../assets/images/filled-heart.png";
-
+  public FILLED_HEART = '../assets/images/filled-heart.png';
+  public playlistIds!: number[];
   constructor(private fetchSongDataService: FetchSongDataService) {}
 
   public async ngOnInit() {
@@ -21,8 +21,16 @@ export class FavoriteListComponent implements OnInit {
     if (this.playlistArr.length === 0)
       this.playlistArr = await this.fetchSongDataService.fetchPlaylist();
     // @ts-ignore
-    for (let item of this.playlistArr[0].songs) {
-      this.songs.push(item.rest);
+    for (let i = 0; i < 4 && i < this.playlistArr[0].songs.length; i++) {
+      // @ts-ignore
+      this.songs.push(this.playlistArr[0].songs[i].rest);
     }
+
+    const tempSongs = [];
+
+    for (const item of this.playlistArr[0].songs) {
+      tempSongs.push(item.rest.id);
+    }
+    this.playlistIds = tempSongs;
   }
 }

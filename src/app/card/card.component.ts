@@ -1,50 +1,53 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {PlaylistModel, SongModel} from "../models";
-import {FetchSongDataService} from "../services/fetch-song-data.service";
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+
+import { PlaylistModel, SongModel } from '../models';
+import { FetchSongDataService } from '../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
   @Input() song!: SongModel;
-   HEART = "../assets/images/heart.png";
-   FILLED_HEART = "../assets/images/filled-heart.png";
-   public heartSrc!:string;
-  @Input() isFav!:boolean;
-  @Input() playlistArray?:PlaylistModel[];
-  public playlistIds:number[]=[];
-  // private _playlistIds: number[]=[];
-  // @Input() set playlistIds(value:number[]){
-  //   this._playlistIds=value;
-  //   console.log(this._playlistIds[0])
-  //   if (this._playlistIds.includes(this.song.id))
-  //     this.heartSrc=this.FILLED_HEART;
-  //   else
-  //     this.heartSrc=this.HEART;
-  // }
-  constructor(private fetchSongDataService:FetchSongDataService) { }
+  HEART = '../assets/images/heart.png';
+  FILLED_HEART = '../assets/images/filled-heart.png';
+  public heartSrc!: string;
 
-  ngOnInit(): void {
-    if (this.isFav)
-      this.heartSrc=this.FILLED_HEART;
-    else {
-      console.log(this.playlistArray)
-      // @ts-ignore
-      for (const item of this.playlistArray[0].songs) {
-        this.playlistIds.push(item.rest.id);
-      }
+  @Input() playlistIds!: number[];
+  @Output() playlistIdsChange = new EventEmitter<number[]>();
+  constructor(private fetchSongDataService: FetchSongDataService) {}
+
+  ngOnInit(): void {}
+
+  ngOnChanges(change: any): void {
+    if (change.playlistIds && change.playlistIds.currentValue) {
+      if (this.playlistIds.includes(this.song.id)) {
+        this.heartSrc = this.FILLED_HEART;
+      } else this.heartSrc = this.HEART;
     }
   }
-  public async changeIcon(event:any){
-    if(event.target.getAttribute("src")===this.HEART)
-    {
-      this.heartSrc=this.FILLED_HEART;
+
+  public async changeIcon(event: any) {
+    if (event.target.getAttribute('src') === this.HEART) {
+      this.heartSrc = this.FILLED_HEART;
       await this.fetchSongDataService.addToFavorites(this.song.id);
+      this.playlistIds.push(this.song.id);
+      this.playlistIdsChange.emit(this.playlistIds);
+    } else {
+      this.heartSrc = this.HEART;
+      await this.fetchSongDataService.removeSongFromPlaylist(this.song.id);
+      this.playlistIds.forEach((element, index) => {
+        if (element === this.song.id) delete this.playlistIds[index];
+      });
+      this.playlistIdsChange.emit(this.playlistIds);
     }
-    else
-      this.heartSrc=this.HEART;
   }
-
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FavPageComponent } from './fav-page/fav-page.component';
 import { HomeComponent } from './home';
 import { SignInComponent } from './signIn';
 import { SignUpComponent } from './signUp';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'signUp', component: SignUpComponent },
   { path: 'user', component: UserComponent },
   { path: 'songsPage', component: SongsPageComponent },
+  { path: 'favPage', component: FavPageComponent },
   { path: '**', redirectTo: '' },
 ];
 

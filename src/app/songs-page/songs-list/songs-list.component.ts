@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { SongModel } from '../../models';
+import { SongModel, PlaylistModel } from '../../models';
 import { FetchSongDataService } from '../../services/fetch-song-data.service';
 
 @Component({
@@ -13,27 +13,38 @@ export class SongsListComponent implements OnInit {
   public hiddenPrev = true;
   public hiddenNoResult = true;
   public songs!: SongModel[];
-  public allSongs:SongModel[]=[];
+  public allSongs: SongModel[] = [];
   constructor(private fetchSongDataService: FetchSongDataService) {}
+
+  public playlistArray!: PlaylistModel[];
+  public playlistIds: number[] = [];
 
   public async ngOnInit() {
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
-    this.allSongs= await this.fetchSongDataService.fetchSongs();
+    this.allSongs = await this.fetchSongDataService.fetchSongs();
+    const tempSongs = [];
+    this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
+    for (const item of this.playlistArray[0].songs) {
+      tempSongs.push(item.rest.id);
+    }
+    this.playlistIds = tempSongs;
   }
 
   private _filterInput!: string;
-  @Input() set filterInput(value:string){
-    this._filterInput=value;
-    if (this._filterInput!=="همه" && this._filterInput!==""){
-      this.songs= this.allSongs.filter(song=>song.artist===this._filterInput);
-      console.log("h")
+  @Input() set filterInput(value: string) {
+    this._filterInput = value;
+    if (this._filterInput !== 'همه' && this._filterInput !== '') {
+      this.songs = this.allSongs.filter(
+        (song) => song.artist === this._filterInput
+      );
+
       this.hiddenNext = true;
       this.hiddenPrev = true;
     } else {
       this.pageNumber = 1;
       this.hiddenNext = false;
       this.hiddenNoResult = true;
-      this.fetchFunc("");
+      this.fetchFunc('');
     }
   }
 
@@ -71,7 +82,7 @@ export class SongsListComponent implements OnInit {
   async nextPage() {
     this.songs = [];
     this.pageNumber++;
-    this.hiddenPrev=false;
+    this.hiddenPrev = false;
     await this.checkEnd();
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
   }
@@ -86,8 +97,7 @@ export class SongsListComponent implements OnInit {
   async previousPage() {
     this.songs = [];
     this.pageNumber--;
-    if(this.pageNumber===1)
-      this.hiddenPrev=true;
+    if (this.pageNumber === 1) this.hiddenPrev = true;
     await this.checkEnd();
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
   }

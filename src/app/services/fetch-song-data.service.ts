@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SendRequestService } from './send-request.service';
-import {PlaylistModel, SongModel} from '../models';
+import { PlaylistModel, SongModel } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,8 @@ export class FetchSongDataService {
       desc: true,
     };
     const { songs } = await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/song/page',true,
+      'https://songs.code-star.ir/song/page',
+      true,
       details
     );
     return songs;
@@ -30,7 +31,8 @@ export class FetchSongDataService {
       token: localStorage.getItem('token'),
     };
     return await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/playlist/all',true,
+      'https://songs.code-star.ir/playlist/all',
+      true,
       userToken
     );
   }
@@ -42,7 +44,8 @@ export class FetchSongDataService {
       name: 'مورد علاقه ها',
     };
     await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/playlist/create',true,
+      'https://songs.code-star.ir/playlist/create',
+      true,
       playlistInfo
     );
   }
@@ -55,7 +58,8 @@ export class FetchSongDataService {
       desc: true,
     };
     const { songs } = await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/song/find',true,
+      'https://songs.code-star.ir/song/find',
+      true,
       details
     );
 
@@ -63,24 +67,41 @@ export class FetchSongDataService {
   }
   public async fetchSongs(): Promise<SongModel[]> {
     const { songs } = await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/song/all',true
+      'https://songs.code-star.ir/song/all',
+      true
     );
     return songs;
   }
 
-  public async addToFavorites(songId:number) {
+  public async addToFavorites(songId: number) {
+    const playlists: object[] = await this.fetchPlaylist();
 
-    const playlists:object[]=await this.fetchPlaylist();
-    console.log(playlists);
     // @ts-ignore
-    const playlistId=playlists[0].id;
+    const playlistId = playlists[0].id;
     let details = {
-      token: localStorage.getItem("token"),
+      token: localStorage.getItem('token'),
       playlistId: playlistId,
       songId: songId,
     };
     await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/playlist/add-song',false,
+      'https://songs.code-star.ir/playlist/add-song',
+      false,
+      details
+    );
+  }
+
+  async removeSongFromPlaylist(songId: number) {
+    const playlists: object[] = await this.fetchPlaylist();
+    // @ts-ignore
+    const playlistId = playlists[0].id;
+    let details = {
+      token: localStorage.getItem('token'),
+      playlistId: playlistId,
+      songId: songId,
+    };
+    await SendRequestService.sendRequest(
+      'https://songs.code-star.ir/playlist/remove-song',
+      false,
       details
     );
   }

@@ -29,6 +29,8 @@ import { SongsPageComponent } from './songs-page/songs-page.component';
 import { FilterSongsComponent } from './songs-page/filter-songs/filter-songs.component';
 import { SearchSongsComponent } from './songs-page/search-songs/search-songs.component';
 import { SongsListComponent } from './songs-page/songs-list/songs-list.component';
+import { FavPageComponent } from './fav-page/fav-page.component';
+import { FavListComponent } from './fav-page/fav-list/fav-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,8 @@ import { SongsListComponent } from './songs-page/songs-list/songs-list.component
     FilterSongsComponent,
     SearchSongsComponent,
     SongsListComponent,
+    FavPageComponent,
+    FavListComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@
 
   <div class="cards" id="songCards">
     <div *ngFor="let song of songs">
-      <app-card [song]="song"></app-card>
+      <app-card [song]="song" [(playlistIds)]="playlistIds"></app-card>
     </div>
   </div>
   <div id="noResult" *ngIf="!hiddenNoResult">
