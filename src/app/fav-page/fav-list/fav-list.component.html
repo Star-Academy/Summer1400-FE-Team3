@@ -1,1 +1,13 @@
-<p>fav-list works!</p>
+<section>
+  <section id="list">
+    <h1>آهنگ های مورد علاقه</h1>
+    <div class="cards" id="favCards">
+      <div *ngFor="let song of favSongs">
+        <app-card [song]="song" [(playlistIds)]="playlistIds"></app-card>
+      </div>
+    </div>
+    <div id="noResult" *ngIf="!hiddenNoResult">
+      <h2>آهنگ مورد نظر یافت نشد</h2>
+    </div>
+  </section>
+</section>
