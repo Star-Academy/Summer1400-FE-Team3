@@ -13,25 +13,46 @@ export class SongsListComponent implements OnInit {
   public hiddenPrev = true;
   public hiddenNoResult = true;
   public songs!: SongModel[];
+  public allSongs:SongModel[]=[];
+  constructor(private fetchSongDataService: FetchSongDataService) {}
 
-  @Input() filterInput!: string;
+  public async ngOnInit() {
+    this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
+    this.allSongs= await this.fetchSongDataService.fetchSongs();
+  }
 
-  private _searchInput!: string;
-  @Input() set searchInput(value: string) {
-    this._searchInput = value;
-    if (this._searchInput !== '') {
-      this.fetchSearch(this._searchInput);
+  private _filterInput!: string;
+  @Input() set filterInput(value:string){
+    this._filterInput=value;
+    if (this._filterInput!=="همه" && this._filterInput!==""){
+      this.songs= this.allSongs.filter(song=>song.artist===this._filterInput);
+      console.log("h")
       this.hiddenNext = true;
       this.hiddenPrev = true;
     } else {
       this.pageNumber = 1;
       this.hiddenNext = false;
       this.hiddenNoResult = true;
-      this.fetchSearch(this._searchInput);
+      this.fetchFunc("");
     }
   }
 
-  public async fetchSearch(value: string) {
+  private _searchInput!: string;
+  @Input() set searchInput(value: string) {
+    this._searchInput = value;
+    if (this._searchInput !== '') {
+      this.fetchFunc(this._searchInput);
+      this.hiddenNext = true;
+      this.hiddenPrev = true;
+    } else {
+      this.pageNumber = 1;
+      this.hiddenNext = false;
+      this.hiddenNoResult = true;
+      this.fetchFunc(this._searchInput);
+    }
+  }
+
+  public async fetchFunc(value: string) {
     if (value !== '') {
       this.songs = await this.fetchSongDataService.fetchFind(this._searchInput);
       if (this.songs.length === 0) {
@@ -45,12 +66,6 @@ export class SongsListComponent implements OnInit {
         20
       );
     }
-  }
-
-  constructor(private fetchSongDataService: FetchSongDataService) {}
-
-  public async ngOnInit() {
-    this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
   }
 
   async nextPage() {

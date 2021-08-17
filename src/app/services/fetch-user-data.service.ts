@@ -37,7 +37,7 @@ export class FetchUserDataService{
 
   async fetchUsername(id:number){
     const { user } = await SendRequestService.sendRequest(
-      `https://songs.code-star.ir/user/one/${id}`
+      `https://songs.code-star.ir/user/one/${id}`,true
     );
     localStorage.setItem("user",JSON.stringify(user));
   }
@@ -49,7 +49,7 @@ export class FetchUserDataService{
     };
     console.log(base64);
     await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/user/alter',
+      'https://songs.code-star.ir/user/alter',false,
       details
     );
   }

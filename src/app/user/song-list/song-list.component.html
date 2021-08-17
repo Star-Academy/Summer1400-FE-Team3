@@ -4,7 +4,7 @@
     <button><a routerLink="/songsPage">دیدن همه</a></button>
     <div class="cards" id="songCards">
       <div *ngFor="let song of songs">
-        <app-card [song]="song"></app-card>
+        <app-card [song]="song" [isFav]="false" [playlistArray]="playlistArray"></app-card>
       </div>
     </div>
   </section>

@@ -1,19 +1,19 @@
 <div class="card">
-  <a class="songImage " [name]="song.id">
+  <a class="songImage ">
     <img [src]="song.cover" alt="Avatar" loading="lazy" style="width:100%"/>
   </a>
   <div class="container">
     <h4>
-      <a class="songName" [name]="song.id"><b>{{song.name}}</b></a>
+      <a class="songName" ><b>{{song.name}}</b></a>
     </h4>
     <p>{{song.artist}}</p>
     <img
-      src="../../assets/images/heart.png"
+      [src]="heartSrc"
       class="favorite"
-      [name]="song.id"
       width="30"
       height="27"
       alt="Add to favorite"
+      (click)="changeIcon($event)"
     />
   </div>
 </div>

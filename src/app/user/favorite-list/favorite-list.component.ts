@@ -11,6 +11,8 @@ import { SongModel } from '../../models';
 export class FavoriteListComponent implements OnInit {
   public playlistArr!: object[];
   public songs: SongModel[] = [];
+  public FILLED_HEART = "../assets/images/filled-heart.png";
+
   constructor(private fetchSongDataService: FetchSongDataService) {}
 
   public async ngOnInit() {

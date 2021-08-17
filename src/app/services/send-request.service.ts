@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class SendRequestService {
   constructor() {}
 
-  public static async sendRequest(url: string, body?: object): Promise<any> {
+  public static async sendRequest(url: string,hasJson:boolean, body?: object): Promise<any> {
     const init: RequestInit = {
       headers: {
         'Content-Type': 'application/json',
@@ -20,9 +20,10 @@ export class SendRequestService {
 
     return fetch(url, init).then((res) => {
       if (res.ok) {
-        return res.json();
+          if (hasJson)
+            return res.json();
+          return;
       }
-
       throw res.json();
     });
   }

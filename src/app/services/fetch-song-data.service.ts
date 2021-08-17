@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SendRequestService } from './send-request.service';
-import { SongModel } from '../models';
+import {PlaylistModel, SongModel} from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -19,18 +19,18 @@ export class FetchSongDataService {
       desc: true,
     };
     const { songs } = await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/song/page',
+      'https://songs.code-star.ir/song/page',true,
       details
     );
     return songs;
   }
 
-  public async fetchPlaylist(): Promise<object[]> {
+  public async fetchPlaylist(): Promise<PlaylistModel[]> {
     const userToken = {
       token: localStorage.getItem('token'),
     };
     return await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/playlist/all',
+      'https://songs.code-star.ir/playlist/all',true,
       userToken
     );
   }
@@ -42,7 +42,7 @@ export class FetchSongDataService {
       name: 'مورد علاقه ها',
     };
     await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/playlist/create',
+      'https://songs.code-star.ir/playlist/create',true,
       playlistInfo
     );
   }
@@ -55,10 +55,33 @@ export class FetchSongDataService {
       desc: true,
     };
     const { songs } = await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/song/find',
+      'https://songs.code-star.ir/song/find',true,
       details
     );
 
     return songs;
+  }
+  public async fetchSongs(): Promise<SongModel[]> {
+    const { songs } = await SendRequestService.sendRequest(
+      'https://songs.code-star.ir/song/all',true
+    );
+    return songs;
+  }
+
+  public async addToFavorites(songId:number) {
+
+    const playlists:object[]=await this.fetchPlaylist();
+    console.log(playlists);
+    // @ts-ignore
+    const playlistId=playlists[0].id;
+    let details = {
+      token: localStorage.getItem("token"),
+      playlistId: playlistId,
+      songId: songId,
+    };
+    await SendRequestService.sendRequest(
+      'https://songs.code-star.ir/playlist/add-song',false,
+      details
+    );
   }
 }
