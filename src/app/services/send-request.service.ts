@@ -16,6 +16,10 @@ export class SendRequestService {
     if (body) {
       init.method = 'POST';
       init.body = JSON.stringify(body);
+      if (url.includes("https://songs.code-star.ir/user/one/"))
+        init.cache="no-cache";
+      // if (url==="https://songs.code-star.ir/user/alter")
+      //   init.mode="no-cors";
     }
 
     return fetch(url, init).then((res) => {
@@ -24,6 +28,7 @@ export class SendRequestService {
             return res.json();
           return;
       }
+      console.log("hhh")
       throw res.json();
     });
   }

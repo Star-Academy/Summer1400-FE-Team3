@@ -33,7 +33,7 @@ export class SignUpFormComponent implements OnInit {
         this.router.navigateByUrl("/signIn")
       },
       (response) => {
-        alert(response.message)
+        alert(response.error.message)
       })
 
   }

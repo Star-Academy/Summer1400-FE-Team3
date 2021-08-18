@@ -40,8 +40,7 @@ export class SignInFormComponent implements OnInit {
           await this.router.navigateByUrl('/user');
         },
         (response) => {
-          alert(response.message);
-        }
+          alert(response.error.message)        }
       );
     } else {
       const user_username: SignInModel_username = {
@@ -55,7 +54,7 @@ export class SignInFormComponent implements OnInit {
           await this.router.navigateByUrl('/user');
         },
         (response) => {
-          alert(response.message);
+          alert(response.error.message)
         }
       );
     }

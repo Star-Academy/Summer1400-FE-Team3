@@ -1,22 +1,6 @@
-<!-- <audio controls id="audio">
-  <source id="audio_source" [src]="songFile" type="audio/mpeg" />
+<audio controls id="audio" *ngIf="song!==undefined">
+  <source id="audio_source" [src]="song?.file" type="audio/mpeg" />
   Your browser does not support the audio element.
-</audio> -->
-<!-- <div>
-  {{ this.}}
-</div> -->
+</audio>
 
-<ngx-audio-player
-  id="audio"
-  [playlist]="msaapPlaylist"
-  [displayTitle]="msaapDisplayTitle"
-  [autoPlay]="false"
-  muted="muted"
-  [displayPlaylist]="msaapDisplayPlayList"
-  [displayVolumeControls]="msaapDisplayVolumeControls"
-  [displayRepeatControls]="msaapDisplayRepeatControls"
-  [disablePositionSlider]="msaapDisablePositionSlider"
-  [displayArtist]="msaapDisplayArtist"
-  [displayDuration]="msaapDisplayDuration"
-  [expanded]="true"
-></ngx-audio-player>
+

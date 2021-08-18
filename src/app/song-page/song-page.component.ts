@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SongModel } from '../models';
 
 import { FetchSongDataService } from '../services/fetch-song-data.service';
@@ -11,7 +11,6 @@ import { FetchSongDataService } from '../services/fetch-song-data.service';
 })
 export class SongPageComponent implements OnInit {
   public song!: SongModel;
-  public songFile!: string;
 
   constructor(
     private rout: ActivatedRoute,
@@ -22,6 +21,5 @@ export class SongPageComponent implements OnInit {
     this.song = await this.fetchSongDataService.fetchSong(
       +this.rout.snapshot.params['id']
     );
-    this.songFile = this.song.file;
   }
 }

@@ -47,7 +47,6 @@ export class FetchUserDataService{
       token: localStorage.getItem('token'),
       avatar: base64,
     };
-    console.log(base64);
     await SendRequestService.sendRequest(
       'https://songs.code-star.ir/user/alter',false,
       details

@@ -8,12 +8,13 @@
       <summary><b>متن آهنگ</b></summary>
       <p id="lyrics">{{ song?.lyrics }}</p>
     </details>
-    <img
-      id="likePic"
-      src="../../../assets/images/filled-heart.png"
-      alt="Add to favorite"
-      width="30"
-      height="27"
+    <img *ngIf="heartSrc!==''"
+         id="likePic"
+         [src]="heartSrc"
+         alt="Add to favorite"
+         width="30"
+         height="27"
+         (click)="changeIcon($event)"
     />
   </section>
 </div>

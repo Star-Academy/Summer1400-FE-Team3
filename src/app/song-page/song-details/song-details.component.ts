@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SongModel } from '../../models';
+import {PlaylistModel, SongModel} from '../../models';
+import {FetchSongDataService} from "../../services/fetch-song-data.service";
 
 @Component({
   selector: 'app-song-details',
@@ -8,8 +9,36 @@ import { SongModel } from '../../models';
 })
 export class SongDetailsComponent implements OnInit {
   @Input() song!: SongModel;
+  public playlistArray!: PlaylistModel[];
+  public playlistIds: number[] = [];
+  public heartSrc:string='';
+  HEART = '../assets/images/heart.png';
+  FILLED_HEART = '../assets/images/filled-heart.png';
+  constructor(private fetchSongDataService: FetchSongDataService) {}
 
-  constructor() {}
-
-  ngOnInit() {}
+  async ngOnInit() {
+    this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
+    for (const item of this.playlistArray[0].songs) {
+      this.playlistIds.push(item.id);
+    }
+    if (this.playlistIds.includes(this.song.id)){
+      this.heartSrc=this.FILLED_HEART
+    }
+    else {
+      this.heartSrc=this.HEART;
+    }
+  }
+  public async changeIcon(event: any) {
+    if (event.target.getAttribute('src') === this.HEART) {
+      this.heartSrc = this.FILLED_HEART;
+      await this.fetchSongDataService.addToFavorites(this.song.id);
+      this.playlistIds.push(this.song.id);
+    } else {
+      this.heartSrc = this.HEART;
+      await this.fetchSongDataService.removeSongFromPlaylist(this.song.id);
+      this.playlistIds.forEach((element, index) => {
+        if (element === this.song.id) delete this.playlistIds[index];
+      });
+    }
+  }
 }
