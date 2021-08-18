@@ -1,10 +1,12 @@
 <div>
   <section id="songInfo">
-    <h1 id="songName">{{song.name}}</h1>
-    <p><b>نام خواننده: </b><span id="singerName">{{song.artist}}</span></p>
+    <h1 id="songName">{{ song?.name }}</h1>
+    <p>
+      <b>نام خواننده: </b><span id="singerName">{{ song?.artist }}</span>
+    </p>
     <details>
       <summary><b>متن آهنگ</b></summary>
-      <p id="lyrics">{{song.lyrics}}</p>
+      <p id="lyrics">{{ song?.lyrics }}</p>
     </details>
     <img
       id="likePic"

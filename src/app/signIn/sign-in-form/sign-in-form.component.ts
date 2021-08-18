@@ -26,7 +26,7 @@ export class SignInFormComponent implements OnInit {
     return re.test(String(info).toLowerCase());
   }
 
-   login(formValues: any) {
+  login(formValues: any) {
     if (this.validateEmail(formValues.email)) {
       const user_email: signInModel_email = {
         email: formValues.email,
@@ -34,8 +34,7 @@ export class SignInFormComponent implements OnInit {
       };
 
       this.fetchDataService.signInSubmit(user_email).subscribe(
-        async(result) => {
-          console.log(result);
+        async (result) => {
           localStorage.setItem('token', result.token);
           await this.fetchDataService.fetchUsername(result.id);
           await this.router.navigateByUrl('/user');
@@ -50,7 +49,7 @@ export class SignInFormComponent implements OnInit {
         password: formValues.password,
       };
       this.fetchDataService.signInSubmit(user_username).subscribe(
-        async(result) => {
+        async (result) => {
           console.log(result);
           localStorage.setItem('token', result.token);
           await this.router.navigateByUrl('/user');
