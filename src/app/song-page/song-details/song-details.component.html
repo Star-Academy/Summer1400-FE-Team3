@@ -1,5 +1,5 @@
 <div>
-  <section *ngIf="song!==undefined" id="songInfo">
+  <section *ngIf="song !== undefined" id="songInfo">
     <h1 id="songName">{{ song?.name }}</h1>
     <p>
       <b>نام خواننده: </b><span id="singerName">{{ song?.artist }}</span>
@@ -8,13 +8,14 @@
       <summary><b>متن آهنگ</b></summary>
       <p id="lyrics">{{ song?.lyrics }}</p>
     </details>
-    <img *ngIf="heartSrc!==''"
-         id="likePic"
-         [src]="heartSrc"
-         alt="Add to favorite"
-         width="30"
-         height="27"
-         (click)="changeIcon($event)"
+    <img
+      *ngIf="heartSrc !== ''"
+      id="likePic"
+      [src]="heartSrc"
+      alt="Add to favorite"
+      width="30"
+      height="27"
+      (click)="changeIcon($event)"
     />
   </section>
 </div>

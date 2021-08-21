@@ -15,8 +15,12 @@ details[open] {
   margin: 2rem 0;
 }
 
-#songInfo {
+summary :hover {
+  cursor: pointer;
+  color: colors.$dark-blue;
+}
 
+#songInfo {
   width: 80vw;
   min-height: 30rem;
   background-color: colors.$lighter-blue;
@@ -39,6 +43,4 @@ details[open] {
   #songInfo {
     width: 70%;
   }
-
 }
-
