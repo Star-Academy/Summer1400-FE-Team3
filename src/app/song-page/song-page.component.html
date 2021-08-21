@@ -1,4 +1,5 @@
-<app-main-header></app-main-header>
+<!--<app-main-header></app-main-header>-->
+<div class="background" [ngStyle]="{'background-image': 'url(' + song.cover + ')'}">
 <main>
   <div>
   <app-song-media [song]="song"></app-song-media>
@@ -6,3 +7,4 @@
   <app-song-details [song]="song"></app-song-details>
   </div>
 </main>
+</div>

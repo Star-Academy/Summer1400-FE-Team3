@@ -1,20 +1,29 @@
 @use "../../styles/colors";
 $default-rem: 2rem;
+.background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 main {
   padding: 4rem $default-rem;
   font-size: 1.3rem;
   display: flex;
   justify-content: center;
+  -webkit-backdrop-filter: blur(6rem);
+  backdrop-filter: blur(6rem);
+
 }
-@media only screen and (min-width: 760px) and (max-height: 820px) {
+@media only screen and (min-width: 760px) {
   main {
     padding: 0;
     div {
       border-radius: $default-rem;
       margin: 5rem 0;
-      width: 85%;
-      box-shadow: 0 0 $default-rem colors.$light-gray;
+      width: 75%;
+      //box-shadow: 0 0 5rem colors.$light-gray;
       padding: 4rem;
+      background-color: white;
     }
 
   }
@@ -22,7 +31,7 @@ main {
   main {
 
     div {
-      width: 70%;
+      width: 60%;
     }
 
   }

@@ -17,13 +17,13 @@ details[open] {
 
 summary :hover {
   cursor: pointer;
-  color: colors.$dark-blue;
+  color: colors.$darker-pink;
 }
 
 #songInfo {
   width: 80vw;
   min-height: 30rem;
-  background-color: colors.$lighter-blue;
+  background-color: colors.$light-gray;
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   border-radius: $default-rem;
   padding: 3rem;
