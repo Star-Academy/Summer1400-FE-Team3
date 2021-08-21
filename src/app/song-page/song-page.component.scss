@@ -1,18 +1,29 @@
+@use "../../styles/colors";
 $default-rem: 2rem;
 main {
   padding: 4rem $default-rem;
   font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
 }
-//@media only screen and (min-width: 820px) and (max-height: 820px) {
-//  main {
-//    display: grid;
-//    grid-template-columns: 1fr 2fr;
-//    grid-gap: $default-rem;
-//  }
-//}
-//@media only screen and (min-width: 820px) and (max-height: 820px) {
-//  main {
-//    padding: 4rem;
-//  }
-//
-//}
+@media only screen and (min-width: 760px) and (max-height: 820px) {
+  main {
+    padding: 0;
+    div {
+      border-radius: $default-rem;
+      margin: 5rem 0;
+      width: 85%;
+      box-shadow: 0 0 $default-rem colors.$light-gray;
+      padding: 4rem;
+    }
+
+  }
+}@media only screen and (min-width: 1000px) {
+  main {
+
+    div {
+      width: 70%;
+    }
+
+  }
+}

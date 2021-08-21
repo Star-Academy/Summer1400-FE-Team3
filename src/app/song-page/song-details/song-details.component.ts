@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {PlaylistModel, SongModel} from '../../models';
 import {FetchSongDataService} from "../../services/fetch-song-data.service";
 
@@ -7,7 +7,7 @@ import {FetchSongDataService} from "../../services/fetch-song-data.service";
   templateUrl: './song-details.component.html',
   styleUrls: ['./song-details.component.scss'],
 })
-export class SongDetailsComponent implements OnInit {
+export class SongDetailsComponent implements OnInit,OnChanges {
   @Input() song!: SongModel;
   public playlistArray!: PlaylistModel[];
   public playlistIds: number[] = [];
@@ -21,13 +21,9 @@ export class SongDetailsComponent implements OnInit {
     for (const item of this.playlistArray[0].songs) {
       this.playlistIds.push(item.id);
     }
-    if (this.playlistIds.includes(this.song.id)){
-      this.heartSrc=this.FILLED_HEART
-    }
-    else {
-      this.heartSrc=this.HEART;
-    }
+
   }
+
   public async changeIcon(event: any) {
     if (event.target.getAttribute('src') === this.HEART) {
       this.heartSrc = this.FILLED_HEART;
@@ -39,6 +35,18 @@ export class SongDetailsComponent implements OnInit {
       this.playlistIds.forEach((element, index) => {
         if (element === this.song.id) delete this.playlistIds[index];
       });
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.song && changes.song.currentValue)
+    {
+      if (this.playlistIds.includes(this.song.id)){
+        this.heartSrc=this.FILLED_HEART
+      }
+      else {
+        this.heartSrc=this.HEART;
+      }
     }
   }
 }

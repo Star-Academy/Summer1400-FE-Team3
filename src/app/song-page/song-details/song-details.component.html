@@ -1,5 +1,5 @@
 <div>
-  <section id="songInfo">
+  <section *ngIf="song!==undefined" id="songInfo">
     <h1 id="songName">{{ song?.name }}</h1>
     <p>
       <b>نام خواننده: </b><span id="singerName">{{ song?.artist }}</span>

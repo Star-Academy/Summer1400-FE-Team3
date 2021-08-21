@@ -1,3 +1,3 @@
 <div>
-  <img id="songImage" [src]="song?.cover" alt="Song Cover" />
+  <img *ngIf="song!==undefined" id="songImage" [src]="song?.cover" alt="Song Cover" />
 </div>
