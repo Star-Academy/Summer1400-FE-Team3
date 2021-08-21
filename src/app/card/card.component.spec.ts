@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {OnChanges} from "@angular/core";
 import {RouterTestingModule} from "@angular/router/testing";
 
-fdescribe('CardComponent', () => {
+describe('CardComponent', () => {
   let component: CardComponent;
   let fixture: ComponentFixture<CardComponent>;
 
