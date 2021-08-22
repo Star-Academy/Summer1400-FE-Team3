@@ -1,10 +1,14 @@
 <!--<app-main-header></app-main-header>-->
-<div class="background" [ngStyle]="{'background-image': 'url(' + song?.cover + ')'}">
-<main>
-  <div>
-  <app-song-media [song]="song"></app-song-media>
-  <app-song-audio [song]="song"></app-song-audio>
-  <app-song-details [song]="song"></app-song-details>
-  </div>
-</main>
+<div
+  class="background"
+  *ngIf="song !== undefined && song.cover !== null"
+  [ngStyle]="{ 'background-image': 'url(' + song?.cover + ')' }"
+>
+  <main>
+    <div>
+      <app-song-media [song]="song"></app-song-media>
+      <app-song-audio [song]="song"></app-song-audio>
+      <app-song-details [song]="song"></app-song-details>
+    </div>
+  </main>
 </div>

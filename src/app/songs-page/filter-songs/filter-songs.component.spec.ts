@@ -8,9 +8,8 @@ describe('FilterSongsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterSongsComponent ]
-    })
-    .compileComponents();
+      declarations: [FilterSongsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,19 @@ describe('FilterSongsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should update artists', async () => {
+    const temp = [
+      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      { id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd' },
+    ];
+    spyOn(
+      (component as any).fetchSongDataService,
+      'fetchSongs'
+    ).and.returnValue(temp);
+
+    await component.ngOnInit();
+    expect(component.artists).toEqual(['d', 'l']);
   });
 });

@@ -12,15 +12,16 @@ export class UserAsideComponent implements OnInit {
   constructor(private fetchUserData: FetchUserDataService) {}
 
   ngOnInit(): void {
-    this.user=JSON.parse(<string>localStorage.getItem("user"));
+    this.user = JSON.parse(<string>localStorage.getItem('user'));
   }
 
   avatarChange(event: any) {
     let image = event.target.files[0];
+
     const reader = new FileReader();
     reader.onloadend = async () => {
       this.user.avatar = reader.result;
-      localStorage.setItem("user",JSON.stringify(this.user));
+      localStorage.setItem('user', JSON.stringify(this.user));
       await this.fetchUserData.fetchAlterProfile(reader.result);
     };
     reader.readAsDataURL(image);

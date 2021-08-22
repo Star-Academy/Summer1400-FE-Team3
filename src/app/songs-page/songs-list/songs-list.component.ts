@@ -86,6 +86,7 @@ export class SongsListComponent implements OnInit {
     await this.checkEnd();
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);
   }
+
   async checkEnd() {
     const pageArr = await this.fetchSongDataService.fetchPage(
       this.pageNumber + 1,

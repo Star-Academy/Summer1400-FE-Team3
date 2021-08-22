@@ -8,9 +8,8 @@ describe('FavoriteListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavoriteListComponent ]
-    })
-    .compileComponents();
+      declarations: [FavoriteListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,23 @@ describe('FavoriteListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should update songs', async () => {
+    const temp = [
+      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+    ];
+    spyOn(
+      (component as any).fetchSongDataService,
+      'fetchPlaylist'
+    ).and.returnValue([{ name: 'm', id: 2, songs: temp }]);
+    spyOn(
+      (component as any).fetchSongDataService,
+      'createFavorites'
+    ).and.callThrough();
+
+    await component.ngOnInit();
+    expect(component.songs).toEqual(temp);
+    expect(component.playlistIds).toContain(1);
   });
 });

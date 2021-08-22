@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FetchUserDataService } from 'src/app/services/fetch-user-data.service';
+
 import { userInfo } from '../../models';
 
 @Component({
@@ -9,7 +9,7 @@ import { userInfo } from '../../models';
   styleUrls: ['./main-header.component.scss'],
 })
 export class MainHeaderComponent implements OnInit {
-  user: userInfo={
+  user: userInfo = {
     id: 0,
     username: '',
     email: '',
@@ -19,11 +19,9 @@ export class MainHeaderComponent implements OnInit {
     gender: '',
     birth_date: '',
   };
-  constructor(
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
   public async ngOnInit() {
-      this.user=JSON.parse(<string>localStorage.getItem("user"));
+    this.user = JSON.parse(<string>localStorage.getItem('user'));
   }
   async signOut() {
     localStorage.clear();
