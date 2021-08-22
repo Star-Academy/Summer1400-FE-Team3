@@ -4,7 +4,7 @@ import {
   OnChanges,
   OnInit,
   Output,
-  EventEmitter,
+  EventEmitter, SimpleChanges,
 } from '@angular/core';
 
 import { PlaylistModel, SongModel } from '../models';
@@ -28,7 +28,7 @@ export class CardComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
 
-  ngOnChanges(change: any): void {
+  ngOnChanges(change: SimpleChanges): void {
     if (change.playlistIds && change.playlistIds.currentValue) {
       if (this.playlistIds.includes(this.song.id)) {
         this.heartSrc = this.FILLED_HEART;

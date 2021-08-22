@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import {FetchSongDataService} from "../services/fetch-song-data.service";
 import {Router} from "@angular/router";
-import {OnChanges} from "@angular/core";
 import {RouterTestingModule} from "@angular/router/testing";
+import {SimpleChanges} from "@angular/core";
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -14,32 +14,30 @@ describe('CardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ CardComponent ],
       imports:[RouterTestingModule],
-      providers: [FetchSongDataService,Router]
+      providers: [FetchSongDataService]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    // TestBed.configureTestingModule({declarations: [CardComponent]}); /* We declare both the components as part of the testing module */
-
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('should call ngOnChanges', ()=> {
-    // component.song = {name:"x",artist:"h",id:2,cover:"d",file:"j",lyrics:"k"};
-    // spyOn(component, 'ngOnChanges').and.callThrough();
-    // fixture.detectChanges();
-    // expect(component.ngOnChanges).toHaveBeenCalled();
-  })
 
-  // it('should create', () => {
-  //   const playlistIds=[1,2,3];
-  //   component.song.id=2;
-  //   component.ngOnChanges(playlistIds);
-  //   spyOn(component,"ngOnChanges").and.callFake((playlistIds)=>{
-  //
-  //   })
-  //   expect(component.heartSrc).toEqual('../assets/images/filled-heart.png');
-  // });
+  fit('should update heartSrc', function () {
+    // @ts-ignore
+    const temp:SimpleChanges = {playlistIds: {currentValue:[1,2,3]}};
+    component.song = {
+      id: 1,
+      name: 'c',
+      artist: 'd',
+      lyrics: 'f',
+      cover: 'k',
+      file: 'd',
+    };
+    component.ngOnChanges(temp);
+    expect(component.heartSrc).toEqual('../assets/images/filled-heart.png');
+  });
+
 });

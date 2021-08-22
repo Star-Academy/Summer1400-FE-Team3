@@ -37,13 +37,15 @@ export class SongDetailsComponent implements OnInit, OnChanges {
     } else {
       this.heartSrc = this.HEART;
       await this.fetchSongDataService.removeSongFromPlaylist(this.song.id);
-      this.playlistIds.forEach((element, index) => {
-        if (element === this.song.id) delete this.playlistIds[index];
-      });
+      const index = this.playlistIds.indexOf(this.song.id, 0);
+      if (index > -1) {
+        this.playlistIds.splice(index, 1);
+      }
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
     if (changes.song && changes.song.currentValue) {
       if (this.playlistIds.includes(this.song.id)) {
         this.heartSrc = this.FILLED_HEART;

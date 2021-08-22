@@ -99,7 +99,7 @@ describe('SongsListComponent', () => {
     expect(component.hiddenPrev).toBeTruthy();
   });
 
-  it('show all songs search', () => {
+  it('fetchFunc', () => {
     spyOn((component as any).fetchSongDataService, 'fetchFind').and.returnValue(
       [
         {
