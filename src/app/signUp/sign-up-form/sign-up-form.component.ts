@@ -29,8 +29,8 @@ export class SignUpFormComponent implements OnInit {
       firstName: formValues.firstName,
       lastName: formValues.lastName
     }
-    this.fetchDataService.signUpSubmit(user).subscribe((result) => {
-        this.router.navigateByUrl("/signIn")
+    this.fetchDataService.signUpSubmit(user).subscribe(async (result) => {
+        await this.router.navigateByUrl("/signIn")
       },
       (response) => {
         alert(response.error.message)

@@ -29,11 +29,11 @@ describe('SongsListComponent', () => {
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPage'
-    ).and.callThrough();
+    ).and.returnValue(true);
     spyOn(
       (component as any).fetchSongDataService,
       'fetchSongs'
-    ).and.callThrough();
+    ).and.returnValue(true);
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'

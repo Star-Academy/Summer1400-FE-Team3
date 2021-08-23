@@ -75,7 +75,6 @@ export class FetchSongDataService {
 
   public async addToFavorites(songId: number) {
     const playlists: object[] = await this.fetchPlaylist();
-
     // @ts-ignore
     const playlistId = playlists[0].id;
     let details = {

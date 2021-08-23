@@ -4,6 +4,7 @@ import { SignInFormComponent } from './sign-in-form.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {FetchUserDataService} from "../../services/fetch-user-data.service";
 import {RouterTestingModule} from "@angular/router/testing";
+import {FormsModule} from "@angular/forms";
 
 describe('SignInFormComponent', () => {
   let component: SignInFormComponent;
@@ -11,8 +12,8 @@ describe('SignInFormComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule,RouterTestingModule],
-      providers: [SignInFormComponent]
+      imports:[HttpClientTestingModule,RouterTestingModule,FormsModule],
+      providers: [FetchUserDataService]
     })
     await TestBed.configureTestingModule({
       declarations: [ SignInFormComponent ]
@@ -25,12 +26,12 @@ describe('SignInFormComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  let email="parmida@gmail.com"
   it('validate email should return true', () => {
+    let email="parmida@gmail.com"
     expect(component.validateEmail(email)).toBeTruthy();
   });
-  email="parmida"
   it ('validate email should return false',()=> {
+    let email="parmida"
     expect(component.validateEmail(email)).toBeFalse();
   })
 

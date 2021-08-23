@@ -24,6 +24,7 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
+
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/ang'),
       subdir: '.',
@@ -32,7 +33,10 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml','coverage'],
+    preprocessors : {
+      '**/src/app/*.js': 'coverage'
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

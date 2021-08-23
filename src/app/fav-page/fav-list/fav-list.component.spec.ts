@@ -47,7 +47,8 @@ describe('FavListComponent', () => {
       },
       {id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd'},
     ];
-    spyOn(component, "fetchFunc").and.callThrough();
+    // @ts-ignore
+    spyOn(component, "fetchFunc").and.callFake(()=> true);
     component.filterInput = 'رضا صادقی';
     expect((component as any)._filterInput).toEqual('رضا صادقی');
     expect(component.hiddenNoResult).toBeTruthy();
@@ -83,7 +84,8 @@ describe('FavListComponent', () => {
   it('show all songs search', () => {
 
     component.searchInput = '';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(()=> true);
     expect((component as any)._searchInput).toEqual('');
     expect(component.hiddenNoResult).toBeTruthy();
   });

@@ -1,12 +1,12 @@
 <div class="card">
   <a class="songImage ">
-    <img (click)="goToSongPage()" [src]="song.cover" alt="Avatar" loading="lazy" style="width:100%"/>
+    <img (click)="goToSongPage()" [src]="song?.cover" alt="Avatar" loading="lazy" style="width:100%"/>
   </a>
   <div class="container">
     <h4>
-      <a (click)="goToSongPage()" class="songName" ><b>{{song.name}}</b></a>
+      <a (click)="goToSongPage()" class="songName" ><b>{{song?.name}}</b></a>
     </h4>
-    <p>{{song.artist}}</p>
+    <p>{{song?.artist}}</p>
     <img
       [src]="heartSrc"
       class="favorite"

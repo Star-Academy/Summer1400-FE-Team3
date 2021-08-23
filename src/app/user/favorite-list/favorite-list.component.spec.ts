@@ -33,7 +33,7 @@ describe('FavoriteListComponent', () => {
     spyOn(
       (component as any).fetchSongDataService,
       'createFavorites'
-    ).and.callThrough();
+    ).and.callFake(()=> true);
 
     await component.ngOnInit();
     expect(component.songs).toEqual(temp);

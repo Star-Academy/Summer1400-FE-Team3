@@ -7,7 +7,6 @@ import { HomeComponent } from './home';
 import { HeaderComponent } from './home/header/header.component';
 import { BackgroundComponent } from './home/background/background.component';
 import { FooterComponent } from './home/footer/footer.component';
-// @ts-ignore
 import { SignInComponent } from './signIn';
 import { SignUpComponent } from './signUp';
 import { appRoutingModule } from './app-routing.module';
@@ -16,7 +15,7 @@ import { SignInFormComponent } from './signIn/sign-in-form/sign-in-form.componen
 import { SignUpFormComponent } from './signUp/sign-up-form/sign-up-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FetchUserDataService } from './services/fetch-user-data.service';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserComponent } from './user';
 import { MainHeaderComponent } from './user/main-header/main-header.component';
 import { UserAsideComponent } from './user/user-aside/user-aside.component';
@@ -74,6 +73,7 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     FormsModule,
     BrowserAnimationsModule,
     NgxAudioPlayerModule,
+    ReactiveFormsModule
   ],
   providers: [FetchUserDataService, FetchSongDataService, SendRequestService],
   bootstrap: [AppComponent],
