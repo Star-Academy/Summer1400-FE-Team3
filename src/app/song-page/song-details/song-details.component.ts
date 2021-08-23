@@ -23,10 +23,7 @@ export class SongDetailsComponent implements OnInit, OnChanges {
   constructor(private fetchSongDataService: FetchSongDataService) {}
 
   async ngOnInit() {
-    this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
-    for (const item of this.playlistArray[0].songs) {
-      this.playlistIds.push(item.id);
-    }
+
   }
 
   public async changeIcon(event: any) {
@@ -44,9 +41,13 @@ export class SongDetailsComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
+  async ngOnChanges(changes: SimpleChanges){
     if (changes.song && changes.song.currentValue) {
+      this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
+      for (const item of this.playlistArray[0].songs) {
+        this.playlistIds.push(item.id);
+      }
+
       if (this.playlistIds.includes(this.song.id)) {
         this.heartSrc = this.FILLED_HEART;
       } else {

@@ -2,8 +2,8 @@
 <div id="content">
   <app-user-aside></app-user-aside>
   <main>
-    <app-song-list></app-song-list>
-    <app-favorite-list></app-favorite-list>
+    <app-song-list [playlistArr]="playlistArr"></app-song-list>
+    <app-favorite-list [playlistArr]="playlistArr"></app-favorite-list>
   </main>
 </div>
 <app-footer></app-footer>

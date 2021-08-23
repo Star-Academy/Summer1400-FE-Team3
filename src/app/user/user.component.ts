@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { userInfo } from '../models';
+import {PlaylistModel, userInfo} from '../models';
 import { FetchUserDataService } from '../services/fetch-user-data.service';
 import { FetchSongDataService } from '../services/fetch-song-data.service';
 
@@ -9,9 +9,18 @@ import { FetchSongDataService } from '../services/fetch-song-data.service';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  constructor() {}
+  public playlistArr!: PlaylistModel[];
+  constructor(private fetchSongDataService: FetchSongDataService) {}
 
   public async ngOnInit() {
+    let temp:PlaylistModel[];
+    temp = await this.fetchSongDataService.fetchPlaylist();
+    if (temp.length === 0)
+    {
+      await this.fetchSongDataService.createFavorites(temp);
+      temp = await this.fetchSongDataService.fetchPlaylist();
+    }
+    this.playlistArr=temp;
   }
 
 }

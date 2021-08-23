@@ -1,6 +1,6 @@
 <section id="favorites">
   <h2>آهنگ های مورد علاقه</h2>
-  <button><a routerLink="/favPage">دیدن همه</a></button>
+  <button *ngIf="songs.length!==0"><a routerLink="/favPage">دیدن همه</a></button>
   <div class="cards" id="favCards">
     <div *ngFor="let song of songs">
       <app-card [song]="song" [(playlistIds)]="playlistIds"></app-card>

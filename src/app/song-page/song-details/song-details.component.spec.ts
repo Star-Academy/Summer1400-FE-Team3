@@ -23,19 +23,6 @@ describe('SongDetailsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should update playlistIds', async () => {
-    const temp = [
-      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
-    ];
-
-    spyOn(
-      (component as any).fetchSongDataService,
-      'fetchPlaylist'
-    ).and.returnValue([{name: 'm', id: 2, songs: temp}]);
-    await component.ngOnInit();
-
-    expect(component.playlistIds).toContain(1);
-  });
 
   it('add to favorite', async () => {
     component.song = {
@@ -84,7 +71,7 @@ describe('SongDetailsComponent', () => {
     expect(component.playlistIds).toEqual([2, 3]);
   });
 
-  it('should update heartSrc', function () {
+  it('should update heartSrc', async () =>{
     // @ts-ignore
     const temp: SimpleChanges = {song: {
         currentValue: {
@@ -97,6 +84,14 @@ describe('SongDetailsComponent', () => {
         }
       }
     };
+    const tempSongArr = [
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
+    ];
+
+    spyOn(
+      (component as any).fetchSongDataService,
+      'fetchPlaylist'
+    ).and.returnValue([{name: 'm', id: 2, songs: tempSongArr}]);
     component.song = {
       id: 1,
       name: 'c',
@@ -105,8 +100,8 @@ describe('SongDetailsComponent', () => {
       cover: 'k',
       file: 'd',
     };
-    component.playlistIds = [1, 2, 3];
-    component.ngOnChanges(temp);
+    await component.ngOnChanges(temp);
+    expect(component.playlistIds).toContain(1);
     expect(component.heartSrc).toEqual('../assets/images/filled-heart.png');
   });
 
