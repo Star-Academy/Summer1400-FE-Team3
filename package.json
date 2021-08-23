@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "deploy": "ng deploy --base-href=/Summer1400-FE-Team4/",
     "test": "ng test"
   },
   "private": true,
