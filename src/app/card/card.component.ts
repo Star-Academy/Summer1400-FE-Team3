@@ -4,12 +4,13 @@ import {
   OnChanges,
   OnInit,
   Output,
-  EventEmitter, SimpleChanges,
+  EventEmitter,
+  SimpleChanges,
 } from '@angular/core';
 
-import { PlaylistModel, SongModel } from '../models';
+import { SongModel } from '../models';
 import { FetchSongDataService } from '../services/fetch-song-data.service';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -18,13 +19,16 @@ import {Router} from "@angular/router";
 })
 export class CardComponent implements OnInit, OnChanges {
   @Input() song!: SongModel;
-  HEART = '../assets/images/heart.png';
-  FILLED_HEART = '../assets/images/filled-heart.png';
+  HEART = 'assets/images/heart.png';
+  FILLED_HEART = 'assets/images/filled-heart.png';
   public heartSrc!: string;
 
   @Input() playlistIds!: number[];
   @Output() playlistIdsChange = new EventEmitter<number[]>();
-  constructor(private fetchSongDataService: FetchSongDataService, private router:Router) {}
+  constructor(
+    private fetchSongDataService: FetchSongDataService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -53,6 +57,6 @@ export class CardComponent implements OnInit, OnChanges {
     }
   }
   public async goToSongPage() {
-    await this.router.navigateByUrl(`/song/${this.song.id}`)
+    await this.router.navigateByUrl(`/song/${this.song.id}`);
   }
 }
