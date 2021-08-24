@@ -29,23 +29,9 @@ main {
         }
       }
 
-      .options {
-        margin-top: 3rem;
-        label {
-          margin-left: $default-rem;
-        }
-        #marketing + label,
-        input[type="radio"] + label {
-          font-size: 1.2rem;
-        }
-        #marketing:checked + label,
-        input[type="radio"]:checked + label {
-          font-weight: bold;
-          color: colors.$dark-blue;
-        }
-      }
-
       > div:last-of-type {
+        clear: both;
+
         @include f.centering;
         button {
           background-color: colors.$light-blue;
@@ -57,7 +43,7 @@ main {
           transition-property: width;
           transition-duration: 500ms;
           transition-timing-function: linear;
-
+          margin-top: $default-rem;
           &:hover {
             background-color: colors.$dark-blue;
             font-weight: bold;
@@ -84,6 +70,14 @@ main {
 }
 @media screen and (max-width: 410px) {
   main .form form .inputbox input {
-    width: 50%;
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+  }
+  main .form form > div:last-of-type button {
+    width: 100%;
+    margin-top: 4rem;
+    border-radius: 1rem;
+
   }
 }
