@@ -9,7 +9,7 @@ main {
 
   .form {
     @include f.createForm;
-
+    min-width: 50%;
     form {
       .inputbox {
         height: 4.5rem;

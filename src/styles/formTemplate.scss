@@ -51,7 +51,7 @@ $default-rem: 2rem;
 @mixin createForm {
   border-radius: $default-rem;
   margin: 5rem 0;
-  min-width: 50%;
+  min-width: 30%;
   box-shadow: 0 0 $default-rem colors.$light-gray;
   padding: 4rem;
   * {
