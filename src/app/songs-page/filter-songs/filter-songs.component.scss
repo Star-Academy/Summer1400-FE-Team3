@@ -3,6 +3,7 @@
 $default-rem: 2rem;
 
 @mixin inputs {
+  background-color: white;
   outline: none;
   margin-top: 2rem;
   padding-right: $default-rem;

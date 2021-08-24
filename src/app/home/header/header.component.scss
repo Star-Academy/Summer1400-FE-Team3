@@ -40,6 +40,7 @@ header {
         }
       }
       &:last-of-type {
+        background:none;
         border: 0.2rem solid colors.$darker-pink;
         color: colors.$darker-pink;
         font-size: 1.7rem;
