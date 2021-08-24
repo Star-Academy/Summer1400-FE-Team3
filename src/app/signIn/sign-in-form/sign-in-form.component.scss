@@ -89,3 +89,14 @@ main {
     }
   }
 }
+@media screen and (max-width: 410px) {
+  main .form form .inputbox input {
+    border-radius: 1rem;
+  }
+  main .form form  button {
+    border-radius: 1rem;
+  } main .form >button {
+    border-radius: 1rem;
+  }
+}
+

@@ -5,7 +5,7 @@ $default-rem: 2rem;
   .cards {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr ;
     grid-gap: $default-rem;
     padding-top: 4rem;
     border-top: 1px solid black;
@@ -61,8 +61,12 @@ $default-rem: 2rem;
     display: block;
   }
 }
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 420px) {
+  #favorites .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 870px) {
   #favorites .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
