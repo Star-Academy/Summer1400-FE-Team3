@@ -3,20 +3,18 @@
 $default-rem: 2rem;
 
 @mixin inputs {
-  background-color: white;
   outline: none;
   margin-top: 2rem;
   padding-right: $default-rem;
   width: 60%;
   height: 3rem;
-  border-radius: 999rem;
+  border-radius: 1rem;
   border: 1px solid colors.$light-blue;
   &:hover {
     border: 2px solid colors.$light-blue;
   }
   &:focus {
-    border: 2px solid colors.$light-blue;
-    border-radius: 1rem;
+    border: 2px solid colors.$dark-blue;
   }
 }
 #filter {
