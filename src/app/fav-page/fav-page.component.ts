@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-fav-page',
@@ -9,9 +10,12 @@ export class FavPageComponent implements OnInit {
   searchSongs: string = '';
   filterSongs: string = '';
 
-  constructor() {}
+  constructor(private router:Router) {}
 
-  ngOnInit(): void {}
+  async ngOnInit() {
+    if(localStorage.length===0)
+      await this.router.navigateByUrl("/")
+  }
   public async sendSearchSongs(event: any) {
     this.searchSongs = event;
   }
