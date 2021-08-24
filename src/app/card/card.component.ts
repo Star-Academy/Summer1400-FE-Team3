@@ -57,7 +57,6 @@ export class CardComponent implements OnInit, OnChanges {
     }
   }
   public async goToSongPage() {
-    // await this.router.navigateByUrl(`/song/${this.song.id}`);
-    window.open(`/song/${this.song.id}`, "_blank");
+    await this.router.navigateByUrl(`/song/${this.song.id}`);
   }
 }
