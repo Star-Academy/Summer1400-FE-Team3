@@ -4,7 +4,7 @@
 $default-rem:2rem;
 
 header {
-  background-color: colors.$light-gray;
+  background-color: white;
   height: 10rem;
   nav {
     img {
@@ -56,8 +56,8 @@ header {
 
 @media screen and (max-width: 490px) {
   header {
-    height: 20rem;
-    padding: 5rem 0;
+    height: 10rem;
+    padding: $default-rem 0;
 
     nav {
       img {
