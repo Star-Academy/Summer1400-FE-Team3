@@ -4,15 +4,22 @@ $default-rem: 2rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
+}
+.blur {
+  -webkit-backdrop-filter: blur(6rem);
+  backdrop-filter: blur(6rem);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 main {
   padding: 4rem $default-rem;
   font-size: 1.3rem;
   display: flex;
   justify-content: center;
-  -webkit-backdrop-filter: blur(6rem);
-  backdrop-filter: blur(6rem);
-
+  min-width: 100%;
 }
 @media only screen and (min-width: 760px) {
   main {
@@ -21,7 +28,6 @@ main {
       border-radius: $default-rem;
       margin: 5rem 0;
       width: 75%;
-      //box-shadow: 0 0 5rem colors.$light-gray;
       padding: 4rem;
       background-color: white;
     }
