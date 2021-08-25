@@ -1,0 +1,27 @@
+@use "../../../../styles/colors";
+
+$default-rem: 2rem;
+
+h3 {
+  margin-bottom: $default-rem;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: $default-rem;
+  #name {
+    margin-right: $default-rem;
+    font-size: 1.5rem;
+    color: colors.$dark-blue;
+    font-weight: bold;
+  }
+  .avatar {
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+  #uploadAvatar > input {
+    display: none;
+  }
+}

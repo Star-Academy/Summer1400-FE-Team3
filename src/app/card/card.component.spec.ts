@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CardComponent } from './card.component';
-import { FetchSongDataService } from '../services/fetch-song-data.service';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SimpleChanges } from '@angular/core';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {CardComponent} from './card.component';
+import {FetchSongDataService} from '../services/fetch-song-data.service';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SimpleChanges} from '@angular/core';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -33,7 +33,7 @@ describe('CardComponent', () => {
 
   it('should update heartSrc', function () {
     // @ts-ignore
-    const temp: SimpleChanges = { playlistIds: { currentValue: [1, 2, 3] } };
+    const temp: SimpleChanges = {playlistIds: {currentValue: [1, 2, 3]}};
     component.playlistIds = [1, 2, 3];
     component.song = song;
     component.ngOnChanges(temp);
@@ -75,7 +75,6 @@ describe('CardComponent', () => {
       'addToFavorites'
     ).and.callFake(() => true);
     await component.changeIcon(event);
-
     expect(component.playlistIds).toEqual([2, 3, 1]);
   });
 
@@ -114,7 +113,6 @@ describe('CardComponent', () => {
       'removeSongFromPlaylist'
     ).and.callFake(() => true);
     await component.changeIcon(event);
-
     expect(component.playlistIds).toEqual([2, 3]);
   });
 });

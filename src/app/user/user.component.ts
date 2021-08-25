@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PlaylistModel } from '../models';
-import { FetchSongDataService } from '../services/fetch-song-data.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {PlaylistModel} from '../models';
+import {FetchSongDataService} from '../services/fetch-song-data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   public playlistArr!: PlaylistModel[];
+
   constructor(
     private fetchSongDataService: FetchSongDataService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   public async ngOnInit(): Promise<void> {
     if (localStorage.length === 0) await this.router.navigateByUrl('/');

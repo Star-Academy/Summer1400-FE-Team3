@@ -2,14 +2,13 @@ import {
   Component,
   Input,
   OnChanges,
-  OnInit,
   Output,
   EventEmitter,
   SimpleChanges,
 } from '@angular/core';
-import { SongModel } from '../models';
-import { FetchSongDataService } from '../services/fetch-song-data.service';
-import { Router } from '@angular/router';
+import {SongModel} from '../models';
+import {FetchSongDataService} from '../services/fetch-song-data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -53,6 +52,7 @@ export class CardComponent implements OnChanges {
       this.playlistIdsChange.emit(this.playlistIds);
     }
   }
+
   public async goToSongPage() {
     await this.router.navigateByUrl(`/song/${this.song.id}`);
   }

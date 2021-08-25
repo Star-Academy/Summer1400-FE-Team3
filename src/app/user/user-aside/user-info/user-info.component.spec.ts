@@ -1,21 +1,23 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FetchUserDataService } from 'src/app/services/fetch-user-data.service';
-import { UserAsideComponent } from './user-aside.component';
 
-describe('UserAsideComponent', () => {
-  let component: UserAsideComponent;
-  let fixture: ComponentFixture<UserAsideComponent>;
+import { UserInfoComponent } from './user-info.component';
+import {FetchUserDataService} from "../../../services/fetch-user-data.service";
+import {HttpClient, HttpHandler} from "@angular/common/http";
+
+describe('UserInfoComponent', () => {
+  let component: UserInfoComponent;
+  let fixture: ComponentFixture<UserInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserAsideComponent],
+      declarations: [ UserInfoComponent ],
       providers: [FetchUserDataService, HttpClient, HttpHandler],
-    }).compileComponents();
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserAsideComponent);
+    fixture = TestBed.createComponent(UserInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -42,4 +44,5 @@ describe('UserAsideComponent', () => {
       birth_date: '',
     });
   });
+
 });

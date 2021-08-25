@@ -1,0 +1,14 @@
+$default-rem: 2rem;
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: $default-rem;
+  img {
+    margin-left: 1rem;
+  }
+  figcaption {
+    font-size: 1.5rem;
+  }
+}

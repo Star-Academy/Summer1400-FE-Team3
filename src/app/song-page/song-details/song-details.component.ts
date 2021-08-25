@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { PlaylistModel, SongModel } from '../../models';
-import { FetchSongDataService } from '../../services/fetch-song-data.service';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {PlaylistModel, SongModel} from '../../models';
+import {FetchSongDataService} from '../../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-song-details',
@@ -14,7 +14,9 @@ export class SongDetailsComponent implements OnChanges {
   public heartSrc: string = '';
   public HEART = 'assets/images/heart.png';
   public FILLED_HEART = 'assets/images/filled-heart.png';
-  constructor(private fetchSongDataService: FetchSongDataService) {}
+
+  constructor(private fetchSongDataService: FetchSongDataService) {
+  }
 
   public async changeIcon(event: any) {
     if (event.target.getAttribute('src') === this.HEART) {

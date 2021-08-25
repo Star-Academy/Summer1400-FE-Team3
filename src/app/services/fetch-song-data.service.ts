@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { SendRequestService } from './send-request.service';
-import { PlaylistModel, SongModel } from '../models';
+import {Injectable} from '@angular/core';
+import {SendRequestService} from './send-request.service';
+import {PlaylistModel, SongModel} from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class FetchSongDataService {
       sorter: 'name',
       desc: true,
     };
-    const { songs } = await SendRequestService.sendRequest(
+    const {songs} = await SendRequestService.sendRequest(
       'https://songs.code-star.ir/song/page',
       true,
       details
@@ -55,16 +55,16 @@ export class FetchSongDataService {
       sorter: 'name',
       desc: true,
     };
-    const { songs } = await SendRequestService.sendRequest(
+    const {songs} = await SendRequestService.sendRequest(
       'https://songs.code-star.ir/song/find',
       true,
       details
     );
-
     return songs;
   }
+
   public async fetchSongs(): Promise<SongModel[]> {
-    const { songs } = await SendRequestService.sendRequest(
+    const {songs} = await SendRequestService.sendRequest(
       'https://songs.code-star.ir/song/all',
       true
     );
@@ -102,8 +102,9 @@ export class FetchSongDataService {
       details
     );
   }
+
   public async fetchSong(songId: number): Promise<SongModel> {
-    const { song } = await SendRequestService.sendRequest(
+    const {song} = await SendRequestService.sendRequest(
       `https://songs.code-star.ir/song/one/${songId}`,
       true
     );

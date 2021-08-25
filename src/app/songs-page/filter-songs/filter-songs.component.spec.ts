@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FilterSongsComponent } from './filter-songs.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {FilterSongsComponent} from './filter-songs.component';
 
 describe('FilterSongsComponent', () => {
   let component: FilterSongsComponent;
@@ -23,8 +23,8 @@ describe('FilterSongsComponent', () => {
 
   it('should update artists', async () => {
     const temp = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
-      { id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
+      {id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd'},
     ];
     spyOn(
       (component as any).fetchSongDataService,

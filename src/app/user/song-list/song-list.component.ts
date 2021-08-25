@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { FetchSongDataService } from '../../services/fetch-song-data.service';
-import { PlaylistModel, SongModel } from '../../models';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {FetchSongDataService} from '../../services/fetch-song-data.service';
+import {PlaylistModel, SongModel} from '../../models';
 
 @Component({
   selector: 'app-song-list',
@@ -12,7 +12,8 @@ export class SongListComponent implements OnChanges {
   public songs!: SongModel[];
   public playlistIds: number[] = [];
 
-  constructor(private fetchSongDataService: FetchSongDataService) {}
+  constructor(private fetchSongDataService: FetchSongDataService) {
+  }
 
   public async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if (changes.playlistArr && changes.playlistArr.currentValue) {

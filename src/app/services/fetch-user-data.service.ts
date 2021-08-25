@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
-import { SignUpModel, userInfo } from '../models';
-import { SendRequestService } from './send-request.service';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {SignUpModel} from '../models';
+import {SendRequestService} from './send-request.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FetchUserDataService{
+export class FetchUserDataService {
   constructor(private http: HttpClient) {
   }
 
@@ -22,6 +22,7 @@ export class FetchUserDataService{
       options
     );
   }
+
   public signInSubmit<T>(user: T) {
     const options = {
       headers: new HttpHeaders({
@@ -35,11 +36,11 @@ export class FetchUserDataService{
     );
   }
 
-  async fetchUsername(id:number){
-    const { user } = await SendRequestService.sendRequest(
-      `https://songs.code-star.ir/user/one/${id}`,true
+  async fetchUsername(id: number) {
+    const {user} = await SendRequestService.sendRequest(
+      `https://songs.code-star.ir/user/one/${id}`, true
     );
-    localStorage.setItem("user",JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   async fetchAlterProfile(base64: any) {
@@ -48,7 +49,7 @@ export class FetchUserDataService{
       avatar: base64,
     };
     await SendRequestService.sendRequest(
-      'https://songs.code-star.ir/user/alter',false,
+      'https://songs.code-star.ir/user/alter', false,
       details
     );
   }

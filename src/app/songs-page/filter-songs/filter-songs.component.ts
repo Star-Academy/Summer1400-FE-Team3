@@ -6,8 +6,8 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { SongModel } from '../../models';
-import { FetchSongDataService } from '../../services/fetch-song-data.service';
+import {SongModel} from '../../models';
+import {FetchSongDataService} from '../../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-filter-songs',
@@ -20,7 +20,8 @@ export class FilterSongsComponent implements OnInit {
   public artists: string[] = [];
   @ViewChild('filterValue') filterValue!: ElementRef;
 
-  constructor(private fetchSongDataService: FetchSongDataService) {}
+  constructor(private fetchSongDataService: FetchSongDataService) {
+  }
 
   public async ngOnInit(): Promise<void> {
     this.allSongs = await this.fetchSongDataService.fetchSongs();
@@ -28,6 +29,7 @@ export class FilterSongsComponent implements OnInit {
       if (!this.artists.includes(song.artist)) this.artists.push(song.artist);
     }
   }
+
   public sendFilterSongs() {
     this.filterSongs.emit(this.filterValue.nativeElement.value);
   }

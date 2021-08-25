@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SongDetailsComponent } from './song-details.component';
-import { SimpleChanges } from '@angular/core';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {SongDetailsComponent} from './song-details.component';
+import {SimpleChanges} from '@angular/core';
 
 describe('SongDetailsComponent', () => {
   let component: SongDetailsComponent;
@@ -120,13 +120,13 @@ describe('SongDetailsComponent', () => {
       },
     };
     const tempSongArr = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
     ];
 
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'
-    ).and.returnValue([{ name: 'm', id: 2, songs: tempSongArr }]);
+    ).and.returnValue([{name: 'm', id: 2, songs: tempSongArr}]);
     component.song = song;
     await component.ngOnChanges(temp);
     expect(component.heartSrc).toEqual('assets/images/filled-heart.png');
@@ -147,13 +147,13 @@ describe('SongDetailsComponent', () => {
       },
     };
     const tempSongArr = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
     ];
 
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'
-    ).and.returnValue([{ name: 'm', id: 2, songs: tempSongArr }]);
+    ).and.returnValue([{name: 'm', id: 2, songs: tempSongArr}]);
     component.song = {
       id: 1,
       name: 'c',

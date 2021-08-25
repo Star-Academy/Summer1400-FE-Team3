@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SongModel } from '../models';
-import { FetchSongDataService } from '../services/fetch-song-data.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {SongModel} from '../models';
+import {FetchSongDataService} from '../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-song-page',
@@ -14,7 +14,8 @@ export class SongPageComponent implements OnInit {
   constructor(
     private rout: ActivatedRoute,
     private fetchSongDataService: FetchSongDataService
-  ) {}
+  ) {
+  }
 
   public async ngOnInit(): Promise<void> {
     this.song = await this.fetchSongDataService.fetchSong(

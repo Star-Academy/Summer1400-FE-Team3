@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { SongModel } from '../../models';
+import {Component, Input} from '@angular/core';
+import {SongModel} from '../../models';
 
 @Component({
   selector: 'app-song-audio',

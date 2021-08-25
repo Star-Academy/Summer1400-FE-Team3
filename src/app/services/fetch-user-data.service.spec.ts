@@ -1,7 +1,7 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
-import { FetchUserDataService } from './fetch-user-data.service';
-import { SignInModel_username } from '../models';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {TestBed} from '@angular/core/testing';
+import {FetchUserDataService} from './fetch-user-data.service';
+import {SignInModel_username} from '../models';
 
 describe('#EmployeeService.addEmploye()', () => {
   let userService: FetchUserDataService;

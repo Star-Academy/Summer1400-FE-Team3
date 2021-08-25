@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { userInfo } from '../../models';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {userInfo} from '../../models';
 
 @Component({
   selector: 'app-main-header',
@@ -18,10 +18,14 @@ export class MainHeaderComponent implements OnInit {
     gender: '',
     birth_date: '',
   };
-  constructor(private router: Router) {}
+
+  constructor(private router: Router) {
+  }
+
   public async ngOnInit(): Promise<void> {
     this.user = JSON.parse(<string>localStorage.getItem('user'));
   }
+
   public async signOut(): Promise<void> {
     localStorage.clear();
     await this.router.navigateByUrl('');

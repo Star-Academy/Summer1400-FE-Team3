@@ -1,6 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { SongModel, PlaylistModel } from '../../models';
-import { FetchSongDataService } from '../../services/fetch-song-data.service';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {SongModel, PlaylistModel} from '../../models';
+import {FetchSongDataService} from '../../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-favorite-list',
@@ -11,7 +11,9 @@ export class FavoriteListComponent implements OnChanges {
   @Input() public playlistArr!: PlaylistModel[];
   public songs: SongModel[] = [];
   public playlistIds!: number[];
-  constructor(private fetchSongDataService: FetchSongDataService) {}
+
+  constructor(private fetchSongDataService: FetchSongDataService) {
+  }
 
   public async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if (changes.playlistArr && changes.playlistArr.currentValue) {

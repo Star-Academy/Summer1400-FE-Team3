@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FetchUserDataService } from '../../services/fetch-user-data.service';
-import { SignInModel_username, signInModel_email } from '../../models';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FetchUserDataService} from '../../services/fetch-user-data.service';
+import {SignInModel_username, signInModel_email} from '../../models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -16,7 +16,8 @@ export class SignInFormComponent {
   constructor(
     private fetchDataService: FetchUserDataService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   public validateEmail(info: string): boolean {
     const response =
@@ -30,7 +31,6 @@ export class SignInFormComponent {
         email: formValues.email,
         password: formValues.password,
       };
-
       this.fetchDataService.signInSubmit(user_email).subscribe(
         async (result) => {
           localStorage.setItem('token', result.token);

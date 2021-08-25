@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FavListComponent } from './fav-list.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {FavListComponent} from './fav-list.component';
 
 describe('FavListComponent', () => {
   let component: FavListComponent;
@@ -23,24 +23,24 @@ describe('FavListComponent', () => {
 
   it('should update playlistIds check favSongs', async () => {
     const temp = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
     ];
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'
-    ).and.returnValue([{ name: 'm', id: 2, songs: temp }]);
+    ).and.returnValue([{name: 'm', id: 2, songs: temp}]);
     await component.ngOnInit();
     expect(component.favSongs).toEqual(temp);
   });
 
   it('should update playlistIds check playlistIds', async () => {
     const temp = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
     ];
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'
-    ).and.returnValue([{ name: 'm', id: 2, songs: temp }]);
+    ).and.returnValue([{name: 'm', id: 2, songs: temp}]);
     await component.ngOnInit();
     expect(component.playlistIds).toContain(1);
   });
@@ -54,7 +54,7 @@ describe('FavListComponent', () => {
       cover: 'k',
       file: 'd',
     },
-    { id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd' },
+    {id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd'},
   ];
 
   it('should filter songs check filterInput', () => {
@@ -110,12 +110,12 @@ describe('FavListComponent', () => {
 
   it('fetchFunc', async () => {
     const temp = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
     ];
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'
-    ).and.returnValue([{ name: 'm', id: 2, songs: temp }]);
+    ).and.returnValue([{name: 'm', id: 2, songs: temp}]);
     await component.fetchFunc();
     expect(component.favSongs).toEqual(temp);
   });

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PlaylistModel, SongModel } from '../../models';
-import { FetchSongDataService } from '../../services/fetch-song-data.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {PlaylistModel, SongModel} from '../../models';
+import {FetchSongDataService} from '../../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-fav-list',
@@ -61,6 +61,7 @@ export class FavListComponent implements OnInit {
       this.hiddenNoResult = true;
     }
   }
+
   public async fetchFunc() {
     this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
     this.favSongs = [];

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FetchUserDataService } from '../../services/fetch-user-data.service';
-import { SignUpModel } from '../../models';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FetchUserDataService} from '../../services/fetch-user-data.service';
+import {SignUpModel} from '../../models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -18,7 +18,8 @@ export class SignUpFormComponent {
   constructor(
     private fetchDataService: FetchUserDataService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   register(formValues: any) {
     const user: SignUpModel = {

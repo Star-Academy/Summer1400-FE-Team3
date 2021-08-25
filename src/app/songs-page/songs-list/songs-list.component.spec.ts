@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SongsListComponent } from './songs-list.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {SongsListComponent} from './songs-list.component';
 
 describe('SongsListComponent', () => {
   let component: SongsListComponent;
@@ -13,7 +13,7 @@ describe('SongsListComponent', () => {
       cover: 'k',
       file: 'd',
     },
-    { id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd' },
+    {id: 2, name: 'a', artist: 'l', lyrics: 'f', cover: 'k', file: 'd'},
   ];
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('SongsListComponent', () => {
 
   it('should update playlistIds', async () => {
     const temp = [
-      { id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd' },
+      {id: 1, name: 'c', artist: 'd', lyrics: 'f', cover: 'k', file: 'd'},
     ];
     spyOn((component as any).fetchSongDataService, 'fetchPage').and.returnValue(
       true
@@ -45,7 +45,7 @@ describe('SongsListComponent', () => {
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPlaylist'
-    ).and.returnValue([{ name: 'm', id: 2, songs: temp }]);
+    ).and.returnValue([{name: 'm', id: 2, songs: temp}]);
     await component.ngOnInit();
     expect(component.playlistIds).toContain(1);
   });
@@ -86,66 +86,77 @@ describe('SongsListComponent', () => {
   it('show all songs check searchInput', () => {
     component.filterInput = 'همه';
     expect((component as any)._filterInput).toEqual('همه');
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
   });
 
   it('show all songs check pageNumber', () => {
     component.filterInput = 'همه';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.pageNumber).toBe(1);
   });
 
   it('show all songs check hiddenNext', () => {
     component.filterInput = 'همه';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.hiddenNext).toBeFalsy();
   });
 
   it('show all songs check hiddenPrev', () => {
     component.filterInput = 'همه';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.hiddenPrev).toBeTruthy();
   });
 
   it('should search songs check searchInput', () => {
     component.searchInput = 'رضا صادقی';
     expect((component as any)._searchInput).toEqual('رضا صادقی');
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
   });
 
   it('should search songs check hiddenNext', () => {
     component.searchInput = 'رضا صادقی';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.hiddenNext).toBeTruthy();
   });
 
   it('should search songs check hiddenPrev', () => {
     component.searchInput = 'رضا صادقی';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.hiddenPrev).toBeTruthy();
   });
 
   it('show all songs search check searchInput', () => {
     component.searchInput = '';
     expect((component as any)._searchInput).toEqual('');
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
   });
 
   it('show all songs search check pageNumber', () => {
     component.searchInput = '';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.pageNumber).toBe(1);
   });
 
   it('show all songs search check hiddenNext', () => {
     component.searchInput = '';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.hiddenNext).toBeFalsy();
   });
 
   it('show all songs search check hiddenPrev', () => {
     component.searchInput = '';
-    spyOn(component, 'fetchFunc').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'fetchFunc').and.callFake(() => true);
     expect(component.hiddenPrev).toBeTruthy();
   });
 
@@ -162,7 +173,8 @@ describe('SongsListComponent', () => {
       (component as any).fetchSongDataService,
       'fetchPage'
     ).and.callThrough();
-    spyOn(component, 'checkEnd').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'checkEnd').and.callFake(() => true);
     component.nextPage();
     expect(component.songs).toEqual([]);
   });
@@ -172,7 +184,8 @@ describe('SongsListComponent', () => {
       (component as any).fetchSongDataService,
       'fetchPage'
     ).and.callThrough();
-    spyOn(component, 'checkEnd').and.callThrough();
+    // @ts-ignore
+    spyOn(component, 'checkEnd').and.callFake(() => true);
     component.nextPage();
     expect(component.hiddenPrev).toBeFalsy();
   });
@@ -189,8 +202,9 @@ describe('SongsListComponent', () => {
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPage'
-    ).and.callThrough();
-    spyOn(component, 'checkEnd').and.callThrough();
+    ).and.callFake(() => true);
+    // @ts-ignore
+    spyOn(component, 'checkEnd').and.callFake(() => true);
     component.pageNumber = 2;
     component.previousPage();
     expect(component.songs).toEqual([]);
@@ -200,8 +214,9 @@ describe('SongsListComponent', () => {
     spyOn(
       (component as any).fetchSongDataService,
       'fetchPage'
-    ).and.callThrough();
-    spyOn(component, 'checkEnd').and.callThrough();
+    ).and.callFake(() => true);
+    // @ts-ignore
+    spyOn(component, 'checkEnd').and.callFake(() => true);
     component.pageNumber = 2;
     component.previousPage();
     expect(component.hiddenPrev).toBeTruthy();

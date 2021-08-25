@@ -36,6 +36,8 @@ import { SongDetailsComponent } from './song-page/song-details/song-details.comp
 import { SongAudioComponent } from './song-page/song-audio/song-audio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { SocialMediaComponent } from './home/footer/social-media/social-media.component';
+import { UserInfoComponent } from './user/user-aside/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     SongMediaComponent,
     SongDetailsComponent,
     SongAudioComponent,
+    SocialMediaComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

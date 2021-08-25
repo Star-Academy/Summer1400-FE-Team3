@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SongModel, PlaylistModel } from '../../models';
-import { FetchSongDataService } from '../../services/fetch-song-data.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {SongModel, PlaylistModel} from '../../models';
+import {FetchSongDataService} from '../../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-songs-list',
@@ -19,7 +19,8 @@ export class SongsListComponent implements OnInit {
   private _filterInput!: string;
   private _searchInput!: string;
 
-  constructor(private fetchSongDataService: FetchSongDataService) {}
+  constructor(private fetchSongDataService: FetchSongDataService) {
+  }
 
   public async ngOnInit(): Promise<void> {
     this.songs = await this.fetchSongDataService.fetchPage(this.pageNumber, 20);

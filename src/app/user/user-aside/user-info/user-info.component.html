@@ -1,0 +1,21 @@
+<section>
+  <h3>اطلاعات کاربر</h3>
+  <div class="userInfo">
+    <div id="uploadAvatar">
+      <label for="file-input">
+          <span *ngIf="user?.avatar">
+            <img [src]="user.avatar" src="" alt="User Avatar" class="avatar" />
+          </span>
+        <span *ngIf="!user?.avatar">
+            <img
+              src="assets/images/avatar.png"
+              class="avatar"
+              alt="User Avatar"
+            />
+          </span>
+      </label>
+      <input (change)="avatarChange($event)" id="file-input" type="file" />
+    </div>
+    <span id="name">{{ user?.first_name }} {{ user?.last_name }}</span>
+  </div>
+</section>
