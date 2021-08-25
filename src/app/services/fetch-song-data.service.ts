@@ -6,8 +6,6 @@ import { PlaylistModel, SongModel } from '../models';
   providedIn: 'root',
 })
 export class FetchSongDataService {
-  constructor() {}
-
   public async fetchPage(
     index: number = 1,
     size: number = 20
@@ -73,7 +71,7 @@ export class FetchSongDataService {
     return songs;
   }
 
-  public async addToFavorites(songId: number) {
+  public async addToFavorites(songId: number): Promise<void> {
     const playlists: object[] = await this.fetchPlaylist();
     // @ts-ignore
     const playlistId = playlists[0].id;
@@ -89,7 +87,7 @@ export class FetchSongDataService {
     );
   }
 
-  async removeSongFromPlaylist(songId: number) {
+  public async removeSongFromPlaylist(songId: number): Promise<void> {
     const playlists: object[] = await this.fetchPlaylist();
     // @ts-ignore
     const playlistId = playlists[0].id;
@@ -104,8 +102,8 @@ export class FetchSongDataService {
       details
     );
   }
-  async fetchSong(songId:number): Promise<SongModel>{
-    const {song}= await SendRequestService.sendRequest(
+  public async fetchSong(songId: number): Promise<SongModel> {
+    const { song } = await SendRequestService.sendRequest(
       `https://songs.code-star.ir/song/one/${songId}`,
       true
     );

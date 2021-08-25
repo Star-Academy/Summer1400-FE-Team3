@@ -1,7 +1,6 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FetchUserDataService } from 'src/app/services/fetch-user-data.service';
-
 import { UserAsideComponent } from './user-aside.component';
 
 describe('UserAsideComponent', () => {
@@ -31,7 +30,7 @@ describe('UserAsideComponent', () => {
 
     spyOn(localStorage, 'getItem').and.returnValue(temp);
 
-    await component.ngOnInit();
+    component.ngOnInit();
     expect(component.user).toEqual({
       username: 'kim',
       id: 1,

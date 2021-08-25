@@ -1,33 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FetchUserDataService } from '../../services/fetch-user-data.service';
 import { SignInModel_username, signInModel_email } from '../../models';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-sign-in-form',
   templateUrl: './sign-in-form.component.html',
   styleUrls: ['./sign-in-form.component.scss'],
 })
-export class SignInFormComponent implements OnInit {
-  email: string = '';
-  password: string = '';
-  username: string = '';
+export class SignInFormComponent {
+  public email: string = '';
+  public password: string = '';
+  public username: string = '';
 
   constructor(
     private fetchDataService: FetchUserDataService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
-
-  validateEmail(info: string) {
-    const re =
+  public validateEmail(info: string): boolean {
+    const response =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(info).toLowerCase());
+    return response.test(String(info).toLowerCase());
   }
 
-  login(formValues: any) {
+  public login(formValues: any) {
     if (this.validateEmail(formValues.email)) {
       const user_email: signInModel_email = {
         email: formValues.email,
@@ -41,7 +38,8 @@ export class SignInFormComponent implements OnInit {
           await this.router.navigateByUrl('/user');
         },
         (response) => {
-          alert(response.error.message)        }
+          alert(response.error.message);
+        }
       );
     } else {
       const user_username: SignInModel_username = {
@@ -55,7 +53,7 @@ export class SignInFormComponent implements OnInit {
           await this.router.navigateByUrl('/user');
         },
         (response) => {
-          alert(response.error.message)
+          alert(response.error.message);
         }
       );
     }

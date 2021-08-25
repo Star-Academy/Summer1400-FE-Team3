@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SendRequestService {
-  constructor() {}
-
   public static async sendRequest(
     url: string,
     hasJson: boolean,

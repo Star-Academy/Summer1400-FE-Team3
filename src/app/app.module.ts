@@ -15,7 +15,7 @@ import { SignInFormComponent } from './signIn/sign-in-form/sign-in-form.componen
 import { SignUpFormComponent } from './signUp/sign-up-form/sign-up-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FetchUserDataService } from './services/fetch-user-data.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user';
 import { MainHeaderComponent } from './user/main-header/main-header.component';
 import { UserAsideComponent } from './user/user-aside/user-aside.component';
@@ -36,6 +36,7 @@ import { SongDetailsComponent } from './song-page/song-details/song-details.comp
 import { SongAudioComponent } from './song-page/song-audio/song-audio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,7 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     FormsModule,
     BrowserAnimationsModule,
     NgxAudioPlayerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [FetchUserDataService, FetchSongDataService, SendRequestService],
   bootstrap: [AppComponent],

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { userInfo } from '../../models';
 
 @Component({
@@ -20,10 +19,10 @@ export class MainHeaderComponent implements OnInit {
     birth_date: '',
   };
   constructor(private router: Router) {}
-  public async ngOnInit() {
+  public async ngOnInit(): Promise<void> {
     this.user = JSON.parse(<string>localStorage.getItem('user'));
   }
-  async signOut() {
+  public async signOut(): Promise<void> {
     localStorage.clear();
     await this.router.navigateByUrl('');
   }

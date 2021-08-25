@@ -7,7 +7,6 @@ import {
   EventEmitter,
   SimpleChanges,
 } from '@angular/core';
-
 import { SongModel } from '../models';
 import { FetchSongDataService } from '../services/fetch-song-data.service';
 import { Router } from '@angular/router';
@@ -17,22 +16,20 @@ import { Router } from '@angular/router';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit, OnChanges {
+export class CardComponent implements OnChanges {
   @Input() song!: SongModel;
-  HEART = 'assets/images/heart.png';
-  FILLED_HEART = 'assets/images/filled-heart.png';
-  public heartSrc!: string;
-
   @Input() playlistIds!: number[];
   @Output() playlistIdsChange = new EventEmitter<number[]>();
+  public HEART = 'assets/images/heart.png';
+  public FILLED_HEART = 'assets/images/filled-heart.png';
+  public heartSrc!: string;
+
   constructor(
     private fetchSongDataService: FetchSongDataService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
-
-  ngOnChanges(change: SimpleChanges): void {
+  public ngOnChanges(change: SimpleChanges): void {
     if (change.playlistIds && change.playlistIds.currentValue) {
       if (this.playlistIds.includes(this.song.id)) {
         this.heartSrc = this.FILLED_HEART;

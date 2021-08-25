@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SongModel } from '../../models';
 
 @Component({
@@ -6,10 +6,6 @@ import { SongModel } from '../../models';
   templateUrl: './song-media.component.html',
   styleUrls: ['./song-media.component.scss'],
 })
-export class SongMediaComponent implements OnInit {
+export class SongMediaComponent {
   @Input() song!: SongModel;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

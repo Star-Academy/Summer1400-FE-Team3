@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SongModel } from '../models';
-
 import { FetchSongDataService } from '../services/fetch-song-data.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class SongPageComponent implements OnInit {
     private fetchSongDataService: FetchSongDataService
   ) {}
 
-  async ngOnInit() {
+  public async ngOnInit(): Promise<void> {
     this.song = await this.fetchSongDataService.fetchSong(
       +this.rout.snapshot.params['id']
     );

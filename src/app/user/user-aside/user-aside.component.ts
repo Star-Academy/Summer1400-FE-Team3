@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchUserDataService } from 'src/app/services/fetch-user-data.service';
 import { userInfo } from '../../models';
 
@@ -8,14 +8,14 @@ import { userInfo } from '../../models';
   styleUrls: ['./user-aside.component.scss'],
 })
 export class UserAsideComponent implements OnInit {
-  user!: userInfo;
+  public user!: userInfo;
   constructor(private fetchUserData: FetchUserDataService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.user = JSON.parse(<string>localStorage.getItem('user'));
   }
 
-  avatarChange(event: any) {
+  public avatarChange(event: any) {
     let image = event.target.files[0];
 
     const reader = new FileReader();

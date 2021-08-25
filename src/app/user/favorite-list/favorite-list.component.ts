@@ -1,27 +1,21 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { SongModel, PlaylistModel } from '../../models';
-import {FetchSongDataService} from "../../services/fetch-song-data.service";
+import { FetchSongDataService } from '../../services/fetch-song-data.service';
 
 @Component({
   selector: 'app-favorite-list',
   templateUrl: './favorite-list.component.html',
   styleUrls: ['./favorite-list.component.scss'],
 })
-export class FavoriteListComponent implements OnInit,OnChanges{
+export class FavoriteListComponent implements OnChanges {
   @Input() public playlistArr!: PlaylistModel[];
   public songs: SongModel[] = [];
   public playlistIds!: number[];
   constructor(private fetchSongDataService: FetchSongDataService) {}
 
-  public async ngOnInit() {
-
-  }
-
-  async ngOnChanges(changes: SimpleChanges) {
-    if(changes.playlistArr && changes.playlistArr.currentValue)
-    {
-      if (this.playlistArr.length === 0)
-      {
+  public async ngOnChanges(changes: SimpleChanges): Promise<void> {
+    if (changes.playlistArr && changes.playlistArr.currentValue) {
+      if (this.playlistArr.length === 0) {
         this.playlistArr = await this.fetchSongDataService.fetchPlaylist();
       }
       for (let i = 0; i < 4 && i < this.playlistArr[0].songs.length; i++) {
@@ -33,6 +27,5 @@ export class FavoriteListComponent implements OnInit,OnChanges{
       }
       this.playlistIds = tempSongs;
     }
-
   }
 }

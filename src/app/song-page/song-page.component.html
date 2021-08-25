@@ -1,6 +1,6 @@
 <div
   class="background"
-  *ngIf="song !== undefined && song.cover !== null"
+  *ngIf="song && song.cover"
   [ngStyle]="{ 'background-image': 'url(' + song?.cover + ')' }"
 >
   <div class="blur">

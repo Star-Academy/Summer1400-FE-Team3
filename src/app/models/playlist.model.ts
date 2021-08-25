@@ -1,8 +1,7 @@
-import {SongModel} from "./song.model";
+import { SongModel } from './song.model';
 
 export interface PlaylistModel {
-  name:string,
-  id:number,
-  songs:SongModel[]
+  name: string;
+  id: number;
+  songs: SongModel[];
 }
-

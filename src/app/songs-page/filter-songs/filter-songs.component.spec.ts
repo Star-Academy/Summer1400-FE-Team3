@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FilterSongsComponent } from './filter-songs.component';
 
 describe('FilterSongsComponent', () => {
@@ -31,7 +30,6 @@ describe('FilterSongsComponent', () => {
       (component as any).fetchSongDataService,
       'fetchSongs'
     ).and.returnValue(temp);
-
     await component.ngOnInit();
     expect(component.artists).toEqual(['d', 'l']);
   });

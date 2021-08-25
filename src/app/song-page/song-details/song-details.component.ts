@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PlaylistModel, SongModel } from '../../models';
 import { FetchSongDataService } from '../../services/fetch-song-data.service';
 
@@ -13,16 +7,14 @@ import { FetchSongDataService } from '../../services/fetch-song-data.service';
   templateUrl: './song-details.component.html',
   styleUrls: ['./song-details.component.scss'],
 })
-export class SongDetailsComponent implements OnInit, OnChanges {
+export class SongDetailsComponent implements OnChanges {
   @Input() song!: SongModel;
   public playlistArray!: PlaylistModel[];
   public playlistIds: number[] = [];
   public heartSrc: string = '';
-  HEART = 'assets/images/heart.png';
-  FILLED_HEART = 'assets/images/filled-heart.png';
+  public HEART = 'assets/images/heart.png';
+  public FILLED_HEART = 'assets/images/filled-heart.png';
   constructor(private fetchSongDataService: FetchSongDataService) {}
-
-  async ngOnInit() {}
 
   public async changeIcon(event: any) {
     if (event.target.getAttribute('src') === this.HEART) {
@@ -39,7 +31,7 @@ export class SongDetailsComponent implements OnInit, OnChanges {
     }
   }
 
-  async ngOnChanges(changes: SimpleChanges) {
+  public async ngOnChanges(changes: SimpleChanges) {
     if (changes.song && changes.song.currentValue) {
       this.playlistArray = await this.fetchSongDataService.fetchPlaylist();
       for (const item of this.playlistArray[0].songs) {
