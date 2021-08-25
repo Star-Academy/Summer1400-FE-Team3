@@ -1,2 +1,2 @@
 # Summer1400-FE-Team3
-team 3
+This implements an online music player like Spotify using Angular.
